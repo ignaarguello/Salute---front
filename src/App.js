@@ -1,13 +1,13 @@
 import './App.css';
 import Layout from './layout/Layout';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <Layout>
-      <div className="App">
-        <h1>Salute Drinks App</h1>
-      </div>
+
     </Layout>
+
   );
 }
 

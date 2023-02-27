@@ -15,16 +15,18 @@ function CollapsibleExample() {
           <Nav className="ms-auto" id='items-nav__navbar'>
             <div id='container-items-links__navbar'>
               <div id='container-linksPrincipales__navbar'>
-                <Nav.Link href="#features">Inicio</Nav.Link>
-                <Nav.Link href="#pricing">Productos</Nav.Link>
-                <NavDropdown title="Acerca de nosotros" id="collasible-nav-dropdown">
-                  <NavDropdown.Item href="#action/3.1">Salute TV</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">Zonas de entrega</NavDropdown.Item>
+                <Nav.Link className='item-link__navbar' href="#features">Inicio</Nav.Link>
+                <Nav.Link className='item-link__navbar' href="#pricing">Productos</Nav.Link>
+                <NavDropdown className='item-link__navbar' title="Acerca de nosotros" id="collasible-nav-dropdown">
+                  <div id='subContainer-dropdown__navbar'>
+                    <NavDropdown.Item className='item-link__navbar item-dropdown__navbar' href="#action/3.1">Salute TV</NavDropdown.Item>
+                    <NavDropdown.Item className='item-link__navbar item-dropdown__navbar' href="#action/3.3">Zonas de entrega</NavDropdown.Item>
+                  </div>
                 </NavDropdown>
               </div>
               <div id='container-cierre-inicio__navbar'>
-                <HiUsers id='logo-user__navbar'/>
-                <Nav.Link href="#features" id='link-Inicio-Cerrar_navbar'> Iniciar Sesión </Nav.Link>
+                <HiUsers id='logo-user__navbar' />
+                <Nav.Link className='item-link__navbar' href="#features" id='link-Inicio-Cerrar_navbar'> Iniciar Sesión </Nav.Link>
               </div>
             </div>
           </Nav>

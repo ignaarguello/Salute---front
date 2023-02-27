@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import './Navbar.css'
+import { HiUsers } from "react-icons/hi";
 
 function CollapsibleExample() {
   return (
@@ -22,6 +23,7 @@ function CollapsibleExample() {
                 </NavDropdown>
               </div>
               <div id='container-cierre-inicio__navbar'>
+                <HiUsers id='logo-user__navbar'/>
                 <Nav.Link href="#features" id='link-Inicio-Cerrar_navbar'> Iniciar Sesión </Nav.Link>
               </div>
             </div>

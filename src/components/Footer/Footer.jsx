@@ -1,7 +1,17 @@
 import React from 'react'
+import './Footer.css'
+import {AiFillInstagram} from "react-icons/ai"
+import {BsYoutube} from "react-icons/bs"
+import {IoLogoWhatsapp} from "react-icons/io"
 
 export default function Footer() {
   return (
-    <div>Footer</div>
+    <footer>
+      <div className='redes-sociales-footer'>
+        <AiFillInstagram id='ig-footer'/>
+        <BsYoutube id='yt-footer'/>
+        <IoLogoWhatsapp id='wp-footer'/>
+      </div>
+    </footer>
   )
 }

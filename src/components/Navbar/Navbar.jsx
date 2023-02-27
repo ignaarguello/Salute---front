@@ -12,12 +12,19 @@ function CollapsibleExample() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" id='items-nav__navbar'>
-            <Nav.Link href="#features">Inicio</Nav.Link>
-            <Nav.Link href="#pricing">Productos</Nav.Link>
-            <NavDropdown title="Acerca de nosotros" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Salute TV</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Zonas de entrega</NavDropdown.Item>
-            </NavDropdown>
+            <div id='container-items-links__navbar'>
+              <div id='container-linksPrincipales__navbar'>
+                <Nav.Link href="#features">Inicio</Nav.Link>
+                <Nav.Link href="#pricing">Productos</Nav.Link>
+                <NavDropdown title="Acerca de nosotros" id="collasible-nav-dropdown">
+                  <NavDropdown.Item href="#action/3.1">Salute TV</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">Zonas de entrega</NavDropdown.Item>
+                </NavDropdown>
+              </div>
+              <div id='container-cierre-inicio__navbar'>
+                <Nav.Link href="#features" id='link-Inicio-Cerrar_navbar'> Iniciar Sesión </Nav.Link>
+              </div>
+            </div>
           </Nav>
         </Navbar.Collapse>
       </Container>

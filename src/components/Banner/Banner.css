@@ -7,9 +7,13 @@
     display: none;
   }
 
+  #container-principal__banner{
+    height: 100vh;
+  }
+
   #container-banner-video__banner {
     width: 100%;
-    height: fit-content;
+    height: 100%;
     object-fit: cover;
     filter: brightness(0.5);
   }
@@ -19,6 +23,7 @@
     flex-direction: columns;
     align-items: end;
     text-align: justify;
+    height: 100%;
   }
 
   #video__banner{

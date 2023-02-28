@@ -16,7 +16,7 @@ function CollapsibleExample() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" id='items-nav__navbar'>
-            <div id='container-items-links__navbar'>
+           
               <div id='container-linksPrincipales__navbar'>
                 <Link className='item-link__navbar' to='/' >Inicio</Link>
                 <Link className='item-link__navbar' to='/productos'  >Productos</Link>
@@ -37,7 +37,7 @@ function CollapsibleExample() {
                 <HiUsers id='logo-user__navbar' />
                 <Link className='item-link__navbar' id='link-Inicio-Cerrar_navbar' to='/' > Iniciar Sesión </Link>
               </div>
-            </div>
+           
           </Nav>
         </Navbar.Collapse>
       </Container>

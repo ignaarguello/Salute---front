@@ -17,7 +17,7 @@
   #container-video-texto__banner {
     display: flex;
     flex-direction: columns;
-    align-items: center;
+    align-items: end;
     text-align: justify;
   }
 
@@ -30,7 +30,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    padding: 1.5rem;
+    gap: 1px;
   }
 
   .titulo__bienvenido__banner {
@@ -42,8 +43,9 @@
 
   .titulo__bienvenido__banner {
     color: white;
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 400;
+    letter-spacing: .5px;
   }
 
   .titulo-webOficial__banner {
@@ -51,7 +53,21 @@
     font-size: 15px;
     font-weight: 200;
   }
+
+  #button-catalogo__banner{
+    width: 60%;
+    font-size: 15.5px;
+    text-align: center;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 30px;
+    color: white;
+    background-color: #912e76;
+    margin-top: .3rem;
+  }
 }
+
+
 
 @media screen and (min-width: 768px) {
   #container-banner-foto__banner {

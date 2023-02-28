@@ -57,3 +57,9 @@ footer{
         font-size: 15px;
     }
 }
+
+@media screen and (max-width: 425px){
+    footer{
+        height: 6vh;
+    }
+}

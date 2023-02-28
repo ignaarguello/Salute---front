@@ -5,17 +5,21 @@
     width: 65%;
   }
 
+  #collasible-nav-dropdown {
+    color: white !important;
+  }
+
   #Brand_navbar {
     width: 30%;
   }
 
   #Navbar_navbar {
-    background-color: black !important;
+    background-color: transparent !important;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1;
-    height: 9vh;
+    height: 14vh;
   }
 
   #link-Inicio-Cerrar_navbar {
@@ -91,6 +95,11 @@
 }
 
 @media screen and (min-width: 768px) {
+  #Navbar_navbar {
+    height: 13vh;
+    background-color: black !important;
+  }
+
   #logo-salute__navbar {
     width: 40%;
   }
@@ -116,6 +125,10 @@
 }
 
 @media screen and (min-width: 1024px) {
+  #Navbar_navbar {
+    height: 9vh;
+  }
+
   #logo-salute__navbar {
     width: 55%;
   }
@@ -255,7 +268,7 @@
   }
 
   #collasible-nav-dropdown {
-    color: white;
+    color: white !important;
   }
 
   #collasible-nav-dropdown:hover {

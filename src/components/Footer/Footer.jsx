@@ -12,6 +12,9 @@ export default function Footer() {
         <BsYoutube id='yt-footer'/>
         <IoLogoWhatsapp id='wp-footer'/>
       </div>
+      <div className='dev-footer'>
+        <span>- Salute Drinks 2023 -</span>
+      </div>
     </footer>
   )
 }

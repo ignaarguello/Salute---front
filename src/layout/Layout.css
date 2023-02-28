@@ -2,15 +2,12 @@
   .content-layout {
     min-height: 94vh;
     width: 100%;
-    margin-top: 5rem;
   }
 
 }
 
 @media screen and (min-width: 768px) {
   .content-layout {
-    /* min-height: 90vh; */
-    /* margin-top: 5.5rem; */
     width: 100%;
     min-height: 80vh;
     margin-top: 9vh;

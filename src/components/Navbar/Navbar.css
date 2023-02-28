@@ -12,8 +12,10 @@
   #Navbar_navbar {
     background-color: black !important;
     position: fixed;
+    top: 0;
     width: 100%;
     z-index: 1;
+    height: 9vh;
   }
 
   #link-Inicio-Cerrar_navbar {

@@ -40,3 +40,26 @@ footer{
 .dev-footer span:hover{
     color: #49B0B5;
 }
+
+/* ---------- MEDIA QUERIES -------------- */
+@media screen and (max-width: 750px){
+    footer{
+        height: 6vh;
+        gap: 0
+    }
+
+    #ig-footer, #yt-footer, #wp-footer{
+        width: 20px;
+        height: 20px;
+    }
+
+    .dev-footer span{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 425px){
+    footer{
+        height: 6vh;
+    }
+}

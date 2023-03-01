@@ -1,4 +1,4 @@
-@media screen and (min-width: 320px) and (max-width: 425px) {
+@media screen and (min-width: 320px) and (max-width: 428px) {
   #container-banner-foto__banner {
     width: 100%;
     background-image: url(../../../public/images/\ banner1.jpg);
@@ -17,7 +17,7 @@
   #container-video-texto__banner {
     display: flex;
     flex-direction: columns;
-    align-items: end;
+    align-items: center;
     text-align: justify;
   }
 

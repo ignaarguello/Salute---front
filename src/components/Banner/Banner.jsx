@@ -9,11 +9,11 @@ export default function Banner() {
       {/*  */}
       <div id='container-video-texto__banner'>
         <video autoPlay muted loop id="container-banner-video__banner">
-          <source id='video__banner' src="./images/video-banner2.mp4" type="video/mp4" />
+          <source id='video__banner' src="./images/videoFinal.mp4" type="video/mp4" />
         </video>
         <div id='container-textos__banner'>
-          <h2 className='titulo__bienvenido__banner'>Bienvenidos a Salute Drinks</h2>
-          <h3 className='titulo-webOficial__banner'> _Web Oficial </h3>
+          <h2 className='titulo__bienvenido__banner'>_Bienvenido a Salute Drinks</h2>
+          <h3 className='titulo-webOficial__banner'> Web Oficial </h3>
           <Link to='/productos' id='button-catalogo__banner'>Catalogo de productos</Link>
         </div>
       </div>

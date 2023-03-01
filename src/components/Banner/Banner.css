@@ -7,11 +7,15 @@
     display: none;
   }
 
+  #container-principal__banner{
+    height: 100vh;
+  }
+
   #container-banner-video__banner {
     width: 100%;
-    height: 80vh;
+    height: 100%;
     object-fit: cover;
-    filter: brightness(0.5);
+    filter: brightness(0.4);
   }
 
   #container-video-texto__banner {
@@ -19,6 +23,7 @@
     flex-direction: columns;
     align-items: center;
     text-align: justify;
+    height: 100%;
   }
 
   #video__banner{
@@ -35,7 +40,7 @@
   }
 
   .titulo__bienvenido__banner {
-    z-index: 10;
+    z-index: 0;
     color: white;
     font-size: 18px;
     font-weight: 400;
@@ -64,6 +69,7 @@
     color: white;
     background-color: #912e76;
     margin-top: .3rem;
+    font-weight: 200;
   }
 }
 

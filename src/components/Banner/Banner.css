@@ -7,7 +7,7 @@
     display: none;
   }
 
-  #container-principal__banner{
+  #container-principal__banner {
     height: 100vh;
   }
 
@@ -26,8 +26,8 @@
     height: 100%;
   }
 
-  #video__banner{
-      z-index: -1;
+  #video__banner {
+    z-index: -1;
   }
 
   #container-textos__banner {
@@ -42,48 +42,176 @@
   .titulo__bienvenido__banner {
     z-index: 0;
     color: white;
-    font-size: 18px;
-    font-weight: 400;
-  }
-
-  .titulo__bienvenido__banner {
-    color: white;
     font-size: 19px;
-    font-weight: 400;
-    letter-spacing: .5px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
   }
 
   .titulo-webOficial__banner {
     color: white;
-    font-size: 15px;
-    font-weight: 200;
+    font-size: 16px;
+    font-weight: 300;
   }
 
-  #button-catalogo__banner{
+  #button-catalogo__banner {
     width: 60%;
-    font-size: 15.5px;
+    font-size: 16px;
     text-align: center;
     text-decoration: none;
-    padding: 8px;
+    padding: 10px;
     border-radius: 30px;
     color: white;
     background-color: #912e76;
-    margin-top: .3rem;
-    font-weight: 200;
+    margin-top: 0.3rem;
+    font-weight: 400;
   }
 }
-
-
 
 @media screen and (min-width: 768px) {
   #container-banner-foto__banner {
     width: 100%;
-    background-image: url(../../../public/images/\ banner1.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
+      url(../../../public/images/\ banner1.jpg);
     height: 100vh;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    gap: 0.2rem;
   }
 
   #container-banner-video__banner {
     display: none;
+  }
+
+  .titulo__bienvenido__banner,
+  .titulo-webOficial__banner,
+  #button-catalogo__banner {
+    display: none;
+  }
+
+  .titulo__bienvenido__banner-lg {
+    z-index: 0;
+    color: white;
+    font-size: 36px;
+    font-weight: 200;
+    letter-spacing: 0.5px;
+    margin-top: 6.5rem;
+  }
+
+  .titulo-webOficial__banner-lg {
+    color: rgb(172, 165, 165);
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  #button-catalogo__banner-lg {
+    width: 40%;
+    font-size: 22px;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 30px;
+    color: white;
+    background-color: #912e76;
+    margin-top: 0.3rem;
+    font-weight: 400;
+    margin-left: 4rem;
+  }
+
+  #container-web-approbed__banner{
+    display: flex;
+    align-items: center;
+    width: 30%;
+  }
+
+  #logo-check__banner{
+    color: cyan;
+    width: 1.8rem;
+    height: 100%;
+    margin-bottom: 5px;
+    margin-left: 5px;
+  }
+}
+
+@media screen and (min-width: 1220px) {
+  #container-banner-foto__banner {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)),
+      url(../../../public/images/\ banner1.jpg);
+    padding: 2rem;
+    gap: 0.1rem;
+  }
+
+  .titulo__bienvenido__banner-lg {
+    z-index: 0;
+    color: white;
+    font-size: 38px;
+    font-weight: 200;
+    letter-spacing: 0.5px;
+    margin-top: 12.5rem;
+  }
+
+  .titulo-webOficial__banner-lg {
+    color: rgb(129, 125, 125);
+    margin-left: .7rem;
+  }
+
+  #button-catalogo__banner-lg {
+    width: 18%;
+    font-size: 17px;
+    padding: 10px;
+    background-color: #721c5b;
+    margin-top: 0.3rem;
+    font-weight: 300;
+    margin-left: .5rem;
+  }
+
+  #logo-check__banner{
+    color: cyan;
+    width: 1.6rem;
+    height: 100%;
+    margin-bottom: 8px;
+    margin-left: 5px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  #container-banner-foto__banner {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)),
+      url(../../../public/images/\ banner1.jpg);
+    padding: 1.6rem;
+    gap: 0.2rem;
+  }
+
+  .titulo__bienvenido__banner-lg {
+    z-index: 0;
+    color: white;
+    font-size: 39px;
+    font-weight: 200;
+    letter-spacing: 0.5px;
+    margin-top: 18rem;
+  }
+
+  .titulo-webOficial__banner-lg {
+    color: rgb(141, 137, 137);
+    margin-left: .7rem;
+    font-size: 17px;
+  }
+
+  #button-catalogo__banner-lg {
+    width: 17%;
+    font-size: 17px;
+    padding: 10px;
+    background-color: #721c5b;
+    margin-top: 0.3rem;
+    font-weight: 300;
+    margin-left: .3rem;
+    cursor: pointer;
+    transition: .5s ease;
+  }
+
+  #button-catalogo__banner-lg:hover {
+    background-color: #50103f;
   }
 }

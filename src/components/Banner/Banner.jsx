@@ -1,11 +1,19 @@
 import React from 'react'
 import './Banner.css'
 import { Link } from 'react-router-dom';
+import { HiBadgeCheck } from "react-icons/hi";
 
 export default function Banner() {
   return (
     <div id='container-principal__banner'>
-      <div id='container-banner-foto__banner'></div>
+      <div id='container-banner-foto__banner'>
+        <h2 className='titulo__bienvenido__banner-lg'>_Bienvenido a Salute Drinks</h2>
+        <div id='container-web-approbed__banner'>
+          <h3 className='titulo-webOficial__banner-lg'> Web Oficial </h3>
+          <HiBadgeCheck id='logo-check__banner'/>
+        </div>
+        <Link to='/productos' id='button-catalogo__banner-lg'>Catalogo de productos</Link>
+      </div>
       {/*  */}
       <div id='container-video-texto__banner'>
         <video autoPlay muted loop id="container-banner-video__banner">

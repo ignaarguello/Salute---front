@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
-
 @media screen and (min-width: 320px) {
   #logo-salute__navbar {
     width: 65%;
@@ -16,11 +14,11 @@
 
   #Navbar_navbar {
     background-color: transparent !important;
-    position: fixed;
     top: 0;
     width: 100%;
     z-index: 1;
     height: 14vh;
+    position: absolute;
   }
 
   #link-Inicio-Cerrar_navbar {
@@ -41,7 +39,8 @@
   }
 
   .item-link__navbar {
-    font-family: "Nanum Gothic", sans-serif !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
     text-decoration: none;
     color: white;
   }
@@ -63,7 +62,8 @@
 
   .texto-itemDropdown__navbar {
     font-size: 15px;
-    font-family: "Nanum Gothic", sans-serif !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
     margin-top: 0.5rem;
     color: white;
   }
@@ -114,7 +114,7 @@
   }
 
   #container-Inicio-Cerrar__navbar {
-   /*  border: 2px solid sandybrown; */
+    /*  border: 2px solid sandybrown; */
     align-self: flex-end;
   }
 
@@ -135,18 +135,17 @@
   }
 
   #logo-salute__navbar {
-    width: 55%;
+    width: 50%;
   }
 
   #items-nav__navbar {
-   /*  border: 2px solid yellow; */
+    /*  border: 2px solid yellow; */
     width: 100%;
     display: flex;
     justify-content: center;
   }
 
   #container-items-links__navbar {
-  /*   border: 2px solid green; */
     display: flex;
     width: 100%;
     justify-content: center;
@@ -178,12 +177,13 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
+    font-size: 14px;
   }
 
   #container-cierre-inicio__navbar {
     gap: 0;
     flex-direction: row-reverse;
-  /*   border: 2px solid forestgreen; */
+    /*   border: 2px solid forestgreen; */
   }
 
   #logo-user__navbar {
@@ -242,14 +242,12 @@
     justify-content: center !important;
     align-items: center !important;
     margin: 1rem 0 !important;
-    background-color: rgba(0, 0, 0, 0.550);
+    background-color: rgba(0, 0, 0, 0.55);
   }
 
-  .item-dropdown__navbar:hover{
+  .item-dropdown__navbar:hover {
     background-color: rgba(0, 0, 0, 0.386);
   }
-
-
 
   .texto-itemDropdown__navbar {
     font-size: 14px;
@@ -258,7 +256,7 @@
     text-align: center;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
-      font-weight: 300 !important;
+    font-weight: 300 !important;
   }
 
   .dropdown-menu {
@@ -277,10 +275,16 @@
   }
 
   #collasible-nav-dropdown:hover {
-    color: #0a57c7;
+    color: #0a57c7 !important;
   }
 
   #container-linksPrincipales__navbar {
     flex-direction: row;
+  }
+
+  .item-link__navbar {
+    font-size: 15.5px !important;
+    font-weight: 300 !important;
+  
   }
 }

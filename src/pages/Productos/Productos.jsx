@@ -9,7 +9,7 @@ export default function Productos() {
     <div id='productos-pagina-cont'>
       {/* <input className='search' /> */}
         <CardProducto />
-        <CardProd2 />
+        <CardProd2/>
         <CardProd3 />
         <CardProducto />
         <CardProd2 />

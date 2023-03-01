@@ -1,7 +1,11 @@
 import React from 'react'
+import CardProducto from '../../components/CardProducto/CardProducto'
+import './Productos.css'
 
 export default function Productos() {
   return (
-    <div>Productos</div>
+    <div id='productos-pagina-cont'>
+      <CardProducto />
+    </div>
   )
 }

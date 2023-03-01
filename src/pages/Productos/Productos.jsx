@@ -7,6 +7,7 @@ import './Productos.css'
 export default function Productos() {
   return (
     <div id='productos-pagina-cont'>
+      {/* <input className='search' /> */}
         <CardProducto />
         <CardProd2 />
         <CardProd3 />

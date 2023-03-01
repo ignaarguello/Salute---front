@@ -1,4 +1,4 @@
-@media screen and (min-width: 320px) and (max-width: 425px) {
+@media screen and (min-width: 320px) and (max-width: 428px) {
   #container-banner-foto__banner {
     width: 100%;
     background-image: url(../../../public/images/\ banner1.jpg);
@@ -15,13 +15,13 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.5);
+    filter: brightness(0.4);
   }
 
   #container-video-texto__banner {
     display: flex;
     flex-direction: columns;
-    align-items: end;
+    align-items: center;
     text-align: justify;
     height: 100%;
   }
@@ -40,7 +40,7 @@
   }
 
   .titulo__bienvenido__banner {
-    z-index: 10;
+    z-index: 0;
     color: white;
     font-size: 18px;
     font-weight: 400;
@@ -69,6 +69,7 @@
     color: white;
     background-color: #912e76;
     margin-top: .3rem;
+    font-weight: 200;
   }
 }
 

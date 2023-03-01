@@ -8,21 +8,10 @@ import CardTailwind from '../../components/CardTailwind/CardTailwind'
 export default function Productos() {
   return (
     <div id='productos-pagina-cont'>
-      <CardProducto />
-      <CardProd2 />
-      <CardTailwind/>
-        <CardProducto />
-        <CardProd2 />
+  
         <CardProd3 />
-        <CardProducto />
-        <CardProd2 />
-        <CardProd3 />
-        <CardProducto />
-        <CardProd2 />
-        <CardProd3 />
-        <CardProducto />
-        <CardProd2 />
-        <CardProd3 />
+
+   
     </div>
   )
 }

@@ -7,7 +7,7 @@
     display: none;
   }
 
-  #container-principal__banner{
+  #container-principal__banner {
     height: 100vh;
   }
 
@@ -26,8 +26,8 @@
     height: 100%;
   }
 
-  #video__banner{
-      z-index: -1;
+  #video__banner {
+    z-index: -1;
   }
 
   #container-textos__banner {
@@ -42,15 +42,9 @@
   .titulo__bienvenido__banner {
     z-index: 0;
     color: white;
-    font-size: 18px;
-    font-weight: 400;
-  }
-
-  .titulo__bienvenido__banner {
-    color: white;
     font-size: 19px;
     font-weight: 400;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
   }
 
   .titulo-webOficial__banner {
@@ -59,7 +53,7 @@
     font-weight: 200;
   }
 
-  #button-catalogo__banner{
+  #button-catalogo__banner {
     width: 60%;
     font-size: 15.5px;
     text-align: center;
@@ -68,22 +62,61 @@
     border-radius: 30px;
     color: white;
     background-color: #912e76;
-    margin-top: .3rem;
+    margin-top: 0.3rem;
     font-weight: 200;
   }
 }
 
-
-
 @media screen and (min-width: 768px) {
   #container-banner-foto__banner {
     width: 100%;
-    background-image: url(../../../public/images/\ banner1.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
+      url(../../../public/images/\ banner1.jpg);
     height: 100vh;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    gap: .2rem;
   }
 
   #container-banner-video__banner {
     display: none;
+  }
+
+  .titulo__bienvenido__banner,
+  .titulo-webOficial__banner,
+  #button-catalogo__banner {
+    display: none;
+  }
+
+  .titulo__bienvenido__banner-lg {
+    z-index: 0;
+    color: white;
+    font-size: 36px;
+    font-weight: 200;
+    letter-spacing: 0.5px;
+    margin-top: 6.5rem;
+  }
+
+  .titulo-webOficial__banner-lg {
+    color: rgb(129, 125, 125);
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  #button-catalogo__banner-lg {
+    width: 40%;
+    font-size: 22px;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 30px;
+    color: white;
+    background-color: #912e76;
+    margin-top: 0.3rem;
+    font-weight: 400;
+    margin-left: 4rem;
   }
 }

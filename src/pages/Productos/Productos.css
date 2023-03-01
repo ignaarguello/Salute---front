@@ -19,3 +19,39 @@
     gap: 4rem;
     padding: 70px;
 }
+
+/* .search{
+    position: relative;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    padding: 10px;
+    transition-duration: 500ms;
+    cursor: pointer;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 15px;
+    border: 1px solid white;
+    overflow: hidden;
+    background-image: url(../../../public//images/search.png);
+    background-repeat: no-repeat;
+    background-size: 22px;
+    background-position: 45% 50%;
+}
+
+.search:hover{
+    border: 1px solid #ff9950;
+}
+
+.search:focus{
+    width: 200px;
+    cursor: text;
+    padding-left: 40px;
+    color: white;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #ff9950;
+    background: url('../../../public/images/search.png') no-repeat;
+    background-size: 22px;
+    background-position: 10px 50%;
+}
+ */

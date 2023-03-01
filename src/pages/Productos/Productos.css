@@ -1,5 +1,10 @@
 #productos-pagina-cont{
-    height: 100%;
+    background-image: url('../../../public/images/fondo2.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,4 +12,10 @@
     gap: 2rem;
  
     margin-top: 8rem;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    padding: 70px;
 }

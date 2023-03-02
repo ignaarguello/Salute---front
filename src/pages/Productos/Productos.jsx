@@ -25,7 +25,9 @@ export default function Productos() {
   return (
     <div id='productos-pagina-cont'>
       <input className='inputTexto' type="text" onKeyUp={filtroTexto} placeholder="Search.." ref={inputRef}/>
-      <CardTailwind/>
+      {
+        (productos?.length > 0) && productos?.map( (prod) => (<CardTailwind key={prod.id} nombre={prod.nombre} img={prod.imagen} precio={prod.precio} tipo={prod.tipo} />))
+      }
       {
         (productos?.length > 0)
         ? productos?.map( (prod) => <CardProd3 key={prod?._id} nombre={prod?.nombre} img={prod?.imagen} precio={prod?.precio} tipo={prod?.tipo} />)

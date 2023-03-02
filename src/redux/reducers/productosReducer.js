@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import productosActions from "../actions/productosActions";
 
-const { traer_productos } = productosActions
+const { traer_productos, filtrar_productos } = productosActions
 
 const initialState = {
     productos: [],
@@ -14,6 +14,12 @@ const productosReducer = createReducer(initialState, (builder) =>{
             return{
                 ...state,
                 productos: action.payload,
+            }
+        })
+        .addCase(filtrar_productos.fulfilled, (state, action) => {
+            return{
+                ...state,
+                ...action.payload,
             }
         })
 })

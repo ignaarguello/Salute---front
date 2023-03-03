@@ -2,13 +2,6 @@
     font-family: 'Nanum Gothic', sans-serif;
 }
 
-#container-general-prod3{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 3rem;
-}
 
 #producto-container3{
     /* border: 1px solid #FFF; */

@@ -15,8 +15,8 @@ export default function Productos() {
   const { productos } = useSelector(store => store.productos)
 
   useEffect(() => {
-        dispatch(traer_productos())
-        // eslint-disable-next-line
+    dispatch(traer_productos())
+    // eslint-disable-next-line
   }, [])
 
   const filtroTexto = () => {
@@ -25,15 +25,14 @@ export default function Productos() {
   }
   return (
     <div id='productos-pagina-cont'>
-      <input className='inputTexto' placeholder='Buscar bebida...' type="text" onKeyUp={filtroTexto} ref={inputRef}/>
-      {
-        (productos?.length > 0) && productos?.map( (prod) => (<CardTailwind key={prod.id} nombre={prod.nombre} img={prod.imagen} precio={prod.precio} tipo={prod.tipo} />))
-      }
-      {
-        (productos?.length > 0)
-        ? productos?.map( (prod) => <CardProd3 key={prod?._id} nombre={prod?.nombre} img={prod?.imagen} precio={prod?.precio} tipo={prod?.tipo} />)
-        : <span>No hay productos que coincidan con esa búsqueda.</span>
+      <input className='inputTexto' placeholder='Buscar bebida...' type="text" onKeyUp={filtroTexto} ref={inputRef} />
+      <div id='container-cards__productos'>
+        {
+          (productos?.length > 0)
+            ? productos?.map((prod) => <CardProd3 key={prod?._id} nombre={prod?.nombre} img={prod?.imagen} precio={prod?.precio} tipo={prod?.tipo} />)
+            : <span>No hay productos que coincidan con esa búsqueda.</span>
         }
+      </div>
     </div>
   )
 }

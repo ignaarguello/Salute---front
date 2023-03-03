@@ -1,16 +1,12 @@
 import React from 'react'
 import './CardProd3.css'
 import { BsCart2 } from "react-icons/bs";
-import { useDispatch, useSelector } from "react-redux";
-import productosActions from '../../redux/actions/productosActions'
-import { useEffect } from 'react';
 
 
 export default function CardProd3(props) {
     let {img, nombre, tipo, precio, id} = props
 
     return (
-        <div id='container-general-prod3'>
             <div id='producto-container3'>
                     <div>
                         <div id='foto-container-prod3'>
@@ -26,6 +22,5 @@ export default function CardProd3(props) {
                         </div>
                     </div>
             </div>
-        </div>
     )
 }

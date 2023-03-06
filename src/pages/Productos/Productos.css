@@ -20,23 +20,17 @@
 
 .inputTexto{
     width: 300px;
-    border-radius: 5px;
-    padding: 5px;
-    background-color: transparent;
-    color: #000;
-    border-bottom: 2px solid #000;
-    border-right: 2px solid #000;
+    border-radius: 30px;
+    padding: 8px;
+    background-color: rgba(204, 201, 201, 0.219);
     transition: .3s ease-in-out;
     font-family: 'Nanum Gothic', sans-serif;
+    border: none;
 }
 
 .inputTexto:focus, .inputTexto:hover{
     background: rgba(194, 73, 162, 0.39);
-    border-left: 2px solid #000;
-    border-top: 2px solid #000;
-    border-bottom: none;
-    border-right: none;
-    transition: .3s ease-in-out;
+   border: none;
 }
 
 .inputTexto::placeholder{

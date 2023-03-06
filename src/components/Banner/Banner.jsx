@@ -5,6 +5,7 @@ import { HiBadgeCheck } from "react-icons/hi";
 
 export default function Banner() {
   return (
+    /* DESKTOP */
     <div id='container-principal__banner'>
       <div id='container-banner-foto__banner'>
         <h2 className='titulo__bienvenido__banner-lg'>_Bienvenido a Salute Drinks</h2>
@@ -14,9 +15,9 @@ export default function Banner() {
         </div>
         <Link to='/productos' id='button-catalogo__banner-lg'>Catalogo de productos</Link>
       </div>
-      {/*  */}
+      {/* MOBILE ↓  */}
       <div id='container-video-texto__banner'>
-        <video autoPlay muted loop id="container-banner-video__banner">
+        <video autoPlay="autoplay" muted={true} loop={true} controls={false} playsInline id="container-banner-video__banner">
           <source id='video__banner' src="./images/videoFinal.mp4" type="video/mp4" />
         </video>
         <div id='container-textos__banner'>

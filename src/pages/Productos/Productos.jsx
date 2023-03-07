@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import CardProd3 from '../../components/CardProducto/CardProd3'
 import './Productos.css'
 import CardTailwind from '../../components/CardTailwind/CardTailwind'
@@ -10,22 +10,46 @@ export default function Productos() {
 
   let inputRef = useRef()
   let dispatch = useDispatch()
+  let [checked, setChecked] = useState([])
 
   const { traer_productos, filtrar_productos } = productosActions
-  const { productos } = useSelector(store => store.productos)
+  const { productos, tipos } = useSelector(store => store.productos)
+
+  console.log(tipos);
 
   useEffect(() => {
     dispatch(traer_productos())
     // eslint-disable-next-line
   }, [])
 
-  const filtroTexto = () => {
+  const filtroTexto = (event) => {
+    let checks = filtroChecks(event)
     let texto = inputRef.current.value.trim()
-    dispatch(filtrar_productos(texto))
+    let urlChecks = checks.map( (check) => `tipo=${check}`).join('&')
+    dispatch(filtrar_productos({value: texto, tipo: urlChecks}))
   }
+
+  let filtroChecks = (e) => {
+    let auxArray = []
+    if(e.target.checked){
+      auxArray.push(...checked, e.target.value)
+    } else {
+      auxArray = checked.filter( ele => ele !== e.target.value)
+    }
+    setChecked(auxArray)
+    return auxArray
+  }
+
   return (
     <div id='productos-pagina-cont'>
+    <div id='buscadores-cont'>
       <input className='inputTexto' placeholder='Buscar bebida...' type="text" onKeyUp={filtroTexto} ref={inputRef} />
+      <div className="checkbox-container">
+        {tipos?.map(tipo => 
+        <label key={tipo}><input onChange={filtroTexto} className='checkboxUno' type="checkbox" id={tipo} value={tipo}/>{tipo}</label>
+        )}
+      </div>
+    </div>
       <div id='container-cards__productos'>
         {
           (productos?.length > 0)

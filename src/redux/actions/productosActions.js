@@ -16,13 +16,15 @@ const traer_productos = createAsyncThunk('traer_productos', async () => {
     }
 })
 
-const filtrar_productos = createAsyncThunk('filtrar_productos', async (value) => {
-    let url = `${BASE_URL}/productos?nombre=${value}`
+const filtrar_productos = createAsyncThunk('filtrar_productos', async ({tipo,value}) => {
+    let url = `${BASE_URL}/productos?${tipo}&nombre=${value}`
     try{
         const res = await axios.get(url)
         console.log(res.data.response);
         return{
-            productos: res.data.response
+            productos: res.data.response,
+            tipo,
+            value
         }
     } catch(error){
         console.log(error.message);

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import CardProd3 from '../../components/CardProducto/CardProd3'
 import './Productos.css'
-import CardTailwind from '../../components/CardTailwind/CardTailwind'
 import { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import productosActions from '../../redux/actions/productosActions'

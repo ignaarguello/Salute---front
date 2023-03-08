@@ -23,6 +23,7 @@
     border-radius: 30px;
     padding: 8px;
     background-color: rgba(204, 201, 201, 0.219);
+    color: #fff;
     transition: .3s ease-in-out;
     font-family: 'Nanum Gothic', sans-serif;
     border: none;
@@ -49,6 +50,7 @@
 .checkbox-container{
     display: flex;
     gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .checkboxUno{
@@ -93,6 +95,38 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    row-gap: 4rem;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+@media screen and (max-width: 768px){
+    #productos-pagina-cont{
+        margin-top: 0;
+        padding: 120px 40px 60px 40px;
+        gap: 2rem;
+        min-height: 94vh;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .inputTexto{
+        width: 200px;
+    }
+
+    .checkbox-container{
+        flex-direction: column;
+        gap: .5rem;
+        justify-content: center;
+    }
+
+    .checkboxUno{
+        width: 15px;
+        height: 15px;
+    }
+
+    .checkbox-container label{
+        flex-direction: row;
+        gap: .3rem;
+    }
+
 }

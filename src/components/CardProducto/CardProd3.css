@@ -50,6 +50,7 @@
     font-weight:500;
     color: #fff;
     letter-spacing: 2px;
+    text-align: center;
 }
 
 #foto-container-prod3{
@@ -117,4 +118,11 @@
     box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.61);
     transition: .2s ease-in-out;
     /* font-weight: bold; */
+}
+
+@media screen and (max-width: 768px){
+    .nombre-prod3{
+        font-size: 1.3rem;
+        margin-top: .5rem;
+    }
 }

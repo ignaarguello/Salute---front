@@ -1,0 +1,79 @@
+#admin-pagina-cont{
+    background-image: url('../../../public/images/fondo3.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #000000b9;
+    background-blend-mode: multiply;
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    gap: 1rem;
+}
+
+.adminProd-cont{
+    background-color: #ffffffbd;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    gap: 2rem;
+}
+
+#admin-pagina-cont h1{
+    font-size: 2rem;
+    color: #fff;
+}
+
+.btnNuevoProd{
+    background-color: rgba(194, 73, 162, 0.39);
+    padding: 10px 45px;
+    border-radius: 35px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.admProd{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.fotoProdAdm{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+#admNombreProd{
+    width: 250px;
+    height: 30px;
+}
+
+#admTipoProd{
+    width: 120px;
+    height: 30px;
+}
+
+#admPrecioProd{
+    width: 80px;
+    height: 30px;
+}
+
+#admFotoProd{
+    width: 300px;
+    height: 30px;
+}
+
+.borrarProdAdm{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}

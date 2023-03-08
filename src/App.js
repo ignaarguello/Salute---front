@@ -9,6 +9,7 @@ import Produtos from './pages/Productos/Productos'
 import AcercaDe from './pages/AcercaDe/AcercaDe'
 import SaluteTV from './pages/SaluteTV/SaluteTV'
 import ZonasEntrega from './pages/ZonasEntrega/ZonasEntrega'
+import Admin from './pages/Admin/Admin';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/nosotros" element={<AcercaDe />}></Route>
         <Route path="/salute-tv" element={<SaluteTV />}></Route>
         <Route path="/zonas-entrega" element={<ZonasEntrega />}></Route>
+        <Route path='/admin' element={<Admin />}></Route>
       </Routes>
     </Layout>
 

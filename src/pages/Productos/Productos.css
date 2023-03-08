@@ -95,8 +95,36 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     gap: 3rem;
+}
+
+.notFoundProd{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    gap: 2rem;
+}
+
+#vasoNotFound{
+    width: 200px;
+    transform: rotate(0.1turn);
+    transition: 2.5s ease-out;
+    cursor: default;
+}
+
+#vasoNotFound:hover{
+    transform: rotate(0.9turn);
+    transition: 2s ease-in;
+}
+
+.notFoundProd span{
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: 3px 3px 5px #000;
 }
 
 @media screen and (max-width: 768px){

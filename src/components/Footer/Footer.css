@@ -18,9 +18,13 @@ footer{
 }
 
 #ig-footer, #yt-footer, #wp-footer{
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     color: #c249a2;
+}
+
+.redes-sociales-footer span{
+    display: none;
 }
 
 #ig-footer:hover, #yt-footer:hover, #wp-footer:hover{
@@ -44,22 +48,43 @@ footer{
 /* ---------- MEDIA QUERIES -------------- */
 @media screen and (max-width: 750px){
     footer{
-        height: 6vh;
-        gap: 0
+        height: 18vh;
+        gap: .5rem
+    }
+
+    .redes-sociales-footer{
+        flex-direction: column;
+        gap: .2rem;
+        align-items: start;
+    }
+
+    .redes-sociales-footer a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
+        text-decoration: none;
+    }
+
+    .redes-sociales-footer span{
+        display: inline;
+        text-decoration: none;
+        color: #c249a2;
     }
 
     #ig-footer, #yt-footer, #wp-footer{
         width: 20px;
         height: 20px;
+        gap: 4rem;
     }
 
     .dev-footer span{
-        font-size: 15px;
+        font-size: 13px;
     }
 }
 
 @media screen and (max-width: 425px){
     footer{
-        height: 6vh;
+        height: 18vh;
     }
 }

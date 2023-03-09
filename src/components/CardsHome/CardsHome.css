@@ -1,0 +1,7 @@
+@media screen and (min-width:320px) {
+    #container-principal__CardsHome{
+        border: 2px solid slateblue;
+        margin: 1rem 0;
+        height: 10rem;
+    }
+}

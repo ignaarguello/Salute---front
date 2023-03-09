@@ -1,0 +1,8 @@
+@media screen and (min-width:320px) {
+    #titulo-destacados__home{
+        font-size: 18px;
+        margin: 1.5rem 0;
+        text-align: center;
+        font-weight: 300;
+    }
+}

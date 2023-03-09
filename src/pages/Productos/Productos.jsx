@@ -32,7 +32,7 @@ export default function Productos() {
   }, [])
 
   const filtroTexto = (event) => {
-    console.log(event.target.outerText);
+    // console.log(event.target.outerText);
     let texto = inputRef.current.value.trim()
     let categorias = tipo
     if (event.target.tagName === 'LI'){
@@ -49,33 +49,35 @@ export default function Productos() {
 
   return (
     <div id='productos-pagina-cont'>
-      <div id='buscadores-cont'>
-        <input className='inputTexto' placeholder='Buscar bebida...' type="text" onKeyUp={filtroTexto} ref={inputRef} />
-        <div className='categoriaMenu'>
-          <span>Categorías principales</span>
-          <ul>
-              <li onClick={filtroTexto} >Todos los productos</li>
-            { todosLosTipos?.map( tipo => 
-              <li onClick={filtroTexto} key={tipo}>{tipo}</li>
-            )
-            }
-          </ul>
-        </div>
-        {/* <div className="checkbox-container">
-          {tipos?.map(tipo => 
-          <label key={tipo}><input onChange={filtroTexto} className='checkboxUno' type="checkbox" id={tipo} value={tipo}/>{tipo}</label>
+      <div className='categoriaMenu'>
+        <span>Categorías principales</span>
+        <div id='separadorMenu'></div>
+        <ul>
+          <li onClick={filtroTexto} >Todos los productos</li>
+          { todosLosTipos?.map( tipo => 
+            <li onClick={filtroTexto} key={tipo}>{tipo}</li>
           )}
-        </div> */}
-      </div>
-      <div id='container-cards__productos'>
-        {
-          (productos?.length > 0)
-            ? productos?.map((prod) => <CardProd3 key={prod?._id} nombre={prod?.nombre} img={prod?.imagen} precio={prod?.precio} tipo={prod?.tipo} />)
-            : <div className='notFoundProd'>
-                <img id='vasoNotFound' src='https://cdn-icons-png.flaticon.com/512/5386/5386124.png' alt='vaso de vidrio roto'/>
-                <span className='animate__animated animate__fadeInDown animate__slow'>No hay productos que coincidan con esa búsqueda.</span>
-              </div>
-        }
+        </ul>
+      </div>  
+      <div className='prodCont-general'>
+        <div id='buscadores-cont'>
+          <input className='inputTexto' placeholder='Buscar bebida...' type="text" onKeyUp={filtroTexto} ref={inputRef} />
+          <div className="checkbox-container">
+            {todosLosTipos?.map(tipo => 
+            <label key={tipo}><input onChange={filtroTexto} className='checkboxUno' type="checkbox" id={tipo} value={tipo}/>{tipo}</label>
+            )}
+          </div>
+        </div>
+        <div id='container-cards__productos'>
+          {
+            (productos?.length > 0)
+              ? productos?.map((prod) => <CardProd3 key={prod?._id} nombre={prod?.nombre} img={prod?.imagen} precio={prod?.precio} tipo={prod?.tipo} />)
+              : <div className='notFoundProd'>
+                  <img id='vasoNotFound' src='https://cdn-icons-png.flaticon.com/512/5386/5386124.png' alt='vaso de vidrio roto'/>
+                  <span className='animate__animated animate__fadeInDown animate__slow'>No hay productos que coincidan con esa búsqueda.</span>
+                </div>
+          }
+        </div>
       </div>
     </div>
   )

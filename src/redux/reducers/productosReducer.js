@@ -23,7 +23,7 @@ const productosReducer = createReducer(initialState, (builder) =>{
             }
         })
         .addCase(filtrar_productos.fulfilled, (state, action) => {
-            console.log("REDUCER . PAYLOAD -->",action.payload)
+            // console.log("REDUCER . PAYLOAD -->",action.payload)
             return{
                 ...state,
                 ...action.payload,

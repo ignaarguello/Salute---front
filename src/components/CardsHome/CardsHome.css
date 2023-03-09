@@ -112,6 +112,7 @@
   #container-principal__CardsHome {
     /*     border: 2px solid slateblue; */
     justify-content: space-evenly;
+    padding-bottom: 10rem;
   }
 
   .card-producto__CardsHome {
@@ -120,9 +121,8 @@
     height: 30rem;
   }
 
-  .card-producto__CardsHome:hover{
+  .card-producto__CardsHome:hover {
     background-blend-mode: multiply;
     background-color: rgba(0, 0, 0, 0.562);
   }
-
 }

@@ -49,6 +49,18 @@
     gap: 1.5rem;
 }
 
+.categoriaMenu{
+    color: #fff;
+}
+
+.categoriaMenu ul{
+    list-style: none;
+}
+
+.categoriaMenu ul>li{
+    cursor: pointer;
+}
+
 .checkbox-container{
     display: flex;
     gap: 2rem;

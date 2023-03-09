@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import productosActions from '../../redux/actions/productosActions'
 import './Admin.css'
-
+import Swal from 'sweetalert2'
 
 export default function Admin() {
 
@@ -29,9 +29,31 @@ export default function Admin() {
         event.preventDefault()
     }
 
+    const agregarProducto = (e) => {
+        e.preventDefault()
+        Swal.fire({
+            title: 'Nuevo producto',
+            text: "Nombre:",
+            input: "text",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
+    }
+
 return (
         <div id='admin-pagina-cont'>
-            <div className='btnNuevoProd'>+ AGREGAR PRODUCTO</div>
+            <div className='btnNuevoProd' onClick={agregarProducto}>+ AGREGAR PRODUCTO</div>
             <h1>EDITAR PRODUCTOS</h1>
             <div>
                 <form onSubmit={subirFormulario} className='adminProd-cont'>

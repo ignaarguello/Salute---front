@@ -1,7 +1,52 @@
 @media screen and (min-width:320px) {
     #container-principal__CardsHome{
-        border: 2px solid slateblue;
+        /* border: 2px solid slateblue; */
         margin: 1rem 0;
-        height: 10rem;
+        min-height: 10rem;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .card-producto__CardsHome{
+        /* border: 2px solid red; */
+        width: 100%;
+        height: 25rem;
+        border-radius: 15px;
+    }
+
+    .card-producto__CardsHome:nth-child(1){
+        background-image: url(../../../public/images/smirnoff.png);
+        background-size: cover;
+        text-decoration: none;
+    }
+
+    .card-producto__CardsHome:nth-child(2){
+        background-image: url(../../../public/images/patagonia.png);
+        background-size: cover;
+        text-decoration: none;
+    }
+
+    .card-producto__CardsHome:nth-child(3){
+        background-image: url(../../../public/images/chandon.png);
+        background-size: cover;
+        text-decoration: none;
+    }
+
+    .card-producto__CardsHome:nth-child(4){
+        background-image: url(../../../public/images/tanqueray.png);
+        background-size: cover;
+        text-decoration: none;
+    }
+
+    .titulo-card__CardsHome{
+        color: white;
+        background-color: rgba(102, 101, 101, 0.767);
+        display: inline-block;
+        padding: 10px;
+        margin-top: 3rem;
+        padding-right: 2rem;
+        font-weight: 200;
     }
 }

@@ -103,6 +103,7 @@
   #Navbar_navbar {
     height: 13vh;
     background-color: black !important;
+    position: fixed;
   }
 
   #logo-salute__navbar {

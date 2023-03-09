@@ -73,7 +73,7 @@
     width: 100%;
     background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
       url(../../../public/images/\ banner1.jpg);
-    height: 100vh;
+    height: 85vh;
     background-size: cover;
     display: flex;
     flex-direction: column;

@@ -5,7 +5,9 @@ const { traer_productos, filtrar_productos } = productosActions
 
 const initialState = {
     productos: [],
-    tipos: [],
+    todosLosTipos: [],
+    tipo: '',
+    nombre: ''
 }
 
 const productosReducer = createReducer(initialState, (builder) =>{
@@ -17,13 +19,15 @@ const productosReducer = createReducer(initialState, (builder) =>{
             return{
                 ...state,
                 productos: action.payload,
-                tipos: cadaTipoDeProducto,
+                todosLosTipos: cadaTipoDeProducto,
             }
         })
         .addCase(filtrar_productos.fulfilled, (state, action) => {
+            console.log("REDUCER . PAYLOAD -->",action.payload)
             return{
                 ...state,
                 ...action.payload,
+                tipo: action.payload.tipo,
             }
         })
 })

@@ -6,3 +6,17 @@
         font-weight: 300;
     }
 }
+
+@media screen and (min-width:425px) {
+    #titulo-destacados__home{
+        font-size: 23px;
+        font-weight: 400;
+    }
+}
+
+@media screen and (min-width:768px) {
+    #titulo-destacados__home{
+        font-size: 30px;
+        margin: 3rem 0;
+    }
+}

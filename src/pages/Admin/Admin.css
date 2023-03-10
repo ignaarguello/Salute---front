@@ -39,6 +39,14 @@
     font-weight: 500;
 }
 
+.cerrado{
+    display: none;
+}
+
+.abierto{
+    display: flex;
+}
+
 .admProd{
     display: flex;
     gap: 1rem;

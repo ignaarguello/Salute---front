@@ -3,18 +3,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import productosActions from '../../redux/actions/productosActions'
 import './Admin.css'
 import Swal from 'sweetalert2'
-import axios from 'axios'
-import { BASE_URL } from '../../Api/Api'
 
 export default function Admin() {
 
     let dispatch = useDispatch()
-    const { traer_productos, crear_producto } = productosActions
-    const { productos, todosLosTipos, nuevoProducto } = useSelector(store => store.productos)
+    const { traer_productos, crear_producto, eliminar_producto } = productosActions
+    const { productos, todosLosTipos, nuevoProducto, productosEliminados } = useSelector(store => store.productos)
 
     let [produs, setProdus] = useState([])
     let [estadoModal, setEstadoModal] = useState('cerrado')
-    let [dataFinal, setDataFinal] = useState(null)
 
     let nuevoNombreRef = useRef()
     let nuevoPrecioRef = useRef()
@@ -28,8 +25,7 @@ export default function Admin() {
         dispatch(traer_productos())
         /* setProdus(productos) */
         // eslint-disable-next-line
-        console.log('obteniendo productos del effect')
-    }, [nuevoProducto])
+    }, [nuevoProducto, productosEliminados])
 
     const inputCambio = (e) => {
         console.log(e);
@@ -50,30 +46,18 @@ export default function Admin() {
             precio: nuevoPrecioRef?.current?.value,
             imagen: nuevoFotoRef?.current?.value,
         }
-        /* setDataFinal(data) */
 
         alert("nuevo producto agregado")
-
         e.target.reset()
-
         dispatch(crear_producto(data))
-
     }
-
-    /* useEffect(() => {
-        axios.post(`${BASE_URL}/productos`, dataFinal)
-            .then(response => {
-                console.log(response);
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }, [dataFinal])
- */
-
 
     const abrirModal = () => {
         estadoModal === 'cerrado' ? setEstadoModal('abierto') : setEstadoModal('cerrado')
+    }
+
+    const eliminarProducto = (id) => {
+        dispatch(eliminar_producto(id))
     }
 
     return (
@@ -124,7 +108,7 @@ export default function Admin() {
                             <label htmlFor='admFotoProd'>
                                 <input type='text' placeholder={'Imagen'} name={'nuevoFoto'} onChange={(e) => inputCambio(e)} id='admFotoProd' defaultValue={prod.imagen} />
                             </label>
-                            <img className='borrarProdAdm' onClick={() => console.log(prod._id)} src='https://cdn-icons-png.flaticon.com/512/1828/1828843.png' alt='eliminar' />
+                            <img className='borrarProdAdm' onClick={() => eliminarProducto(prod._id)} src='https://cdn-icons-png.flaticon.com/512/1828/1828843.png' alt='eliminar' />
                         </div>
                     ))}
                     <div className='inputSumbit'>

@@ -42,9 +42,16 @@ const crear_producto = createAsyncThunk('crear_producto', async (data) => {
     }
 })
 
+const eliminar_producto = createAsyncThunk('eliminar_producto', async (id) => {
+    try {
+        const res = await axios.delete(`${BASE_URL}/productos/${id}`)
 
+        return res
 
-
+    } catch (error) {
+        console.log(error.message);
+    }
+})
 
 
 
@@ -53,6 +60,7 @@ const productosActions = {
     traer_productos,
     filtrar_productos,
     crear_producto,
+    eliminar_producto,
 }
 
 

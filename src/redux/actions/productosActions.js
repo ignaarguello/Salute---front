@@ -16,19 +16,29 @@ const traer_productos = createAsyncThunk('traer_productos', async () => {
     }
 })
 
-const filtrar_productos = createAsyncThunk('filtrar_productos', async ({tipo,value}) => {
+const filtrar_productos = createAsyncThunk('filtrar_productos', async ({ tipo, value }) => {
     let url = `${BASE_URL}/productos?nombre=${value}&tipo=${tipo}`
-    try{
+    try {
         const res = await axios.get(url)
         // console.log("ACTION FILTRO-->",res.data);
-        return{
+        return {
             productos: res.data.response,
             tipo,
             nombre: value
         }
-    } catch(error){
+    } catch (error) {
         console.log(error.message);
-        return { payload: error}
+    }
+})
+
+const crear_producto = createAsyncThunk('crear_producto', async (data) => {
+    try {
+        const res = await axios.post(`${BASE_URL}/productos`, data)
+
+        return res
+
+    } catch (error) {
+        console.log(error.message);
     }
 })
 
@@ -42,6 +52,7 @@ const filtrar_productos = createAsyncThunk('filtrar_productos', async ({tipo,val
 const productosActions = {
     traer_productos,
     filtrar_productos,
+    crear_producto,
 }
 
 

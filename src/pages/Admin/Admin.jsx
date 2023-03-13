@@ -23,7 +23,7 @@ export default function Admin() {
 
     useEffect(() => {
         dispatch(traer_productos())
-        setProdus(productos)
+        /* setProdus(productos) */
         // eslint-disable-next-line
     }, [nuevoProducto, productosEliminados])
 
@@ -97,9 +97,7 @@ export default function Admin() {
         
     }
 
-    console.log(todosLosTipos);
-    console.log(nuevoTipoRef?.current?.value);
-    console.log(nuevoTipoCreadoRef?.current.value);
+ 
 
     return (
         <div id='admin-pagina-cont'>
@@ -127,7 +125,7 @@ export default function Admin() {
                     <input type='submit' value='Crear' />
                 </div>
             </form>
-            <h2 className='titulo-editarProd__admin'>EDITAR PRODUCTOS</h2>
+            <h1>EDITAR PRODUCTOS</h1>
             <div>
                 <form onSubmit={subirFormulario} className='adminProd-cont'>
                     {productos?.map((prod) => (

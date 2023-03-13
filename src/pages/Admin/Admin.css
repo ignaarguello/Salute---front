@@ -41,11 +41,11 @@
     margin: 1rem 0;
 }
 
-.cerrado{
+.modalCerrado{
     display: none;
 }
 
-.abierto{
+.modalAbierto{
     display: flex;
 }
 

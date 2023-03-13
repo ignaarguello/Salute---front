@@ -11,7 +11,7 @@ export default function Admin() {
     const { productos, todosLosTipos, nuevoProducto, productosEliminados } = useSelector(store => store.productos)
 
     let [produs, setProdus] = useState([])
-    let [estadoModal, setEstadoModal] = useState('cerrado')
+    let [estadoModal, setEstadoModal] = useState('modalCerrado')
 
     let nuevoNombreRef = useRef()
     let nuevoPrecioRef = useRef()
@@ -69,7 +69,7 @@ export default function Admin() {
     }
 
     const abrirModal = () => {
-        estadoModal === 'cerrado' ? setEstadoModal('abierto') : setEstadoModal('cerrado')
+        estadoModal === 'modalCerrado' ? setEstadoModal('modalAbierto') : setEstadoModal('modalCerrado')
     }
 
     const eliminarProducto = (id) => {
@@ -97,11 +97,9 @@ export default function Admin() {
         
     }
 
- 
-
     return (
         <div id='admin-pagina-cont'>
-            <div className='btnNuevoProd' onClick={abrirModal}>{estadoModal === 'cerrado' ? '+ AGREGAR PRODUCTO' : 'CERRAR VENTANA'}</div>
+            <div className='btnNuevoProd' onClick={abrirModal}>{estadoModal === 'modalCerrado' ? '+ AGREGAR PRODUCTO' : 'CERRAR VENTANA'}</div>
             <form onSubmit={nuevoProductos} className={`${estadoModal}`}>
                 <div className='admProd'>
                     <label htmlFor='admNombreProd'>

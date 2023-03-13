@@ -276,7 +276,7 @@
   }
 
   #collasible-nav-dropdown:hover {
-    color: #0a57c7 !important;
+    color: rgb(148, 53, 123) !important;
   }
 
   #container-linksPrincipales__navbar {
@@ -286,6 +286,9 @@
   .item-link__navbar {
     font-size: 15.5px !important;
     font-weight: 300 !important;
-  
+  }
+
+  .item-link__navbar:hover {
+    color: rgb(148, 53, 123) !important;
   }
 }

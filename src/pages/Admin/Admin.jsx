@@ -16,8 +16,8 @@ export default function Admin() {
     let nuevoNombreRef = useRef()
     let nuevoPrecioRef = useRef()
     let nuevoTipoRef = useRef()
+    let nuevoTipoCreadoRef = useRef()
     let nuevoFotoRef = useRef()
-    let nuevoTipo2Ref = useRef()
 
 
 
@@ -40,16 +40,32 @@ export default function Admin() {
     const nuevoProductos = (e) => {
         e.preventDefault()
 
-        const data = {
-            nombre: nuevoNombreRef?.current?.value,
-            tipo: nuevoTipo2Ref?.current?.value,
-            precio: nuevoPrecioRef?.current?.value,
-            imagen: nuevoFotoRef?.current?.value,
+        if (nuevoTipoRef?.current?.value === 'Tipo de bebida' && nuevoTipoCreadoRef?.current.value === ""){
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Selecciona un tipo de bebida',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        } else {
+            const data = {
+                nombre: nuevoNombreRef?.current?.value,
+                tipo: nuevoTipoCreadoRef?.current?.value || nuevoTipoRef?.current.value,
+                precio: nuevoPrecioRef?.current?.value,
+                imagen: nuevoFotoRef?.current?.value,
+            }
+    
+            e.target.reset()
+            dispatch(crear_producto(data))
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Producto creado',
+                showConfirmButton: false,
+                timer: 750
+            })
         }
-
-        alert("nuevo producto agregado")
-        e.target.reset()
-        dispatch(crear_producto(data))
     }
 
     const abrirModal = () => {
@@ -57,8 +73,33 @@ export default function Admin() {
     }
 
     const eliminarProducto = (id) => {
-        dispatch(eliminar_producto(id))
+        Swal.fire({
+            title: 'Eliminar producto?',
+            text: "No podrás revertir este cambio",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonText: 'Cancelar',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, borrarlo!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch(eliminar_producto(id))
+                Swal.fire({
+                    showConfirmButton: false,
+                    title: 'Eliminado 🚮',
+                    text: 'Se eliminó el producto con éxito.',
+                    icon: 'success',
+                    timer: 600
+                })
+            }
+        })
+        
     }
+
+    console.log(todosLosTipos);
+    console.log(nuevoTipoRef?.current?.value);
+    console.log(nuevoTipoCreadoRef?.current.value);
 
     return (
         <div id='admin-pagina-cont'>
@@ -66,20 +107,20 @@ export default function Admin() {
             <form onSubmit={nuevoProductos} className={`${estadoModal}`}>
                 <div className='admProd'>
                     <label htmlFor='admNombreProd'>
-                        <input type='text' placeholder={'Nombre'} name={'nuevoNombre'} onChange={(e) => (e)} id='admNombreProd' ref={nuevoNombreRef} />
+                        <input type='text' placeholder={'Nombre'} required name={'nuevoNombre'} onChange={(e) => (e)} id='admNombreProd' ref={nuevoNombreRef} />
                     </label>
                     <label htmlFor='admTipoProd'>
-                        <input type='text' placeholder='Nuevo tipo de bebida' ref={nuevoTipo2Ref} />
-                        <select name='nuevoTipo' id='admTipoProd'>
+                        <input type='text' placeholder='Nuevo tipo de bebida' ref={nuevoTipoCreadoRef} />
+                        <select name='nuevoTipo' id='admTipoProd' defaultValue='none' ref={nuevoTipoRef}>
                             <option defaultValue='none' >Tipo de bebida</option>
-                            {(todosLosTipos?.map(p => <option key={p} value={p} ref={nuevoTipoRef} >{p}</option>))}
+                            {(todosLosTipos?.map(p => <option key={p}  value={p}>{p}</option>))}
                         </select>
                     </label>
                     <label htmlFor='admPrecioProd'>
-                        <input type='number' placeholder={'Precio'} name={'nuevoPrecio'} onChange={(e) => (e)} id='admPrecioProd' ref={nuevoPrecioRef} />
+                        <input type='number' placeholder={'Precio'} required name={'nuevoPrecio'} onChange={(e) => (e)} id='admPrecioProd' ref={nuevoPrecioRef} />
                     </label>
                     <label htmlFor='admFotoProd'>
-                        <input type='text' placeholder={'Imagen'} name={'nuevoFoto'} onChange={(e) => (e)} id='admFotoProd' ref={nuevoFotoRef} />
+                        <input type='text' placeholder={'Imagen'} required name={'nuevoFoto'} onChange={(e) => (e)} id='admFotoProd' ref={nuevoFotoRef} />
                     </label>
                 </div>
                 <div className='inputSumbit'>

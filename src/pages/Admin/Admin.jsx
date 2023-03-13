@@ -9,8 +9,8 @@ import { BASE_URL } from '../../Api/Api'
 export default function Admin() {
 
     let dispatch = useDispatch()
-    const { traer_productos } = productosActions
-    const { productos, todosLosTipos } = useSelector(store => store.productos)
+    const { traer_productos, crear_producto } = productosActions
+    const { productos, todosLosTipos, nuevoProducto } = useSelector(store => store.productos)
 
     let [produs, setProdus] = useState([])
     let [estadoModal, setEstadoModal] = useState('cerrado')
@@ -26,54 +26,60 @@ export default function Admin() {
 
     useEffect(() => {
         dispatch(traer_productos())
-        setProdus(productos)
+        /* setProdus(productos) */
         // eslint-disable-next-line
-    }, [productos])
+        console.log('obteniendo productos del effect')
+    }, [nuevoProducto])
 
     const inputCambio = (e) => {
         console.log(e);
-        setProdus({ ...produs, [e.target.placeholder]: e.target.value})
+        setProdus({ ...produs, [e.target.placeholder]: e.target.value })
     }
 
-    const subirFormulario = async(event) => {
+    const subirFormulario = async (event) => {
         event.preventDefault()
         alert("subio formulario");
     }
 
-    const nuevoProducto = (e) => {
+    const nuevoProductos = (e) => {
         e.preventDefault()
-        
+
         const data = {
             nombre: nuevoNombreRef?.current?.value,
             tipo: nuevoTipo2Ref?.current?.value,
             precio: nuevoPrecioRef?.current?.value,
             imagen: nuevoFotoRef?.current?.value,
         }
-        setDataFinal(data)
+        /* setDataFinal(data) */
+
         alert("nuevo producto agregado")
+
         e.target.reset()
+
+        dispatch(crear_producto(data))
+
     }
 
-    useEffect( () => {
+    /* useEffect(() => {
         axios.post(`${BASE_URL}/productos`, dataFinal)
             .then(response => {
                 console.log(response);
             })
-            .catch( error => {
+            .catch(error => {
                 console.log(error);
             })
     }, [dataFinal])
-
+ */
 
 
     const abrirModal = () => {
         estadoModal === 'cerrado' ? setEstadoModal('abierto') : setEstadoModal('cerrado')
     }
 
-return (
+    return (
         <div id='admin-pagina-cont'>
             <div className='btnNuevoProd' onClick={abrirModal}>{estadoModal === 'cerrado' ? '+ AGREGAR PRODUCTO' : 'CERRAR VENTANA'}</div>
-            <form onSubmit={nuevoProducto} className={`${estadoModal}`}>
+            <form onSubmit={nuevoProductos} className={`${estadoModal}`}>
                 <div className='admProd'>
                     <label htmlFor='admNombreProd'>
                         <input type='text' placeholder={'Nombre'} name={'nuevoNombre'} onChange={(e) => (e)} id='admNombreProd' ref={nuevoNombreRef} />
@@ -82,7 +88,7 @@ return (
                         <input type='text' placeholder='Nuevo tipo de bebida' ref={nuevoTipo2Ref} />
                         <select name='nuevoTipo' id='admTipoProd'>
                             <option defaultValue='none' >Tipo de bebida</option>
-                                {(todosLosTipos?.map(p =>  <option key={p} value={p} ref={nuevoTipoRef} >{p}</option>))}
+                            {(todosLosTipos?.map(p => <option key={p} value={p} ref={nuevoTipoRef} >{p}</option>))}
                         </select>
                     </label>
                     <label htmlFor='admPrecioProd'>
@@ -92,15 +98,14 @@ return (
                         <input type='text' placeholder={'Imagen'} name={'nuevoFoto'} onChange={(e) => (e)} id='admFotoProd' ref={nuevoFotoRef} />
                     </label>
                 </div>
-        
-                    <div className='inputSumbit'>
-                        <input type='submit' value='Crear'/>
-                    </div>
-                </form>
+                <div className='inputSumbit'>
+                    <input type='submit' value='Crear' />
+                </div>
+            </form>
             <h1>EDITAR PRODUCTOS</h1>
             <div>
                 <form onSubmit={subirFormulario} className='adminProd-cont'>
-                    {productos?.map( (prod) => (
+                    {productos?.map((prod) => (
                         <div key={prod._id} className='admProd' id={prod._id}>
                             <img className='fotoProdAdm' src={prod.imagen} alt={prod.nombre} />
                             <label htmlFor='admNombreProd'>
@@ -109,7 +114,7 @@ return (
                             <label htmlFor='admTipoProd'>
                                 <select name='nuevoTipo' id='admTipoProd' required>
                                     <option value="none" defaultValue={prod.tipo} required>{prod.tipo}</option>
-                                    {(todosLosTipos?.filter(e => e !== prod.tipo).map(p =>  <option key={p} value={p} required >{p}</option>))}
+                                    {(todosLosTipos?.filter(e => e !== prod.tipo).map(p => <option key={p} value={p} required >{p}</option>))}
                                 </select>
                                 {/* <input type='text' placeholder={'Tipo de bebida'} name={'nuevoTipo'} onChange={(e) => inputCambio(e)} id='admTipoProd' defaultValue={prod.tipo} /> */}
                             </label>
@@ -123,10 +128,10 @@ return (
                         </div>
                     ))}
                     <div className='inputSumbit'>
-                        <input type='submit' value='Confirmar'/>
+                        <input type='submit' value='Confirmar' />
                     </div>
                 </form>
-            </div> 
+            </div>
         </div>
     )
 }

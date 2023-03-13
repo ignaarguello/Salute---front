@@ -39,11 +39,11 @@
     font-weight: 500;
 }
 
-.cerrado{
+.modalCerrado{
     display: none;
 }
 
-.abierto{
+.modalAbierto{
     display: flex;
 }
 

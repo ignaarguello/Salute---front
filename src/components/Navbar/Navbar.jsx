@@ -6,6 +6,7 @@ import './Navbar.css'
 import { HiUsers } from "react-icons/hi";
 import { BsYoutube } from "react-icons/bs";
 import { BiMap } from "react-icons/bi";
+import { AiFillSetting } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 
 function CollapsibleExample() {
@@ -32,6 +33,7 @@ function CollapsibleExample() {
                     </Link>
                   </div>
                 </NavDropdown>
+                <Link className='item-link__navbar admin__navbar' to='/admin'><AiFillSetting id='tuerca-admin'/>Administrador</Link>
               </div>
               <div id='container-cierre-inicio__navbar'>
                 <HiUsers id='logo-user__navbar' />

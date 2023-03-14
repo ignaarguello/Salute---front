@@ -12,6 +12,8 @@ export default function Admin() {
 
     let [produs, setProdus] = useState([])
     let [estadoModal, setEstadoModal] = useState('modalCerrado')
+    let [tipoBebida, setTipoBebida] = useState('tipoAbierto')
+    let [tipoNuevoBebida, setTipoNuevoBebida] = useState('tipoNuevoCerrado')
 
     let nuevoNombreRef = useRef()
     let nuevoPrecioRef = useRef()
@@ -72,6 +74,16 @@ export default function Admin() {
         estadoModal === 'modalCerrado' ? setEstadoModal('modalAbierto') : setEstadoModal('modalCerrado')
     }
 
+    const abrirTipo = () => {
+        if(tipoBebida === 'tipoCerrado'){
+            setTipoBebida('tipoAbierto')
+            setTipoNuevoBebida('tipoNuevoCerrado')
+        } else if (tipoNuevoBebida === 'tipoNuevoCerrado'){
+            setTipoNuevoBebida('tipoNuevoAbierto')
+            setTipoBebida('tipoCerrado')
+        }
+    }
+
     const eliminarProducto = (id) => {
         Swal.fire({
             title: 'Eliminar producto?',
@@ -101,26 +113,27 @@ export default function Admin() {
         <div id='admin-pagina-cont'>
             <div className='btnNuevoProd' onClick={abrirModal}>{estadoModal === 'modalCerrado' ? '+ AGREGAR PRODUCTO' : 'CERRAR VENTANA'}</div>
             <form onSubmit={nuevoProductos} className={`${estadoModal}`}>
-                <div className='admProd'>
-                    <label htmlFor='admNombreProd'>
-                        <input type='text' placeholder={'Nombre'} required name={'nuevoNombre'} onChange={(e) => (e)} id='admNombreProd' ref={nuevoNombreRef} />
+                <div className='admProdNuevo'>
+                    <label htmlFor='admNombreProdNuevo'>
+                        <input type='text' placeholder={'Nombre'} required name={'nuevoNombre'} onChange={(e) => (e)} id='admNombreProdNuevo' ref={nuevoNombreRef} />
                     </label>
-                    <label htmlFor='admTipoProd'>
-                        <input type='text' placeholder='Nuevo tipo de bebida' ref={nuevoTipoCreadoRef} />
-                        <select name='nuevoTipo' id='admTipoProd' defaultValue='none' ref={nuevoTipoRef}>
+                    <label htmlFor='admTipoProdNuevo' id='label-tipos'>
+                        <div className='btnTipoProd' onClick={abrirTipo}>{tipoBebida === 'tipoAbierto' ? 'Crear categoría' : 'Elegir categoría'}</div>
+                        <input className={`${tipoNuevoBebida}`} id='admTipoProdNuevo' type='text' placeholder='Nuevo tipo de bebida' ref={nuevoTipoCreadoRef} />
+                        <select name='nuevoTipo' id='admTipoProdNuevo' className={`${tipoBebida}`} defaultValue='none' ref={nuevoTipoRef}>
                             <option defaultValue='none' >Tipo de bebida</option>
                             {(todosLosTipos?.map(p => <option key={p}  value={p}>{p}</option>))}
                         </select>
                     </label>
-                    <label htmlFor='admPrecioProd'>
-                        <input type='number' placeholder={'Precio'} required name={'nuevoPrecio'} onChange={(e) => (e)} id='admPrecioProd' ref={nuevoPrecioRef} />
+                    <label htmlFor='admPrecioProdNuevo'>
+                        <input type='number' placeholder={'Precio'} required name={'nuevoPrecio'} onChange={(e) => (e)} id='admPrecioProdNuevo' ref={nuevoPrecioRef} />
                     </label>
-                    <label htmlFor='admFotoProd'>
-                        <input type='text' placeholder={'Imagen'} required name={'nuevoFoto'} onChange={(e) => (e)} id='admFotoProd' ref={nuevoFotoRef} />
+                    <label htmlFor='admFotoProdNuevo'>
+                        <input type='text' placeholder={'Imagen'} required name={'nuevoFoto'} onChange={(e) => (e)} id='admFotoProdNuevo' ref={nuevoFotoRef} />
                     </label>
                 </div>
                 <div className='inputSumbit'>
-                    <input type='submit' value='Crear' />
+                    <input type='submit' value='Crear nuevo producto' />
                 </div>
             </form>
             <h1>EDITAR PRODUCTOS</h1>

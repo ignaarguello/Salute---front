@@ -17,6 +17,14 @@
     transition: .5s ease-in;
 }
 
+#body-card__prod3{
+    /* border: 2px solid blue; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
 #producto-container3:hover{
     box-shadow: 0 8px 17px 0 rgba(194, 73, 162, 0.361), 0 6px 20px 0 rgba(194, 73, 162, 0.326);
     transition: .5s ease-out;
@@ -65,7 +73,7 @@
     width: 12rem;
     height: 12rem;
     object-fit: cover;
-    border-radius: 5%;
+    border-radius: 10px;
     transition: ease-in .4s;
 }
 
@@ -78,7 +86,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: .5rem;
+    /* border: 2px solid red; */
 }
 
 .precio-prod3{
@@ -106,23 +116,19 @@
     gap: .6rem;
     font-size: 1rem;
     cursor: pointer;
-    transition: .4s ease-in-out;
+    transition: .4s ease;
     padding: 10px;
-    width: 70%;
+    width: 80%;
+    margin-bottom: 1.5rem;
 }
 
 .comprar-prod3:hover{
     background-color: #FFF;
-    -webkit-box-shadow: 0px 0px 25px 4px rgba(0,0,0,0.61);
-    -moz-box-shadow: 0px 0px 25px 4px rgba(0,0,0,0.61);
-    box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.61);
-    transition: .2s ease-in-out;
-    /* font-weight: bold; */
 }
 
 @media screen and (max-width: 768px){
     .nombre-prod3{
-        font-size: 1.3rem;
+        font-size: 1.4rem;
         margin-top: .5rem;
     }
 }

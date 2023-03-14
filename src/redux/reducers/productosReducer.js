@@ -8,8 +8,8 @@ const initialState = {
     todosLosTipos: [],
     tipo: '',
     nombre: '',
-    nuevoProducto:[],
-    productosEliminados:[],
+    nuevoProducto: [],
+    productosEliminados: [],
 }
 
 const productosReducer = createReducer(initialState, (builder) => {
@@ -35,12 +35,14 @@ const productosReducer = createReducer(initialState, (builder) => {
         .addCase(crear_producto.fulfilled, (state, action) => {
             /* console.log("REDUCER . PAYLOAD -->", action.payload) */
             return {
+                ...state,
                 nuevoProducto: action.payload
             }
         })
         .addCase(eliminar_producto.fulfilled, (state, action) => {
             /* console.log("REDUCER . PAYLOAD -->", action.payload) */
             return {
+                ...state,
                 productosEliminados: action.payload
             }
         })

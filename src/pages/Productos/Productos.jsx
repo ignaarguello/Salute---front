@@ -61,7 +61,7 @@ export default function Productos() {
       </div>  
       <div className='prodCont-general'>
         <div id='buscadores-cont'>
-          <input className='inputTexto' placeholder='Buscar bebida...' type="text" onKeyUp={filtroTexto} ref={inputRef} />
+          <input className='inputTexto' placeholder='Buscar bebida...' type="search" onKeyUp={filtroTexto} ref={inputRef} />
           <div className="checkbox-container">
             {todosLosTipos?.map(tipo => 
             <label key={tipo}><input onChange={filtroTexto} className='checkboxUno' type="checkbox" id={tipo} value={tipo}/>{tipo}</label>

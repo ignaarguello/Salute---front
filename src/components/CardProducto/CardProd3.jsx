@@ -8,7 +8,7 @@ export default function CardProd3(props) {
 
     return (
             <div id='producto-container3'>
-                    <div>
+                    <div id='body-card__prod3'>
                         <div id='foto-container-prod3'>
                             <img className='foto-prod3' src={img} alt={nombre} />
                         </div>
@@ -18,7 +18,7 @@ export default function CardProd3(props) {
                         </div>
                         <div id='precio-comprar-container3'>
                             <span className='precio-prod3'>{precio}$</span>
-                            <div className='comprar-prod3'><BsCart2 />Comprar</div>
+                            <div className='comprar-prod3'><BsCart2 />Agregar</div>
                         </div>
                     </div>
             </div>

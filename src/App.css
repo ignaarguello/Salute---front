@@ -20,6 +20,11 @@ body::-webkit-scrollbar-thumb {
   border-radius: 10px;       /* roundness of the scroll thumb */
 }
 
+*::selection{
+  background-color: rgb(194, 73, 162);
+  color: white;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

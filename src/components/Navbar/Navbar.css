@@ -45,6 +45,20 @@
     color: white;
   }
 
+  .admin__navbar{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  #tuerca-admin{
+    transition: all .3s ease-in-out;
+  }
+
+  .admin__navbar:hover #tuerca-admin{
+    transform: rotate(0.7turn);
+  }
+
   .item-dropdown__navbar {
     border: 1px solid gray !important;
     border-radius: 20px;

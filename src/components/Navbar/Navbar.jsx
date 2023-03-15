@@ -11,13 +11,12 @@ import { Link } from 'react-router-dom';
 
 function CollapsibleExample() {
   return (
-    <Navbar id='Navbar_navbar' collapseOnSelect expand="lg" bg="grey" variant="grey">
+    <Navbar id='Navbar_navbar' className='Navbar_total' collapseOnSelect expand="lg" bg="grey" variant="grey">
       <Container id='container-general_navbar'>
         <Link id='Brand_navbar' href="#home" to='/'><img id='logo-salute__navbar' src='./images/logo-salute.png' /></Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" id='items-nav__navbar'>
-           
               <div id='container-linksPrincipales__navbar'>
                 <Link className='item-link__navbar' to='/' >Inicio</Link>
                 <Link className='item-link__navbar' to='/productos'  >Productos</Link>
@@ -37,7 +36,7 @@ function CollapsibleExample() {
               </div>
               <div id='container-cierre-inicio__navbar'>
                 <HiUsers id='logo-user__navbar' />
-                <Link className='item-link__navbar' id='link-Inicio-Cerrar_navbar' to='/' > Iniciar Sesión </Link>
+                <Link className='item-link__navbar' id='link-Inicio-Cerrar_navbar' to='/ingresar' > Iniciar Sesión </Link>
               </div>
            
           </Nav>

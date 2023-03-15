@@ -13,10 +13,15 @@ export default function Productos() {
   const { traer_productos, filtrar_productos } = productosActions
   const { productos, tipo, todosLosTipos, nombre } = useSelector(store => store.productos)
 
+  //Variable que usa el useEffect para el navbar oscuro, traida por JQUERY
+  const navbar_oscuro = document.querySelector('.Navbar_total')
+
   useEffect(() => {
     dispatch(traer_productos())
     // eslint-disable-next-line
+    navbar_oscuro.classList.add('bg-black')
   }, [])
+
 
   useEffect( () => {
     if(tipo || nombre){

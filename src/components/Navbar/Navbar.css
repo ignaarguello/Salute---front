@@ -13,12 +13,15 @@
   }
 
   #Navbar_navbar {
-    background-color: transparent !important;
     top: 0;
     width: 100%;
     z-index: 1;
-    height: 14vh;
+    min-height: 10vh;
     position: absolute;
+  }
+
+  .Navbar_total{
+    background-color: transparent!important;
   }
 
   #link-Inicio-Cerrar_navbar {

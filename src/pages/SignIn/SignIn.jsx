@@ -1,7 +1,10 @@
 import React from 'react'
+import './SignIn.css'
 
 export default function SignIn() {
   return (
-    <div>SignIn</div>
+    <div id='container-general__SignIn'>
+        <h2>Signin</h2>
+    </div>
   )
 }

@@ -1,0 +1,58 @@
+#zonasentrega-cont{
+    background: url('../../../public/images/fondo4.jpg');
+    background-position: 100% 60%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #000000b9;
+    background-blend-mode: multiply;
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.titulos-zonas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.titulos-zonas span{
+    font-size: 36px;
+    color: #fff;
+    font-weight: 200;
+    letter-spacing: 0.5px;
+}
+
+.mapa-texto-cont{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10rem;
+}
+
+.mapa-zonas{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.texto-zonas{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+
+}
+
+.texto-zonas span{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 200;
+}

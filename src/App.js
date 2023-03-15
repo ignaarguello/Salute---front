@@ -10,6 +10,8 @@ import AcercaDe from './pages/AcercaDe/AcercaDe'
 import SaluteTV from './pages/SaluteTV/SaluteTV'
 import ZonasEntrega from './pages/ZonasEntrega/ZonasEntrega'
 import Admin from './pages/Admin/Admin';
+import SignIn from './pages/SignIn/SignIn';
+import SignUp from './pages/SignUp/SignUp';
 
 
 function App() {
@@ -17,11 +19,14 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<Inicio />}></Route>
+        <Route path="/*" element={<Inicio />}></Route>
         <Route path="/productos" element={<Produtos />}></Route>
         <Route path="/nosotros" element={<AcercaDe />}></Route>
         <Route path="/salute-tv" element={<SaluteTV />}></Route>
         <Route path="/zonas-entrega" element={<ZonasEntrega />}></Route>
         <Route path='/admin' element={<Admin />}></Route>
+        <Route path='/ingresar' element={<SignIn />}></Route>
+        <Route path='/registrar' element={<SignUp />}></Route>
       </Routes>
     </Layout>
 

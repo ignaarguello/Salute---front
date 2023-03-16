@@ -1,0 +1,6 @@
+@media screen and (min-width:320px) {
+    #container-general__signUp{
+        border: 2px solid slateblue;
+        margin-top: 4.6rem;
+    }
+}

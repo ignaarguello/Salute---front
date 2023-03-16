@@ -9,7 +9,7 @@
     min-height: 80vh;
     display: flex;
     flex-direction: column;
-    gap: 5rem;
+    gap: 2rem;
 }
 
 .titulos-zonas{
@@ -17,7 +17,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px 0;
+    padding: 50px 0 20px 0;
 }
 
 .titulos-zonas span{
@@ -29,30 +29,210 @@
 
 .mapa-texto-cont{
     display: flex;
+    width: 100%;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10rem;
 }
 
 .mapa-zonas{
-
+    width: 50%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
+    padding-right: 50px;
+}
+
+.mapaFrame{
+    border: 2px inset #c249a2;
+    box-shadow: 0 8px 17px 0 rgba(194, 73, 162, 0.361), 0 6px 20px 0 rgba(194, 73, 162, 0.326);
+    transition: .2s ease-in-out;
+    border-radius: 10px;
+    width: 80%;
+    height: 400px;
+}
+
+.mapaFrame:hover{
+    box-shadow: 0 8px 17px 0 rgba(194, 73, 162, 0.674), 0 6px 20px 0 rgb(194, 73, 162);
+    transition: .2s ease-in-out;
 }
 
 .texto-zonas{
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
-
+    padding-left: 50px;
+    gap: 20px;
 }
 
-.texto-zonas span{
+
+.desc-texto-zonas{
+    padding: 0 5% ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.desc-texto-zonas span{
+    font-size: 25px;
+    font-weight: 300;
+}
+
+#BernalEste{
+    position: relative;
+    cursor: pointer;
+}
+
+#BernalEste::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #c249a2;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transform-origin: right;
+    transform: scale(0);
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+#BernalEste:hover{
+    color: #c249a2;
+    font-style: italic;
+    transition: .3s ease-in-out;
+}
+
+#BernalEste:hover::after {
+    transform-origin: left;
+    transform: scale(1);
+}
+
+#hacerPedidoTexto{
+    position: relative;
+    cursor: pointer;
+}
+
+#hacerPedidoTexto::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #c249a2;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transform-origin: right;
+    transform: scale(0);
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+#hacerPedidoTexto:hover{
+    color: #c249a2;
+    font-style: italic;
+    transition: .3s ease-in-out;
+}
+
+#hacerPedidoTexto:hover::after {
+    transform-origin: left;
+    transform: scale(1);
+}
+
+.zonas-color{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 0 5%;
+}
+
+.zonas-color span{
     color: #fff;
     font-size: 20px;
     font-weight: 200;
+}
+
+/*  ------ ICONOS ZONAS ------ */
+#z-rojo{
+    color: red;
+}
+
+#z-verde{
+    color: green;
+}
+
+#z-negro{
+    color: black;
+}
+
+#z-amarillo{
+    color: yellow;
+}
+
+#z-violeta{
+    color: purple;
+}
+
+#z-azul{
+    color: blue;
+}
+
+/* -- MEDIA QUERIES -- */
+
+@media screen and (max-width: 1130px){
+    .mapaFrame{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 890px){
+    .titulos-zonas{
+        padding: 100px 0 20px 0;
+    }
+
+    .mapa-texto-cont{
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+    .texto-zonas{
+        width: 80%;
+        padding-left: 0px;
+    }
+    .desc-texto-zonas{
+        padding: 0
+    }
+    .zonas-color{
+        padding: 0;
+    }
+
+    .mapa-zonas{
+        width: 80%;
+        padding-right: 0;
+        padding-bottom: 50px;
+        justify-content: center;
+    }
+
+    .mapaFrame{
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .titulos-zonas span{
+        font-size: 25px;
+    }
+    .desc-texto-zonas span{
+        font-size: 14px;
+    }
+
+    .zonas-color span{
+        font-size: 14px;
+    }
 }

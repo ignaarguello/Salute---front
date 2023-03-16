@@ -11,7 +11,8 @@ export default function Inicio() {
    const navbar_oscuro = document.querySelector('.Navbar_total')
 
   useEffect(()=>{
-    navbar_oscuro.classList.remove('bg-black')
+    navbar_oscuro?.classList.add('ps_absolute')
+    navbar_oscuro?.classList.remove('bg-black')
   },[])
 
   return (

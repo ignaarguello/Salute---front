@@ -24,6 +24,10 @@
     background-color: transparent!important;
   }
 
+  .navbar-toggler-icon{
+    color: red !important;
+  }
+
   #link-Inicio-Cerrar_navbar {
     color: #c249a2;
   }

@@ -19,7 +19,8 @@ export default function Productos() {
   useEffect(() => {
     dispatch(traer_productos())
     // eslint-disable-next-line
-    navbar_oscuro.classList.add('bg-black')
+    navbar_oscuro?.classList.add('bg-black')
+    navbar_oscuro?.classList.remove('ps_absolute')
   }, [])
 
 

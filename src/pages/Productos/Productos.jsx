@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import CardProd3 from '../../components/CardProducto/CardProd3'
 import './Productos.css'
 import { useRef } from 'react'
@@ -10,6 +10,8 @@ export default function Productos() {
   let inputRef = useRef()
   let dispatch = useDispatch()
 
+  let [checked, setChecked] = useState([])
+
   const { traer_productos, filtrar_productos } = productosActions
   const { productos, tipo, todosLosTipos, nombre } = useSelector(store => store.productos)
 
@@ -18,9 +20,10 @@ export default function Productos() {
 
   useEffect(() => {
     dispatch(traer_productos())
-    // eslint-disable-next-line
+    
     navbar_oscuro?.classList.add('bg-black')
     navbar_oscuro?.classList.remove('ps_absolute')
+    // eslint-disable-next-line
   }, [])
 
 
@@ -39,6 +42,8 @@ export default function Productos() {
 
   const filtroTexto = (event) => {
     // console.log(event.target.outerText);
+    let checks = funcionCheck(event)
+    let urlChecks = checks.map( (check) => `${check}`).join('&tipo=')
     let texto = inputRef.current.value.trim()
     let categorias = tipo
     if (event.target.tagName === 'LI'){
@@ -47,9 +52,22 @@ export default function Productos() {
       } else{
         categorias = event.target.outerText
       }
+    } else if(event.target.type === "checkbox"){
+      categorias = urlChecks
     }
 
     dispatch(filtrar_productos({value: texto, tipo: categorias}))
+  }
+
+  let funcionCheck = (e) => {
+    let auxArray = []
+    if(e.target.checked){
+      auxArray.push(...checked, e.target.value)
+    } else {
+      auxArray = checked.filter( ele => ele !== e.target.value)
+    }
+    setChecked(auxArray)
+    return auxArray
   }
 
 

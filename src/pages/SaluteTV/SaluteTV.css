@@ -1,0 +1,412 @@
+:root{
+    --rosa-primario: #c249a2;
+    --rosa-oscuro: #c249a25c;
+}
+
+#salutetv-pagina-cont {
+    background-image: url("../../../public/images/fondo4.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #0000007c;
+    background-blend-mode: multiply;
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.bienvenida-salutetv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo-salutetv{
+    padding-top: 50px;
+}
+
+.titulo-salutetv span{
+    font-family: 'Gajraj One', cursive;
+    text-align: center;
+    color: #e355bd;
+    font-size: 4rem;
+    font-weight: 600;
+    letter-spacing: 14px;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+    animation: glitch linear 4s infinite;
+    cursor: crosshair;
+}
+
+.titulo-salutetv span:hover{
+    animation-play-state: paused;
+}
+
+.textoAnimado{
+    color: #fff;
+    width: fit-content;
+    height: 2.3rem;
+    line-height: 2rem;
+    font-size: 2rem;
+    font-weight: 200;
+    display: flex;
+    overflow: hidden;
+}
+
+.textoAnimado ul{
+    list-style: none;
+    padding-left: 13px;
+    animation: cambiartipo 10s infinite;
+}
+
+.textoAnimado ul li{
+    color: var(--rosa-primario);
+    font-weight: 500;
+}
+
+.salutetv-segundoCont{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.info-canal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 3rem;
+}
+
+#logo-canalYT{
+    width: 180px;
+    border-radius: 50% 50%;
+    filter: brightness(0.5);
+    transition: all .6s ease-in;
+}
+
+#logo-canalYT:hover{
+    transition: all .4s ease-in;
+    filter: brightness(1);
+    animation: glitchRedondo linear 8s infinite;
+}
+
+/*  --- COMENTARIOS ---- */
+
+.comentariosCont{
+    background-color: #e5e5e5c0;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 65%;
+    padding: 15px;
+}
+
+.inputComentario{
+    background-color: #e5e5e500;
+    border: none;
+    min-height: 25px;
+    line-height: 20px;
+    font-size: 15px;
+    color: #000;
+    max-width: 100%;
+    resize: none;
+}
+
+.inputComentario:focus{
+    border: none;
+    outline: none;
+    font-weight: 500;
+    min-height: 65px;
+}
+
+.comentarios{
+    display: flex;
+    flex-direction: column;
+    padding: 4px 0;
+    border-top: 1px solid #8a8a8a;
+    border-bottom: 1px solid #8a8a8a;
+}
+
+#nombreComentario{
+    color: #000045;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#textoComentario{
+    font-weight: 500;
+    color: #000;
+}
+
+/*  ----- VIDEO -------- */
+
+.video-canalCont{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-canal{
+    width: 85%;
+    height: 350px;
+    border: 2px inset #c249a2;
+}
+
+/*  ---------- ANIMACIONES KEYFRAMES ----------- */
+
+@keyframes cambiartipo{
+    0% { margin-top: 0;}
+    15% { margin-top: 0;}
+
+    20% { margin-top: -2rem;}
+    35% { margin-top: -2rem;}
+
+    40% { margin-top: -4rem;}
+    55% { margin-top: -4rem;}
+
+    60% { margin-top: -6rem;}
+    75% { margin-top: -6rem;}
+
+    80% { margin-top: -8rem;}
+    95% { margin-top: -8rem;}
+
+    100% { margin-top: 0;}
+}
+
+@keyframes cambiartipo2{
+    0% { margin-top: 0;}
+    15% { margin-top: 0;}
+
+    20% { margin-top: -1.1rem;}
+    35% { margin-top: -1.1rem;}
+
+    40% { margin-top: -2.2rem;}
+    55% { margin-top: -2.2rem;}
+
+    60% { margin-top: -3.3rem;}
+    75% { margin-top: -3.3rem;}
+
+    80% { margin-top: -4.4rem;}
+    95% { margin-top: -4.4rem;}
+
+    100% { margin-top: 0;}
+}
+
+@keyframes glitch{
+        0% {
+        text-shadow:
+            4px -4px 0 hsla(0, 100%, 50%, 1), 
+            3px -3px 0 hsla(0, 100%, 50%, 1), 
+            2px -2px 0 hsla(0, 100%, 50%, 1), 
+            1px -1px 0 hsla(0, 100%, 50%, 1),
+            -4px 4px 0 hsla(180, 100%, 50%, 1), 
+            -3px 3px 0 hsla(180, 100%, 50%, 1), 
+            -2px 2px 0 hsla(180, 100%, 50%, 1), 
+            -1px 1px 0 hsla(180, 100%, 50%, 1)
+        ;
+        }
+        25% {    
+        text-shadow:      
+            -4px -4px 0 hsla(180, 100%, 50%, 1), 
+            -3px -3px 0 hsla(180, 100%, 50%, 1), 
+            -2px -2px 0 hsla(180, 100%, 50%, 1), 
+            -1px -1px 0 hsla(180, 100%, 50%, 1),
+            4px 4px 0 hsla(0, 100%, 50%, 1), 
+            3px 3px 0 hsla(0, 100%, 50%, 1), 
+            2px 2px 0 hsla(0, 100%, 50%, 1), 
+            1px 1px 0 hsla(0, 100%, 50%, 1)      
+        ;
+        }
+        50% {
+        text-shadow:
+            -4px 4px 0 hsla(0, 100%, 50%, 1), 
+            -3px 3px 0 hsla(0, 100%, 50%, 1), 
+            -2px 2px 0 hsla(0, 100%, 50%, 1), 
+            -1px 1px 0 hsla(0, 100%, 50%, 1),
+            4px -4px 0 hsla(180, 100%, 50%, 1), 
+            3px -3px 0 hsla(180, 100%, 50%, 1), 
+            2px -2px 0 hsla(180, 100%, 50%, 1), 
+            1px -1px 0 hsla(180, 100%, 50%, 1)
+        ;
+        }
+        75% {
+        text-shadow:
+            4px 4px 0 hsla(180, 100%, 50%, 1), 
+            3px 3px 0 hsla(180, 100%, 50%, 1), 
+            2px 2px 0 hsla(180, 100%, 50%, 1), 
+            1px 1px 0 hsla(180, 100%, 50%, 1),
+            -4px -4px 0 hsla(0, 100%, 50%, 1), 
+            -3px -3px 0 hsla(0, 100%, 50%, 1), 
+            -2px -2px 0 hsla(0, 100%, 50%, 1), 
+            -1px -1px 0 hsla(0, 100%, 50%, 1)      
+        ;
+        }
+        100% {
+        text-shadow:
+            4px -4px 0 hsla(0, 100%, 50%, 1), 
+            3px -3px 0 hsla(0, 100%, 50%, 1), 
+            2px -2px 0 hsla(0, 100%, 50%, 1), 
+            1px -1px 0 hsla(0, 100%, 50%, 1),
+            -4px 4px 0 hsla(180, 100%, 50%, 1), 
+            -3px 3px 0 hsla(180, 100%, 50%, 1), 
+            -2px 2px 0 hsla(180, 100%, 50%, 1), 
+            -1px 1px 0 hsla(180, 100%, 50%, 1)
+        ;
+    }
+}
+
+@keyframes glitchRedondo{
+        0% {
+        box-shadow:
+            4px -4px 0 hsla(0, 100%, 50%, 1), 
+            3px -3px 0 hsla(0, 100%, 50%, 1), 
+            2px -2px 0 hsla(0, 100%, 50%, 1), 
+            1px -1px 0 hsla(0, 100%, 50%, 1),
+            -4px 4px 0 hsla(180, 100%, 50%, 1), 
+            -3px 3px 0 hsla(180, 100%, 50%, 1), 
+            -2px 2px 0 hsla(180, 100%, 50%, 1), 
+            -1px 1px 0 hsla(180, 100%, 50%, 1)
+        ;
+        }
+        25% {    
+        box-shadow:      
+            -4px -4px 0 hsla(180, 100%, 50%, 1), 
+            -3px -3px 0 hsla(180, 100%, 50%, 1), 
+            -2px -2px 0 hsla(180, 100%, 50%, 1), 
+            -1px -1px 0 hsla(180, 100%, 50%, 1),
+            4px 4px 0 hsla(0, 100%, 50%, 1), 
+            3px 3px 0 hsla(0, 100%, 50%, 1), 
+            2px 2px 0 hsla(0, 100%, 50%, 1), 
+            1px 1px 0 hsla(0, 100%, 50%, 1)      
+        ;
+        }
+        50% {
+        box-shadow:
+            -4px 4px 0 hsla(0, 100%, 50%, 1), 
+            -3px 3px 0 hsla(0, 100%, 50%, 1), 
+            -2px 2px 0 hsla(0, 100%, 50%, 1), 
+            -1px 1px 0 hsla(0, 100%, 50%, 1),
+            4px -4px 0 hsla(180, 100%, 50%, 1), 
+            3px -3px 0 hsla(180, 100%, 50%, 1), 
+            2px -2px 0 hsla(180, 100%, 50%, 1), 
+            1px -1px 0 hsla(180, 100%, 50%, 1)
+        ;
+        }
+        75% {
+        box-shadow:
+            4px 4px 0 hsla(180, 100%, 50%, 1), 
+            3px 3px 0 hsla(180, 100%, 50%, 1), 
+            2px 2px 0 hsla(180, 100%, 50%, 1), 
+            1px 1px 0 hsla(180, 100%, 50%, 1),
+            -4px -4px 0 hsla(0, 100%, 50%, 1), 
+            -3px -3px 0 hsla(0, 100%, 50%, 1), 
+            -2px -2px 0 hsla(0, 100%, 50%, 1), 
+            -1px -1px 0 hsla(0, 100%, 50%, 1)      
+        ;
+        }
+        100% {
+        box-shadow:
+            4px -4px 0 hsla(0, 100%, 50%, 1), 
+            3px -3px 0 hsla(0, 100%, 50%, 1), 
+            2px -2px 0 hsla(0, 100%, 50%, 1), 
+            1px -1px 0 hsla(0, 100%, 50%, 1),
+            -4px 4px 0 hsla(180, 100%, 50%, 1), 
+            -3px 3px 0 hsla(180, 100%, 50%, 1), 
+            -2px 2px 0 hsla(180, 100%, 50%, 1), 
+            -1px 1px 0 hsla(180, 100%, 50%, 1)
+        ;
+    }
+}
+
+/* @keyframes blur{
+    from{
+        text-shadow:0px 0px 10px #fff,
+        0px 0px 10px #fff, 
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 50px #7B96B8,
+        0px 0px 150px #7B96B8,
+        0px 10px 100px #7B96B8,
+        0px 10px 100px #7B96B8,
+        0px 10px 100px #7B96B8,
+        0px 10px 100px #7B96B8,
+        0px -10px 100px #7B96B8,
+        0px -10px 100px #7B96B8;
+    }
+} */
+
+/* --- media queries --- */
+
+@media screen and (max-width: 1180px){
+    .titulo-salutetv span{
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 880px){
+    .salutetv-segundoCont{
+        flex-wrap: wrap;
+    }
+
+    .titulo-salutetv{
+        padding-top: 120px;
+    }
+
+    .titulo-salutetv span{
+        font-size: 1.1rem;
+        animation: none;
+        color: #fff;
+        letter-spacing: 5px;
+    }
+    #salutetv-pagina-cont {
+        justify-content: center;
+        gap: 2rem;
+        padding-bottom: 3rem;
+    }
+    .salutetv-segundoCont{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+    }
+    .info-canal{
+        gap: 25px;
+    }
+}
+
+@media screen and (max-width: 570px){
+    .textoAnimado{
+        height: 1.1rem;
+        line-height: 1.1rem;
+        font-size: 1.1rem;
+        font-weight: 200;
+        display: flex;
+        overflow: hidden;
+    }
+    .textoAnimado ul{
+        animation: cambiartipo2 10s infinite;
+        padding-left: 5px;
+    }
+    .titulo-salutetv span{
+        font-size: 1rem;
+        animation: none;
+        color: #fff;
+        letter-spacing: 3px;
+    }
+    .video-canal{
+        height: 250px;
+        border: 2px inset #c249a2;
+    }
+    #logo-canalYT{
+        width: 100px;
+    }
+}

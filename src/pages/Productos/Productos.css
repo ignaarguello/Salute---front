@@ -216,6 +216,15 @@
     font-size: 0.9rem;
     font-weight: 600;
   }
+
+  .notFoundProd {
+    width: 60%;
+    gap: 2rem;
+  }
+
+  .notFoundProd span {
+    font-size: 1.2rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -232,6 +241,8 @@
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
 
   #productos-pagina-cont {
@@ -244,6 +255,15 @@
   #container-cards__productos {
     justify-content: space-around;
   }
+
+  .notFoundProd {
+    width: 90%;
+    gap: 1rem;
+  }
+
+  #vasoNotFound {
+    width: 120px;
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -255,6 +275,7 @@
     flex-direction: column;
     gap: 0.5rem;
     justify-content: center;
+    align-items: start;
   }
 
   .checkboxUno {

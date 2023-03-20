@@ -4,10 +4,16 @@ import { useRef, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from "react-router";
 import { Link } from 'react-router-dom';
+import usuariosActions from '../../redux/actions/usuariosActions'
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
 
 export default function SignIn() {
   //Variable que usa el useEffect para el navbar oscuro, traida por JQUERY
   const navbar_oscuro = document.querySelector('.Navbar_total')
+
+  //Variables de redux de usuarios
+  const { ingreso_usuario } = usuariosActions
 
   useEffect(() => {
     navbar_oscuro?.classList.add('bg-black')
@@ -29,8 +35,30 @@ export default function SignIn() {
       contraseña: contraseñaRef.current?.value
     }
 
-    console.log(data)
+    try {
+      let res = await dispatch(ingreso_usuario(data))
+      console.log('Respuesta', res)
+      if (res.payload.success) {
 
+        Toastify({
+          text: `Bienvenido ${res.payload.response.user.nombre} - Buena Compra 🛍`,
+          duration: 3000
+        }).showToast();
+
+        setTimeout(() => {
+          navigate('/')
+        }, 3000)
+      }
+
+      else{
+        Toastify({
+          text: `- ${res.payload.response} -`,
+          duration: 3000
+        }).showToast();
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -40,7 +68,7 @@ export default function SignIn() {
         <h2 id='titulo-iniciarSesion__signIn'>Iniciar Sesion</h2>
         <form id='formulario-singIn' onSubmit={ingreso}>
           <div className="container-inputs__signIn">
-            <label htmlFor="input-email-SI" className='labelForm-SI'>Email</label>
+            <label htmlFor="input-email-SI" className='labelForm-SI'>Email:</label>
             <input type="email" name='input-email-SI' id='input-email' className='input-SI' placeholder='Email' required ref={emailRef} />
           </div>
           <div className="container-inputs__signIn">

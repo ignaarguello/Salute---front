@@ -23,7 +23,7 @@
     background-image: url(../../../public/images/fondo.signinMobile2.png);
     background-size: cover;
     background-blend-mode: multiply;
-    background-color: rgba(0, 0, 0, 0.520);
+    background-color: rgba(0, 0, 0, 0.52);
   }
 
   .container-inputs__signIn {
@@ -86,21 +86,92 @@
     font-size: 15px;
     font-weight: 300;
   }
-  
-  #titulo_noTenesCuenta__signIn{
-      text-decoration: none;
-      text-align: center;
-      margin: 8px 0;
-      color: white;
-      font-weight: 200;
+
+  #titulo_noTenesCuenta__signIn {
+    text-decoration: none;
+    text-align: center;
+    margin: 8px 0;
+    color: white;
+    font-weight: 200;
   }
 }
 
-/* ? Copiar en media query 1024 aprox */
-/* .containers-generales_signIn:nth-child(1){
-        background-image: url(../../../public/images/fondo-signin.png);
-        background-size: cover;
-        background-blend-mode: multiply;
-        background-color: rgba(0, 0, 0, 0.250);
-        background-position-x: -80px;
-    } */
+@media screen and (min-width: 768px) {
+  #formulario-singIn {
+    width: 70%;
+  }
+
+  .containers-generales_signIn:nth-child(2) {
+    align-items: center;
+  }
+
+  .labelForm-SI {
+    font-size: 22px;
+  }
+
+  .input-SI {
+    font-size: 16px;
+  }
+
+  #button-submit__signIn {
+    width: 50%;
+    margin: 1rem 0;
+  }
+
+  #titulo_noTenesCuenta__signIn {
+    margin: 10px 0;
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #container-general__SignIn {
+    display: flex;
+  }
+  #formulario-singIn {
+    width: 80%;
+  }
+
+  .containers-generales_signIn:nth-child(1) {
+    display: inline-block;
+    width: 65%;
+    background-image: url(../../../public/images/fondo-signin.png);
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.25);
+    background-position-x: -80px;
+  }
+
+  .containers-generales_signIn:nth-child(2) {
+    align-items: center;
+    background: none;
+    background-color: white;
+    width: 35%;
+    justify-content: center;
+  }
+
+  #button-submit__signIn {
+    width: 50%;
+    margin: 1rem 0;
+  }
+
+  #titulo_noTenesCuenta__signIn {
+    color: black;
+    font-weight: 300;
+  }
+
+  #titulo-iniciarSesion__signIn{
+    color: black;
+  }
+
+  .input-SI {
+    color: black ;
+  }
+
+  .input-SI:focus {
+    color: black;
+    font-weight: 300;
+  }
+}

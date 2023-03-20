@@ -12,6 +12,7 @@ import ZonasEntrega from './pages/ZonasEntrega/ZonasEntrega'
 import Admin from './pages/Admin/Admin';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
+import Carrito from './pages/Carrito/Carrito';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path='/admin' element={<Admin />}></Route>
         <Route path='/ingresar' element={<SignIn />}></Route>
         <Route path='/registrar' element={<SignUp />}></Route>
+        <Route path='/carrito' element={<Carrito />}></Route>
       </Routes>
     </Layout>
 

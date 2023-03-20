@@ -10,7 +10,7 @@ export default function CardProd3(props) {
             <div id='producto-container3'>
                     <div id='body-card__prod3'>
                         <div id='foto-container-prod3'>
-                            <img className='foto-prod3' src={img} alt={nombre} />
+                            <img className='foto-prod3' src={img ||'./images/logo-salute.png'} alt={nombre} />
                         </div>
                         <div id='nombre-tipo-container-prod3'>
                             <span className='nombre-prod3'>{nombre}</span>

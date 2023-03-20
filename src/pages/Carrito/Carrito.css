@@ -1,0 +1,106 @@
+:root{
+    --rosa-primario: #c249a2;
+    --rosa-oscuro: #c249a25c;
+}
+
+#carrito-paginaCont {
+    background-image: url("../../../public/images/fondo3.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #000000cb;
+    background-blend-mode: multiply;
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 3% 0;
+}
+
+.primerCont-carrito{
+    background-color: #000000e6;
+    width: 40%;
+    padding: 40px;
+}
+
+.primerCont-carrito h2{
+    color: #ddd;
+    font-weight: bold;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+}
+
+.primerCont-carrito span{
+    color: #ddd;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    font-weight: 200;
+}
+
+.item-carritoCont{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-top: 30px;
+}
+
+.segundoCont-carrito{
+    background-color: #000000e6;
+    width: 20%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.segundoCont-carrito h2{
+    color: #ddd;
+    font-weight: bold;
+    font-size: 2.2rem;
+}
+
+.total-carritoCont{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+}
+
+.subtotal-carritoCont{
+    display: flex;
+    justify-content: space-between;
+}
+
+#cantidad-carrito{
+    color: #ddd;
+    font-size: 1.3rem;
+    font-weight: 200;
+}
+
+#subtotal-carrito{
+    color: #ddd;
+    font-size: 1.3rem;
+    font-weight: 200;
+}
+
+#select-zona-carrito{
+    background-color: #0000007c;
+    color: #ddd;
+}
+
+#total-carrito{
+    color: #ddd;
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+
+#boton-pagar{
+    color: #ddd;
+    background-color: var(--rosa-oscuro);
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+}

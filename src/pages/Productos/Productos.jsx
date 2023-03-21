@@ -96,7 +96,7 @@ export default function Productos() {
         <div id='container-cards__productos'>
           {
             (productos?.length > 0)
-              ? productos?.map((prod) => <CardProd3 key={prod?._id} nombre={prod?.nombre} img={prod?.imagen} precio={prod?.precio} tipo={prod?.tipo} />)
+              ? productos?.map((prod) => <CardProd3 key={prod?._id} producto={prod} nombre={prod?.nombre} img={prod?.imagen} precio={prod?.precio} tipo={prod?.tipo} />)
               : <div className='notFoundProd'>
                   <img id='vasoNotFound' src='https://cdn-icons-png.flaticon.com/512/5386/5386124.png' alt='vaso de vidrio roto'/>
                   <span className='animate__animated animate__fadeInDown animate__slow'>No hay productos que coincidan con esa búsqueda.</span>

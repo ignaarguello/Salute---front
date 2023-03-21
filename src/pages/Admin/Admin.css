@@ -218,3 +218,95 @@
     height: 20px;
     cursor: pointer;
 }
+
+/* 
+*-------------
+* MEDIA QUERIES
+*-------------
+*/
+
+@media screen and (max-width: 1350px){
+    .textoAdmin{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1050px){
+    #admin-pagina-cont{
+        padding: 50px 10px;
+    }
+
+    .adminProd-cont{
+        width: 60%;
+        padding: 1rem;
+        gap: .6rem;
+    }
+
+    .admProd{
+        width: 100%;
+        flex-direction: column;
+        gap: .6rem;
+        border-bottom: 2px solid #ddd;
+        padding: 15px 0;
+    }
+
+    .fotoProdAdm{
+        width: 70px;
+        height: 70px;
+    }
+
+    #admNombreProd, #admTipoProd, #admPrecioProd, #admFotoProd{
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 770px){
+    #admin-pagina-cont{
+        padding: 150px 10px 50px 10px;
+    }
+}
+
+@media screen and (max-width: 680px){
+    #admin-pagina-cont{
+        padding: 100px 10px 50px 10px;
+    }
+
+    .adminProd-cont{
+        width: 90%;
+        padding: 1rem;
+        gap: .6rem;
+    }
+
+    #admNombreProd, #admTipoProd, #admPrecioProd, #admFotoProd{
+        width: 220px;
+    }
+
+    .comoFuncionaAdmin{
+        width: 100%;
+    }
+    .textoAdmin h1{
+        font-size: 1.3rem;
+    }
+    
+    .textoAdmin>p {
+        font-size: .7rem;
+    }
+
+    .admProdNuevo{
+        align-items: center;
+        width: 100%;
+    }
+
+    .btnTipoProd{
+        width: 50px;
+        font-size: 10px;
+    }
+
+    #admNombreProdNuevo, #admPrecioProdNuevo, #admFotoProdNuevo{
+        width: 220px;
+    }
+
+    #admTipoProdNuevo{
+        width: 160px;
+    }
+}

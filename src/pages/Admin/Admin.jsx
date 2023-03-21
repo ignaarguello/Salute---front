@@ -131,43 +131,42 @@ export default function Admin() {
     }
 
     return (
-        <div id='admin-pagina-cont'>
-            <div className='btnNuevoProd' onClick={abrirModal}>{estadoModal === 'modalCerrado' ? '+ AGREGAR PRODUCTO' : 'CERRAR VENTANA'}</div>
-            <form onSubmit={nuevoProductos} className={`${estadoModal}`}>
-                <div className='admProdNuevo'>
-                    <label htmlFor='admNombreProdNuevo'>
-                        <input type='text' placeholder={'Nombre'} required name={'nuevoNombre'} id='admNombreProdNuevo' ref={nuevoNombreRef} />
-                    </label>
-                    <label htmlFor='admTipoProdNuevo' id='label-tipos'>
-                        <div className='btnTipoProd' onClick={abrirTipo}>{tipoBebida === 'tipoAbierto' ? 'Crear categoría' : 'Elegir categoría'}</div>
-                        <input className={`${tipoNuevoBebida}`} id='admTipoProdNuevo' type='text' placeholder='Nuevo tipo de bebida' ref={nuevoTipoCreadoRef} />
-                        <select name='nuevoTipo' id='admTipoProdNuevo' className={`${tipoBebida}`} defaultValue='none' ref={nuevoTipoRef}>
-                            <option defaultValue='none' >Tipo de bebida</option>
-                            {(todosLosTipos?.map(p => <option key={p}  value={p}>{p}</option>))}
-                        </select>
-                    </label>
-                    <label htmlFor='admPrecioProdNuevo'>
-                        <input type='number' placeholder={'Precio'} required name={'nuevoPrecio'} id='admPrecioProdNuevo' ref={nuevoPrecioRef} />
-                    </label>
-                    <label htmlFor='admFotoProdNuevo'>
-                        <input type='text' placeholder={'Imagen'} required name={'nuevoFoto'} id='admFotoProdNuevo' ref={nuevoFotoRef} />
-                    </label>
-                </div>
-                <div className='inputSumbit'>
-                    <input type='submit' value='Crear nuevo producto' />
-                </div>
-            </form>
+            <div id='admin-pagina-cont'>
+                <div className='btnNuevoProd' onClick={abrirModal}>{estadoModal === 'modalCerrado' ? '+ AGREGAR PRODUCTO' : 'CERRAR VENTANA'}</div>
+                <form onSubmit={nuevoProductos} className={`${estadoModal}`}>
+                    <div className='admProdNuevo'>
+                        <label htmlFor='admNombreProdNuevo'>
+                            <input type='text' placeholder={'Nombre'} required name={'nuevoNombre'} id='admNombreProdNuevo' ref={nuevoNombreRef} />
+                        </label>
+                        <label htmlFor='admTipoProdNuevo' id='label-tipos'>
+                            <div className='btnTipoProd' onClick={abrirTipo}>{tipoBebida === 'tipoAbierto' ? 'Crear categoría' : 'Elegir categoría'}</div>
+                            <input className={`${tipoNuevoBebida}`} id='admTipoProdNuevo' type='text' placeholder='Nuevo tipo de bebida' ref={nuevoTipoCreadoRef} />
+                            <select name='nuevoTipo' id='admTipoProdNuevo' className={`${tipoBebida}`} defaultValue='none' ref={nuevoTipoRef}>
+                                <option defaultValue='none' >Tipo de bebida</option>
+                                {(todosLosTipos?.map(p => <option key={p}  value={p}>{p}</option>))}
+                            </select>
+                        </label>
+                        <label htmlFor='admPrecioProdNuevo'>
+                            <input type='number' placeholder={'Precio'} required name={'nuevoPrecio'} id='admPrecioProdNuevo' ref={nuevoPrecioRef} />
+                        </label>
+                        <label htmlFor='admFotoProdNuevo'>
+                            <input type='text' placeholder={'Imagen'} required name={'nuevoFoto'} id='admFotoProdNuevo' ref={nuevoFotoRef} />
+                        </label>
+                    </div>
+                    <div className='inputSumbit'>
+                        <input type='submit' value='Crear nuevo producto' />
+                    </div>
+                </form>
 
-            <div className='textoAdmin'>
-                <h1>EDITAR PRODUCTOS</h1>
-                <p>¿Cómo funciona el editor de productos?</p>
-                <div className='comoFuncionaAdmin'>
-                    <p>- Todos los campos son editables, al modificar cualquier dato se actualiza automáticamente el producto, sin necesidad de hacer click en ningún botón extra.</p>
-                    <p>- El botón rojo del final de cada campo elimina el producto seleccionado.</p>
-                    <p>- Los datos de cada producto NO pueden quedar en blanco, ya que afectaría directamente a la página principal y, asimismo, a la experiencia de los clientes.</p>
+                <div className='textoAdmin'>
+                    <h1>EDITAR PRODUCTOS</h1>
+                    <p>¿Cómo funciona el editor de productos?</p>
+                    <div className='comoFuncionaAdmin'>
+                        <p>- Todos los campos son editables, al modificar cualquier dato se actualiza automáticamente el producto, sin necesidad de hacer click en ningún botón extra.</p>
+                        <p>- El botón rojo del final de cada campo elimina el producto seleccionado.</p>
+                        <p>- Los datos de cada producto NO pueden quedar en blanco, ya que afectaría directamente a la página principal y, asimismo, a la experiencia de los clientes.</p>
+                    </div>
                 </div>
-            </div>
-            <div>
                 <form className='adminProd-cont'>
                     {productos?.map((prod) => (
                         <div key={prod._id} className='admProd' id={prod._id}>
@@ -194,6 +193,5 @@ export default function Admin() {
                     ))}
                 </form>
             </div>
-        </div>
     )
 }

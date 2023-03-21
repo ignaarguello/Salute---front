@@ -4,7 +4,13 @@ import { BsCart2 } from "react-icons/bs";
 
 
 export default function CardProd3(props) {
-    let {img, nombre, tipo, precio, id} = props
+    let {img, nombre, tipo, precio, producto} = props
+
+    const agregarAlCarrito = (prod) => {
+        // dispatch(agregar_carrito(prod))
+        
+        console.log(prod);
+    }
 
     return (
             <div id='producto-container3'>
@@ -17,8 +23,8 @@ export default function CardProd3(props) {
                             <span className='tipo-prod3'>{tipo}</span>
                         </div>
                         <div id='precio-comprar-container3'>
-                            <span className='precio-prod3'>{precio}$</span>
-                            <div className='comprar-prod3'><BsCart2 />Agregar</div>
+                            <span className='precio-prod3'>${precio}</span>
+                            <div className='comprar-prod3' onClick={() => agregarAlCarrito(producto)}><BsCart2 />Agregar</div>
                         </div>
                     </div>
             </div>

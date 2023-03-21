@@ -14,6 +14,7 @@ export default function Inicio() {
     navbar_oscuro?.classList.add('ps_absolute')
     navbar_oscuro?.classList.remove('bg-black')
   },[])
+  
 
   return (
     <>

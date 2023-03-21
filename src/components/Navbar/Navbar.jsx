@@ -9,6 +9,7 @@ import { BiMap } from "react-icons/bi";
 import { AiFillSetting } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux'
+import { BiUserX, BiUserPlus } from "react-icons/bi";
 
 function CollapsibleExample() {
 
@@ -48,13 +49,13 @@ function CollapsibleExample() {
             {logeado === false ? (
             //? Si el usuario NO esta logeado
               <div id='container-cierre-inicio__navbar'>
-                <HiUsers id='logo-user__navbar' />
+                <BiUserPlus id='logo-user__navbar' />
                 <Link className='item-link__navbar' id='link-Inicio-Cerrar_navbar' to='/ingresar' > Iniciar Sesión </Link>
               </div>
               //? Si el usuario esta logeado
             ) :
               <div id='container-cierre-inicio__navbar'>
-                <HiUsers id='logo-user__navbar' />
+                <BiUserX id='logo-user__navbar' />
                 <Link className='item-link__navbar' id='link-Inicio-Cerrar_navbar' to='/' > Cerrar Sesion </Link>
               </div>
             }

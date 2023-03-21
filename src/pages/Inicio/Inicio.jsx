@@ -14,12 +14,13 @@ export default function Inicio() {
     navbar_oscuro?.classList.add('ps_absolute')
     navbar_oscuro?.classList.remove('bg-black')
   },[])
+  
 
   return (
     <>
       <Banner />
       <BannerEnvios />
-      <h2 id='titulo-destacados__home'>Nuestro productos destacados</h2>
+      <h2 id='titulo-destacados__home'>Nuestros productos destacados</h2>
       <CardsHome/>
       <BackgroundHome/>
     </>

@@ -26,6 +26,7 @@ export default function Carrito() {
                     <CarritoItem nombre={productos?.[2]?.nombre} img={productos?.[2]?.imagen} tipo={productos?.[2]?.tipo} precio={productos?.[2]?.precio} />
                     <CarritoItem nombre={productos?.[3]?.nombre} img={productos?.[3]?.imagen} tipo={productos?.[3]?.tipo} precio={productos?.[3]?.precio} />
                     <CarritoItem nombre={productos?.[4]?.nombre} img={productos?.[4]?.imagen} tipo={productos?.[4]?.tipo} precio={productos?.[4]?.precio} />
+
                 </div>
             </div>
             <div className='segundoCont-carrito'>

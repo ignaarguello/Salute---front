@@ -1,23 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+
 @media screen and (min-width:320px) {
     #titulo-destacados__home{
-        font-size: 18px;
-        margin: 1.5rem 0;
-        text-align: center;
+        font-size: 38px;
+        margin: 1.5rem 1.5rem;
         font-weight: 300;
+        font-family: 'Saira Condensed', sans-serif;
+        width: 50%;
+        color: #b1258b;
     }
 }
 
 @media screen and (min-width:425px) {
     #titulo-destacados__home{
-        font-size: 23px;
+        font-size: 40px;
         font-weight: 400;
+        width: 40%;
+        color: #b1258b;
+        margin: 2rem 1.5rem;
     }
 }
 
 @media screen and (min-width:768px) {
     #titulo-destacados__home{
-        font-size: 30px;
+        font-size: 48px;
         margin: 3rem 0;
+        width: 100%;
+        margin: 3rem 0rem;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width:1220px) {
+    #titulo-destacados__home{
+        font-size: 38px;
+        margin: 3rem 0;
+        width: 100%;
+        margin: 3rem 3rem;
+        text-align: left;
+        color: #790d5c;
+        font-family: 'Manrope', sans-serif;
+        transition: .3s ease-out;
+        display:inline;
+    }
+
+    #titulo-destacados__home:hover{
+        text-shadow: .5px 0px #961172;
+        cursor: pointer;
     }
 }
 

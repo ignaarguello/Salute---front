@@ -42,7 +42,10 @@ export default function SignIn() {
 
         Toastify({
           text: `Bienvenido ${res.payload.response.user.nombre} - Buena Compra 🛍`,
-          duration: 3000
+          duration: 4500,
+          style: {
+            background: "#006400",
+          },
         }).showToast();
 
         setTimeout(() => {
@@ -53,7 +56,10 @@ export default function SignIn() {
       else{
         Toastify({
           text: `- ${res.payload.response} -`,
-          duration: 3000
+          duration: 2000,
+          style: {
+            background: "#ff0000",
+          },
         }).showToast();
       }
     } catch (error) {

@@ -13,7 +13,7 @@ export default function Carrito() {
     useEffect( () => {
         dispatch(traer_productos())
     }, [])
-    console.log(productos);
+
 
     return (
         <div id='carrito-paginaCont'>
@@ -21,7 +21,7 @@ export default function Carrito() {
                 <h2>Tu carrito de compras</h2>
                 <span>5 artículos en total</span>
                 <div className='item-carritoCont'>
-                    <CarritoItem nombre={productos?.[0].nombre} img={productos?.[0].imagen} tipo={productos?.[0].tipo} precio={productos?.[0].precio} />
+                    <CarritoItem nombre={productos?.[0]?.nombre} img={productos?.[0]?.imagen} tipo={productos?.[0]?.tipo} precio={productos?.[0]?.precio} />
                 </div>
             </div>
             <div className='segundoCont-carrito'>

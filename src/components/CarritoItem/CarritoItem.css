@@ -41,4 +41,42 @@
     width: 7%;
     height: max-content;
     color: white;
+    cursor: pointer;
+}
+
+/* 
+* -----------------
+* MEDIA QUERIES
+* -----------------
+*/
+
+@media screen and (max-width: 990px){
+    #nombre-itemCarrito{
+        font-size: 1.1rem;
+    }
+    #tipo-itemCarrito{
+        font-size: .7rem;
+    }
+    .foto-itemCarrito{
+        height: 80px;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .foto-itemCarrito{
+        width: 30%;
+        height: 70px;
+    }
+
+    .info-itemCarrito{
+        width: 60%;
+    }
+
+    #nombre-itemCarrito{
+        font-size: 1rem;
+    }
+
+    .borrar-itemCarrito{
+        width: 10%;
+    }
 }

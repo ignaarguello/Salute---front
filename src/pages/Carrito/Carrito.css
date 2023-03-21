@@ -43,6 +43,8 @@
     flex-direction: column;
     flex-wrap: wrap;
     padding-top: 30px;
+    width: 90%;
+    gap: 1rem;
 }
 
 .segundoCont-carrito{
@@ -51,7 +53,7 @@
     padding: 40px;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
 }
 
 .segundoCont-carrito h2{
@@ -103,4 +105,59 @@
     width: 100%;
     text-align: center;
     margin-top: 1rem;
+}
+
+/* 
+* ---------------------
+* MEDIA QUERIES
+* ---------------------
+*/
+
+@media screen and (max-width: 1200px) {
+    .primerCont-carrito{
+        width: 50%;
+    }
+    .segundoCont-carrito{
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 990px){
+    .primerCont-carrito h2{
+        font-size: 1.8rem;
+    }
+
+    .segundoCont-carrito h2{
+        font-size: 1.8rem;
+        line-height: 1.8rem;
+    }
+
+    #carrito-paginaCont{
+        padding: 6% 0;
+    }
+}
+
+@media screen and (max-width: 800px){
+    #carrito-paginaCont{
+        flex-direction: column;
+        align-items: center;
+        padding: 14% 0;
+    }
+
+    .primerCont-carrito{
+        width: 95%;
+    }
+
+    .primerCont-carrito h2{
+        font-size: 1.6rem;
+        line-height: 1.6rem
+    }
+
+    .segundoCont-carrito{
+        width: 95%;
+    }
+
+    .item-carritoCont{
+        width: 100%;
+    }
 }

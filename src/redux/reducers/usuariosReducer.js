@@ -27,7 +27,7 @@ const usuarios_reducer = createReducer(initialState, (builder) => {
                 let newState = {
                     ...state,
                     nombre: user.nombre,
-                    rol: user.role,
+                    rol: user.rol,
                     logeado: true,
                     token: token
                 }

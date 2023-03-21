@@ -140,7 +140,7 @@
     background-image: url(../../../public/images/fondo-signin.png);
     background-size: cover;
     background-blend-mode: multiply;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0.212);
     background-position-x: -80px;
   }
 
@@ -155,6 +155,7 @@
   #button-submit__signIn {
     width: 50%;
     margin: 1rem 0;
+    padding: 10px;
   }
 
   #titulo_noTenesCuenta__signIn {

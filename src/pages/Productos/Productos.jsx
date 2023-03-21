@@ -4,6 +4,7 @@ import './Productos.css'
 import { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import productosActions from '../../redux/actions/productosActions'
+import CarritoBoton from '../../components/CarritoBoton/CarritoBoton'
 
 export default function Productos() {
 
@@ -103,6 +104,7 @@ export default function Productos() {
           }
         </div>
       </div>
+      <CarritoBoton />
     </div>
   )
 }

@@ -1,62 +1,220 @@
-@media screen and (min-width:320px) {
-    #container-general__signUp{
-        /* border: 3px solid green; */
-        margin-top: 4.6rem;
-        height: 100vh;
-    }
+@media screen and (min-width: 320px) {
+  #container-general__signUp {
+    /* border: 3px solid green; */
+    margin-top: 4.6rem;
+    height: 100vh;
+  }
 
-    /* ? Container 1 - Display none en resolucion Mobile */
-    .containers__signUp:nth-child(1){
-        display: none;
-    }
+  /* ? Container 1 - Display none en resolucion Mobile */
+  .containers__signUp:nth-child(1) {
+    display: none;
+  }
 
-    /* ? Container 2, ocupa 100% de height en resolucion Mobile */
-    .containers__signUp:nth-child(2){
-        /* border: 2px solid indigo; */
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        background-image: url(../../../public//images/fondo.signinMobile2.png);
-        background-size: cover;
-        background-blend-mode: multiply;
-        background-color: rgba(0, 0, 0, 0.650);
-    }
+  /* ? Container 2, ocupa 100% de height en resolucion Mobile */
+  .containers__signUp:nth-child(2) {
+    /* border: 2px solid indigo; */
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../../../public//images/fondo-sky.png);
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.65);
+    background-position: 0px -60px;
+  }
 
-    #form__signUp{
-        /* border: 2px solid red; */
-        width: 100%;
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1.2rem;
-    }
+  #form__signUp {
+    /* border: 2px solid red; */
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
 
-    .container-input__signUp{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .container-input__signUp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2px 0;
+  }
 
-    .input__signUp{
-        display: flex;
-        width: 90%;
-        background: none;
-        border: none;
-        border-bottom: 1px solid gray;
-        color: white;
-    }
+  .input__signUp {
+    display: flex;
+    width: 90%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid gray;
+    color: white;
+    font-weight: 500;
+  }
 
-    .label-signUp{
-        color: rgb(190, 54, 154);
-    }
+  .label-signUp {
+    color: rgb(179, 34, 140);
+    font-size: 16px;
+    margin: 3px 0px;
+  }
 
-    .input-submit__signUp{
-        cursor: pointer;
-        padding: 8px;
-        border-radius: 40px;
-        width: 60%;
-        border:none;
-        background-color: rgb(117, 39, 97);
-        color: white;
-    }
+  .input-submit__signUp {
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 40px;
+    width: 60%;
+    border: none;
+    background-color: rgb(117, 39, 97);
+    color: white;
+    font-size: 16px;
+    margin-top: 15px;
+  }
+
+  .input-submit__signUp:focus {
+    padding: 8px;
+    transition: 0.5s ease;
+    color: white;
+    font-weight: 200;
+  }
+
+  #titulo-registrarse__signUp {
+    font-weight: 200;
+    font-size: 23px;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    color: rgb(221, 220, 220);
+  }
+
+  #titulo-siYaEstasRegistrado__signUp {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-weight: 200;
+    font-size: 15px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  #form__signUp {
+    gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .containers__signUp:nth-child(2) {
+    background-size: contain;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.753);
+    background-position: -50px 90px;
+  }
+
+  #titulo-registrarse__signUp {
+    font-weight: 200;
+    font-size: 39px;
+    letter-spacing: 1px;
+    margin-top: 4rem;
+    margin-left: 2.5rem;
+    color: rgb(221, 220, 220);
+  }
+
+  #form__signUp {
+    /* border: 2px solid red; */
+    width: 70%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-self: center;
+    margin-top: 0.5rem;
+  }
+
+  .label-signUp {
+    font-size: 23px;
+    margin: 3px 0px;
+  }
+
+  .input-submit__signUp {
+    padding: 11px;
+    width: 50%;
+    font-size: 17px;
+  }
+
+  #titulo-siYaEstasRegistrado__signUp {
+    font-weight: 200;
+    font-size: 20px;
+    margin-top: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 1220px) {
+  #container-general__signUp {
+    margin-top: 4.6rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .containers__signUp:nth-child(2) {
+    width: 40%;
+    background: none;
+    background-color: rgb(12, 12, 12);
+    justify-content: center;
+  }
+
+  .containers__signUp:nth-child(1) {
+    width: 60%;
+    display: flex;
+  }
+
+  .contenedores_cont1__signUp {
+    width: 50%;
+  }
+
+  .contenedores_cont1__signUp:nth-child(1) {
+    background-image: url("../../../public/images/tanqueray.png");
+    background-size: cover;
+    background-position: -10px;
+  }
+
+  .contenedores_cont1__signUp:nth-child(2) {
+    background-image: url("../../../public/images/chandon.png");
+    background-size: cover;
+    background-position: -0px -30px;
+  }
+
+  #form__signUp {
+    gap: 1rem;
+    width: 80%;
+    align-self: flex-start;
+  }
+
+  #titulo-registrarse__signUp {
+    font-size: 33px;
+    margin-top: 2.5rem;
+  }
+
+  #titulo-siYaEstasRegistrado__signUp {
+    margin-bottom: 4rem;
+  }
+
+  .label-signUp {
+    font-size: 19px;
+    align-self: flex-start;
+    margin-left: 2rem;
+    font-weight: 300;
+  }
+
+  .input__signUp::placeholder {
+      text-align: center;
+  }
+
+  .input__signUp {
+    padding: 5px;
+}
+
+#titulo-siYaEstasRegistrado__signUp {
+    text-align: center;
+    font-weight: 200;
+    font-size: 18px;
+    margin-bottom: 8rem;
+    margin-right: 6rem;
+  }
 }

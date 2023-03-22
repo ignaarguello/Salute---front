@@ -15,7 +15,7 @@ export default function SignUp() {
   //Variable de estado para setear los archivos
   const [file, setFile] = useState(null)
 
-  //?Variables de redux de usuarios
+  //?Variables de acciones de redux de usuarios
   const { nuevo_usuario } = usuariosActions
 
   //? Varibles del useRef 
@@ -29,10 +29,8 @@ export default function SignUp() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  //* Funcion que captura y envia la imagen 'avatar' a firebase
 
-
-  //? Funcion que envia la peticion de registro (nuevo_usuario)
+  //? Funcion que envia la peticion de registro - (nuevo_usuario)
   const registrarUsuario = async (e) => {
     e.preventDefault()
     try {
@@ -49,7 +47,6 @@ export default function SignUp() {
       let res = await dispatch(nuevo_usuario(data))
 
       if (res.payload.success) {
-
         Toastify({
           text: `Usuario Registrado, por favor, revisá tu casilla de correo`,
           duration: 4500,
@@ -62,7 +59,6 @@ export default function SignUp() {
           navigate('/ingresar')
         }, 3000)
       }
-
       else {
         Toastify({
           text: `- ${res.payload.response} -`,
@@ -72,7 +68,6 @@ export default function SignUp() {
           },
         }).showToast();
       }
-
     } catch (error) {
       console.log(error)
     }
@@ -82,18 +77,20 @@ export default function SignUp() {
     <div id='container-general__signUp'>
       {/* Contenedor 1 */}
       <div className="containers__signUp">
-
+        <div className="contenedores_cont1__signUp"></div>
+        <div className="contenedores_cont1__signUp"></div>
       </div>
       {/* Contenedor 2 */}
       <div className="containers__signUp">
+        <h2 id='titulo-registrarse__signUp'>Registrarse</h2>
         <form id='form__signUp' onSubmit={registrarUsuario}>
           <div className='container-input__signUp'>
             <label htmlFor="input-nombre_SU" className='label-signUp'>Nombre:</label>
-            <input type="text" className='input__signUp' name='input-nombre_SU' ref={nombreRef} />
+            <input type="text" className='input__signUp' name='input-nombre_SU' placeholder='Nombre' ref={nombreRef} />
           </div>
           <div className='container-input__signUp'>
             <label htmlFor="input-apellido_SU" className='label-signUp'>Apellido:</label>
-            <input type="text" className='input__signUp' name='input-apellido_SU' ref={apellidoRef} />
+            <input type="text" className='input__signUp' name='input-apellido_SU' placeholder='Apellido' ref={apellidoRef} />
           </div>
           <div className='container-input__signUp'>
             <label htmlFor="input-foto_SU" className='label-signUp'>Foto:</label>
@@ -101,16 +98,17 @@ export default function SignUp() {
           </div>
           <div className='container-input__signUp'>
             <label htmlFor="input-email_SU" className='label-signUp'>Email:</label>
-            <input type="email" className='input__signUp' name='input-email_SU' ref={emailRef} onChange={e => setFile(e)} />
+            <input type="email" className='input__signUp' name='input-email_SU' placeholder='Email' ref={emailRef} onChange={e => setFile(e)} />
           </div>
           <div className='container-input__signUp'>
             <label htmlFor="input-password_SU" className='label-signUp'>Contraseña:</label>
-            <input type="password" className='input__signUp' name='input-password_SU' ref={contraseñaRef} />
+            <input type="password" className='input__signUp' name='input-password_SU' placeholder='Contraseña' ref={contraseñaRef} />
           </div>
           <div className='container-input__signUp'>
             <input type="submit" className='input-submit__signUp' value='Registrarse' />
           </div>
         </form>
+        <Link to='/ingresar' id='titulo-siYaEstasRegistrado__signUp'>Si ya tenes cuenta, ¡Ingresá desde aca!</Link>
       </div>
     </div>
   )

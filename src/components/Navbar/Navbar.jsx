@@ -15,9 +15,6 @@ function CollapsibleExample() {
 
   const { rol, logeado } = useSelector(store => store.usuarios)
 
-  console.log(logeado)
-
-
   return (
     <Navbar id='Navbar_navbar' className='Navbar_total' collapseOnSelect expand="lg" bg="grey" variant="grey">
       <Container id='container-general_navbar'>
@@ -43,7 +40,7 @@ function CollapsibleExample() {
               {(logeado && rol === 'admin') ? (
                 //? Si el usuario es Administrador
                 <Link className='item-link__navbar admin__navbar' to='/admin'><AiFillSetting id='tuerca-admin' />Administrador</Link>
-              ) : console.log({ user: 'usuario' })
+              ) : console.log('Es usuario')
               }
             </div>
             {logeado === false ? (

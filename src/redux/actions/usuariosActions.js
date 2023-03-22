@@ -11,7 +11,7 @@ const nuevo_usuario = createAsyncThunk('nuevo_usuario', async(data) =>{
         return {success:true, response: data}
     }catch(error){
         console.log(error)
-        return { success:false, response:'ocurrio un error'}
+        return { success:false, response:error.response.data.message}
     }
 })
 

@@ -1,6 +1,62 @@
 @media screen and (min-width:320px) {
     #container-general__signUp{
-        border: 2px solid slateblue;
+        /* border: 3px solid green; */
         margin-top: 4.6rem;
+        height: 100vh;
+    }
+
+    /* ? Container 1 - Display none en resolucion Mobile */
+    .containers__signUp:nth-child(1){
+        display: none;
+    }
+
+    /* ? Container 2, ocupa 100% de height en resolucion Mobile */
+    .containers__signUp:nth-child(2){
+        /* border: 2px solid indigo; */
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        background-image: url(../../../public//images/fondo.signinMobile2.png);
+        background-size: cover;
+        background-blend-mode: multiply;
+        background-color: rgba(0, 0, 0, 0.650);
+    }
+
+    #form__signUp{
+        /* border: 2px solid red; */
+        width: 100%;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+
+    .container-input__signUp{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input__signUp{
+        display: flex;
+        width: 90%;
+        background: none;
+        border: none;
+        border-bottom: 1px solid gray;
+        color: white;
+    }
+
+    .label-signUp{
+        color: rgb(190, 54, 154);
+    }
+
+    .input-submit__signUp{
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 40px;
+        width: 60%;
+        border:none;
+        background-color: rgb(117, 39, 97);
+        color: white;
     }
 }

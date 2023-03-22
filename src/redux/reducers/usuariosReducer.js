@@ -15,7 +15,10 @@ const usuarios_reducer = createReducer(initialState, (builder) => {
     builder
         .addCase(nuevo_usuario.fulfilled, (state, action) => {
             if (action.payload.success) {
-                return state.perfiles.push(action.payload.response)
+                return{
+                    ...state,
+                    usuarios:action.payload.response
+                }
             }
         })
         .addCase(ingreso_usuario.fulfilled, (state, action) => {

@@ -35,9 +35,8 @@
 @media screen and (min-width:1220px) {
     #titulo-destacados__home{
         font-size: 38px;
-        margin: 3rem 0;
         width: 100%;
-        margin: 3rem 3rem;
+        margin: 0rem 4rem;
         text-align: left;
         color: #790d5c;
         font-family: 'Manrope', sans-serif;

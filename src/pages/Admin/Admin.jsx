@@ -4,12 +4,15 @@ import productosActions from '../../redux/actions/productosActions'
 import './Admin.css'
 import Swal from 'sweetalert2'
 import { uploadImagenes } from '../../firebase/config_firebase'
+import zonasActions from '../../redux/actions/zonasActions'
 
 export default function Admin() {
 
     let dispatch = useDispatch()
     const { traer_productos, crear_producto, eliminar_producto, editar_producto } = productosActions
+    const { traer_zonas, crear_zona } = zonasActions
     const { productos, todosLosTipos, nuevoProducto, productosEliminados, productosEditados } = useSelector(store => store.productos)
+    const { zonas, nuevaZona } = useSelector(store => store.zonas)
 
     let [estadoModal, setEstadoModal] = useState('modalCerrado')
     let [tipoBebida, setTipoBebida] = useState('tipoAbierto')
@@ -29,9 +32,10 @@ export default function Admin() {
 
     useEffect(() => {
         dispatch(traer_productos())
+        dispatch(traer_zonas())
         /* setProdus(productos) */
         // eslint-disable-next-line
-    }, [nuevoProducto, productosEliminados, productosEditados])
+    }, [nuevoProducto, productosEliminados, productosEditados, nuevaZona])
 
     const nuevoProductos = async (e) => {
         e.preventDefault()
@@ -199,6 +203,20 @@ export default function Admin() {
                             <img className='borrarProdAdm' onClick={() => eliminarProducto(prod._id)} src='https://cdn-icons-png.flaticon.com/512/1828/1828843.png' alt='eliminar' />
                         </div>
                     ))}
+                </form>
+                <form className='adminProd-cont'>
+                    <span>ZONAS DE ENTREGA</span>
+                    {zonas?.map( zona => (
+                        <div key={zona._id} className='admProd' id={zona._id} >
+                            <label htmlFor='admNombreZona'> Nombre:
+                                <input type='text' placeholder='Nombre de zona' id='admNombreZona' required defaultValue={zona.nombre} />
+                            </label>
+                            <label htmlFor='admPrecioZona'> Precio:
+                                <input type='number' placeholder='Precio' id='admPrecioZona' required defaultValue={zona.precio} />
+                            </label>
+                        </div>
+                    ))
+                    }
                 </form>
             </div>
     )

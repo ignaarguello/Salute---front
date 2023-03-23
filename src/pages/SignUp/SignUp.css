@@ -147,7 +147,7 @@
 @media screen and (min-width: 1220px) {
   #container-general__signUp {
     margin-top: 4.6rem;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     flex-direction: row-reverse;
   }
@@ -155,7 +155,7 @@
   .containers__signUp:nth-child(2) {
     width: 40%;
     background: none;
-    background-color: rgb(12, 12, 12);
+    background-color: rgb(2, 2, 2);
     justify-content: center;
   }
 
@@ -171,24 +171,25 @@
   .contenedores_cont1__signUp:nth-child(1) {
     background-image: url("../../../public/images/tanqueray.png");
     background-size: cover;
-    background-position: -10px;
+    background-position: 0px;
+    transition: 0.5 ease-out;
   }
 
   .contenedores_cont1__signUp:nth-child(2) {
     background-image: url("../../../public/images/chandon.png");
     background-size: cover;
-    background-position: -0px -30px;
+    background-position: -0px -80px;
   }
 
   #form__signUp {
-    gap: 1rem;
-    width: 80%;
+    gap: 0rem;
+    width: 90%;
     align-self: flex-start;
   }
 
   #titulo-registrarse__signUp {
-    font-size: 33px;
-    margin-top: 2.5rem;
+    font-size: 28px;
+    margin-top: 9rem;
   }
 
   #titulo-siYaEstasRegistrado__signUp {
@@ -196,25 +197,30 @@
   }
 
   .label-signUp {
-    font-size: 19px;
+    font-size: 17px;
     align-self: flex-start;
     margin-left: 2rem;
     font-weight: 300;
   }
 
   .input__signUp::placeholder {
-      text-align: center;
+    text-align: center;
+    font-size: 15px;
   }
 
   .input__signUp {
     padding: 5px;
-}
+  }
 
-#titulo-siYaEstasRegistrado__signUp {
+  #titulo-siYaEstasRegistrado__signUp {
     text-align: center;
     font-weight: 200;
     font-size: 18px;
-    margin-bottom: 8rem;
-    margin-right: 6rem;
+    margin-bottom: 9rem;
+    margin-right: 2rem;
+  }
+
+  .input-submit__signUp {
+    margin-top: 20px;
   }
 }

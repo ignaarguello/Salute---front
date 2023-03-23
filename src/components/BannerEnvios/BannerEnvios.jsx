@@ -10,7 +10,7 @@ export default function BannerEnvios() {
                 </div>
                 <div className="container2-body__BannerEnvios">
                     <h2 className="titulo-item__BannerEnvios">
-                        Contamos con la integración de la pasarela de cobros (API) de mercadopago. Para que puedas realizar tus compras de manera rápida y segura.
+                        Hace tus pedidos de manera rápida y segura. A través de Mercadopago
                     </h2>
                 </div>
             </div>

@@ -129,6 +129,11 @@
     width: 400px;
     height: 30px;
 }
+
+.label-fotoProd{
+    color: #fff;
+    font-size: 15px;
+}
 /*  ---- (cierre inputs nuevo producto) ---- */
 /* ---- (cierre CREADOR NUEVO PRODUCTO) ---- */
 
@@ -279,6 +284,11 @@
 
     #admNombreProd, #admTipoProd, #admPrecioProd, #admFotoProd{
         width: 220px;
+    }
+
+    .label-fotoProd{
+        display: flex;
+        flex-direction: column;
     }
 
     .comoFuncionaAdmin{

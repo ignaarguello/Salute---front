@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import productosActions from '../../redux/actions/productosActions'
 import './Admin.css'
 import Swal from 'sweetalert2'
+import { uploadImagenes } from '../../firebase/config_firebase'
 
 export default function Admin() {
 
@@ -13,6 +14,7 @@ export default function Admin() {
     let [estadoModal, setEstadoModal] = useState('modalCerrado')
     let [tipoBebida, setTipoBebida] = useState('tipoAbierto')
     let [tipoNuevoBebida, setTipoNuevoBebida] = useState('tipoNuevoCerrado')
+    let [fotoProd, setFotoProd] = useState(null)
 
     let nuevoNombreRef = useRef()
     let nuevoPrecioRef = useRef()
@@ -31,34 +33,40 @@ export default function Admin() {
         // eslint-disable-next-line
     }, [nuevoProducto, productosEliminados, productosEditados])
 
-    const nuevoProductos = (e) => {
+    const nuevoProductos = async (e) => {
         e.preventDefault()
 
-        if (nuevoTipoRef?.current?.value === 'Tipo de bebida' && nuevoTipoCreadoRef?.current.value === ""){
-            Swal.fire({
-                position: 'center',
-                icon: 'error',
-                title: 'Selecciona un tipo de bebida',
-                showConfirmButton: false,
-                timer: 1500
-            })
-        } else {
-            const data = {
-                nombre: nuevoNombreRef?.current?.value,
-                tipo: nuevoTipoCreadoRef?.current?.value || nuevoTipoRef?.current.value,
-                precio: nuevoPrecioRef?.current?.value,
-                imagen: nuevoFotoRef?.current?.value,
+        try{
+            const urlFoto = await uploadImagenes(fotoProd)
+            console.log(urlFoto);
+            if (nuevoTipoRef?.current?.value === 'Tipo de bebida' && nuevoTipoCreadoRef?.current.value === ""){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'Selecciona un tipo de bebida',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            } else {
+                const data = {
+                    nombre: nuevoNombreRef?.current?.value,
+                    tipo: nuevoTipoCreadoRef?.current?.value || nuevoTipoRef?.current.value,
+                    precio: nuevoPrecioRef?.current?.value,
+                    imagen: urlFoto,
+                }
+        
+                e.target.reset()
+                dispatch(crear_producto(data))
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Producto creado',
+                    showConfirmButton: false,
+                    timer: 750
+                })
             }
-    
-            e.target.reset()
-            dispatch(crear_producto(data))
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Producto creado',
-                showConfirmButton: false,
-                timer: 750
-            })
+        } catch(error){
+            console.log(error.message);
         }
     }
 
@@ -115,10 +123,10 @@ export default function Admin() {
         } else if(input.target.name === 'editFoto'){
             fotoEdit = input.target.value
         }
-        nombreEdit === "" ? nombreEdit = producto.nombre : console.log("nada");
-        tipoEdit === "" ? tipoEdit = producto.tipo : console.log("nada");
-        precioEdit === "" ? precioEdit = producto.precio : console.log("nada");
-        fotoEdit === "" ? fotoEdit = producto.fotoEdit : console.log("nada");
+        nombreEdit === "" && (nombreEdit = producto.nombre);
+        tipoEdit === "" && (tipoEdit = producto.tipo);
+        precioEdit === "" && (precioEdit = producto.precio);
+        fotoEdit === "" && (fotoEdit = producto.fotoEdit);
 
         let objeto = {
             nombre: nombreEdit,
@@ -126,7 +134,7 @@ export default function Admin() {
             precio: precioEdit,
             imagen: fotoEdit,
         }
-        console.log("OBJETO QUE SE DESPACHA -->",objeto);
+        //console.log("OBJETO QUE SE DESPACHA -->",objeto);
         dispatch(editar_producto({id: producto._id, data: objeto}))
     }
 
@@ -149,8 +157,8 @@ export default function Admin() {
                         <label htmlFor='admPrecioProdNuevo'>
                             <input type='number' placeholder={'Precio'} required name={'nuevoPrecio'} id='admPrecioProdNuevo' ref={nuevoPrecioRef} />
                         </label>
-                        <label htmlFor='admFotoProdNuevo'>
-                            <input type='text' placeholder={'Imagen'} required name={'nuevoFoto'} id='admFotoProdNuevo' ref={nuevoFotoRef} />
+                        <label htmlFor='admFotoProdNuevo' className='label-fotoProd'>Imagen:
+                            <input type='file' aria-label='Imagen' required name={'nuevoFoto'} id='admFotoProdNuevo' ref={nuevoFotoRef} onChange={ e => setFotoProd(e?.target?.files?.[0])} />
                         </label>
                     </div>
                     <div className='inputSumbit'>

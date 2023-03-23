@@ -181,11 +181,21 @@
     gap: 2rem;
 }
 
+.adminProd-cont span{
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
 .admProd{
     display: flex;
     gap: 1rem;
     justify-content: center;
     align-items: center;
+}
+
+.admProd label{
+    display: flex;
+    flex-direction: column;
 }
 
 .fotoProdAdm{

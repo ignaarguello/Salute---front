@@ -3,17 +3,23 @@ import CarritoItem from '../../components/CarritoItem/CarritoItem'
 import './Carrito.css'
 import { useDispatch, useSelector } from 'react-redux'
 import productosActions from '../../redux/actions/productosActions'
+import zonasActions from '../../redux/actions/zonasActions'
 
 export default function Carrito() {
 
     let {productos} = useSelector( store => store.productos)
+    let {zonas} = useSelector( store => store.zonas)
     let dispatch = useDispatch()
     let {traer_productos} = productosActions
+    let {traer_zonas} = zonasActions
 
     useEffect( () => {
         dispatch(traer_productos())
+        dispatch(traer_zonas())
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+    console.log(zonas);
 
     return (
         <div id='carrito-paginaCont'>
@@ -37,7 +43,8 @@ export default function Carrito() {
                         <span id='subtotal-carrito'>$10250</span>
                     </div>
                     <select id='select-zona-carrito'>
-                        <option defaultValue='none'>Zona Rojo ($250)</option>
+                        <option defaultValue='none'>Elija la zona de entrega</option>
+                        {zonas?.map( zona => <option key={zona._id} value={zona.precio}>{zona.nombre} - ${zona.precio}</option>)}
                     </select>
                     <span id='total-carrito'>TOTAL: <strong>$10500</strong></span>
                 </div>

@@ -10,9 +10,9 @@ export default function Admin() {
 
     let dispatch = useDispatch()
     const { traer_productos, crear_producto, eliminar_producto, editar_producto } = productosActions
-    const { traer_zonas, crear_zona } = zonasActions
+    const { traer_zonas, crear_zona, eliminar_zona, editar_zona } = zonasActions
     const { productos, todosLosTipos, nuevoProducto, productosEliminados, productosEditados } = useSelector(store => store.productos)
-    const { zonas, nuevaZona } = useSelector(store => store.zonas)
+    const { zonas, nuevaZona, zonaEliminada, zonaEditada } = useSelector(store => store.zonas)
 
     let [estadoModal, setEstadoModal] = useState('modalCerrado')
     let [tipoBebida, setTipoBebida] = useState('tipoAbierto')
@@ -25,6 +25,9 @@ export default function Admin() {
     let nuevoTipoCreadoRef = useRef()
     let nuevoFotoRef = useRef()
 
+    let nuevaZonaNombreRef = useRef()
+    let nuevaZonaPrecioRef = useRef()
+
     let nombreEditRef = useRef()
     let precioEditRef = useRef()
     let tipoEditRef = useRef()
@@ -35,8 +38,10 @@ export default function Admin() {
         dispatch(traer_zonas())
         /* setProdus(productos) */
         // eslint-disable-next-line
-    }, [nuevoProducto, productosEliminados, productosEditados, nuevaZona])
+    }, [nuevoProducto, productosEliminados, productosEditados, nuevaZona, zonaEliminada, zonaEditada])
 
+
+    // FUNCION para crear productos
     const nuevoProductos = async (e) => {
         e.preventDefault()
 
@@ -73,11 +78,34 @@ export default function Admin() {
             console.log(error.message);
         }
     }
+    //FUNCION para crear zonas de entrega
+    const nuevasZonas = async (e) => {
+        e.preventDefault()
 
+        try {
+                const data = {
+                    nombre: nuevaZonaNombreRef?.current?.value,
+                    precio: nuevaZonaPrecioRef?.current?.value,
+                }
+        
+                e.target.reset()
+                dispatch(crear_zona(data))
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Zona creada',
+                    showConfirmButton: false,
+                    timer: 750
+                })
+        } catch(error){
+            console.log(error.message);
+        }
+    }
+    // FUNCION para abrir el modal de creación de procutos
     const abrirModal = () => {
         estadoModal === 'modalCerrado' ? setEstadoModal('modalAbierto') : setEstadoModal('modalCerrado')
     }
-
+    // FUNCION para abrir el input de cambiar entre "nueva categoria" y "elegir categoria"
     const abrirTipo = () => {
         if(tipoBebida === 'tipoCerrado'){
             setTipoBebida('tipoAbierto')
@@ -87,7 +115,7 @@ export default function Admin() {
             setTipoBebida('tipoCerrado')
         }
     }
-
+    // FUNCION para eliminar productos
     const eliminarProducto = (id) => {
         Swal.fire({
             title: 'Eliminar producto?',
@@ -111,7 +139,31 @@ export default function Admin() {
             }
         })
     }
-
+    // FUNCION para eliminar zonas de entrega
+    const eliminarZona = (id) => {
+        Swal.fire({
+            title: 'Eliminar zona?',
+            text: "No podrás revertir este cambio",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonText: 'Cancelar',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Borrar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch(eliminar_zona(id))
+                Swal.fire({
+                    showConfirmButton: false,
+                    title: 'Eliminado 🚮',
+                    text: 'Se eliminó la zona con éxito.',
+                    icon: 'success',
+                    timer: 600
+                })
+            }
+        })
+    }
+    // FUNCION para editar productos
     const editarProducto = (input, producto) => {
         let nombreEdit = producto.nombre
         let tipoEdit = producto.tipo
@@ -140,6 +192,25 @@ export default function Admin() {
         }
         //console.log("OBJETO QUE SE DESPACHA -->",objeto);
         dispatch(editar_producto({id: producto._id, data: objeto}))
+    }
+    // FUNCION para editar zonas de entrega
+    const editarZona = (input, zona) => {
+        let nombreEdit = zona.nombre
+        let precioEdit = zona.precio
+
+        if(input.target.name === 'editZonaNombre'){
+            nombreEdit = input.target.value
+        } else if(input.target.name === 'editZonaPrecio'){
+            precioEdit = input.target.value
+        }
+        nombreEdit === "" && (nombreEdit = zona.nombre);
+        precioEdit === "" && (precioEdit = zona.precio);
+        let objeto = {
+            nombre: nombreEdit,
+            precio: precioEdit,
+        }
+        //console.log("OBJETO QUE SE DESPACHA -->",objeto);
+        dispatch(editar_zona({id: zona._id, data: objeto}))
     }
 
     return (
@@ -199,25 +270,37 @@ export default function Admin() {
                             <label htmlFor='admFotoProd'>
                                 <input type='text' placeholder={'Imagen'} required ref={fotoEditRef} name={'editFoto'}  id='admFotoProd' onBlur={(e) => editarProducto(e, prod)} defaultValue={prod.imagen} />
                             </label>
-                            {/* <img className='editarProdAdm' onClick={() => editarProducto(prod)} src='https://cdn-icons-png.flaticon.com/512/9631/9631875.png' alt='confirmar cambios'/> */}
                             <img className='borrarProdAdm' onClick={() => eliminarProducto(prod._id)} src='https://cdn-icons-png.flaticon.com/512/1828/1828843.png' alt='eliminar' />
                         </div>
                     ))}
                 </form>
                 <form className='adminProd-cont'>
-                    <span>ZONAS DE ENTREGA</span>
+                    <span>EDITAR ZONAS DE ENTREGA</span>
                     {zonas?.map( zona => (
                         <div key={zona._id} className='admProd' id={zona._id} >
                             <label htmlFor='admNombreZona'> Nombre:
-                                <input type='text' placeholder='Nombre de zona' id='admNombreZona' required defaultValue={zona.nombre} />
+                                <input type='text' placeholder='Nombre de zona' name='editZonaNombre' onBlur={(e) => editarZona(e, zona)} id='admNombreZona' required defaultValue={zona.nombre} />
                             </label>
                             <label htmlFor='admPrecioZona'> Precio:
-                                <input type='number' placeholder='Precio' id='admPrecioZona' required defaultValue={zona.precio} />
+                                <input type='number' placeholder='Precio' name='editZonaPrecio' onBlur={(e) => editarZona(e, zona)} id='admPrecioZona' required defaultValue={zona.precio} />
                             </label>
+                            <img className='borrarProdAdm' onClick={() => eliminarZona(zona._id)} src='https://cdn-icons-png.flaticon.com/512/1828/1828843.png' alt='eliminar' />
                         </div>
                     ))
                     }
                 </form>
+                <div className='adminProd-cont'>
+                    <span>CREAR NUEVA ZONA</span>
+                    <form onSubmit={nuevasZonas} className='admProd'>
+                        <label htmlFor='admNuevaZonaNombre'> Nombre:
+                            <input type='text' placeholder='Nombre de nueva zona' name='nuevaZonaNombre' ref={nuevaZonaNombreRef} id='admNuevaZonaNombre' required/>
+                        </label>
+                        <label htmlFor='admNuevaZonaPrecio'> Precio:
+                            <input type='number' placeholder='Precio de nueva zona' name='nuevaZonaPrecio' ref={nuevaZonaPrecioRef} id='admNuevaZonaPrecio' required/>
+                        </label>
+                        <input type='submit' value='Crear' />
+                    </form>
+                </div>
             </div>
     )
 }

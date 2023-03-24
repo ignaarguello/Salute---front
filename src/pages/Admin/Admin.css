@@ -234,6 +234,13 @@
     cursor: pointer;
 }
 
+/* --- ZONAS DE ENTREGAS */
+
+#admPrecioZona:focus, #admNombreZona:focus{
+    background-color: #adfcab;
+}
+
+
 /* 
 *-------------
 * MEDIA QUERIES

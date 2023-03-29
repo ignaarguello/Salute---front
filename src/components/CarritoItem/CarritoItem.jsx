@@ -4,7 +4,7 @@ import { MdDeleteForever } from "react-icons/md";
 
 export default function CarritoItem(props) {
 
-    let {img, nombre, tipo, precio} = props
+    let {img, nombre, tipo, precio, fnBorrar} = props
 
     return (
         <div id='item-Cont'>
@@ -14,7 +14,7 @@ export default function CarritoItem(props) {
                 <span id='tipo-itemCarrito'>{tipo}</span>
                 <span id='precio-itemCarrito'>${precio}</span>
             </div>
-            <MdDeleteForever className='borrar-itemCarrito'/>
+            <MdDeleteForever onClick={fnBorrar} className='borrar-itemCarrito'/>
         </div>
     )
 }

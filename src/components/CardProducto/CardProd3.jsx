@@ -1,15 +1,34 @@
 import React from 'react'
 import './CardProd3.css'
 import { BsCart2 } from "react-icons/bs";
-
+import carritoActions from '../../redux/actions/carritoActions';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function CardProd3(props) {
     let {img, nombre, tipo, precio, producto} = props
 
-    const agregarAlCarrito = (prod) => {
-        // dispatch(agregar_carrito(prod))
+    let dispatch = useDispatch()
+    let {usuarioId} = useSelector(store => store.usuarios)
+    // let {carrito} = useSelector(store => store.carrito)
+
+    let {agregar_producto} = carritoActions
+
+    const agregarAlCarrito = async (prod) => {
+        const data = {
+            nombre,
+            precio,
+            tipo,
+            imagen: img,
+            productoId: prod._id,
+            usuarioId
+        }
         
-        console.log(prod);
+        try {
+            let epa = await dispatch(agregar_producto(data))
+            console.log(epa);
+        } catch(error){
+            console.log(error);
+        }
     }
 
     return (

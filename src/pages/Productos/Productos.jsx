@@ -21,15 +21,22 @@ export default function Productos() {
   const { traer_productos, filtrar_productos } = productosActions
   const { productos, tipo, todosLosTipos, nombre } = useSelector(store => store.productos)
   let { logeado, usuarioId } = useSelector(store => store.usuarios)
-  let { prodAgregado, prodEliminado} = useSelector( store => store.carrito)
+  let { carrito, prodAgregado, prodEliminado} = useSelector( store => store.carrito)
   const navigate = useNavigate()
-  let {agregar_producto, eliminar_prod_carrito} = carritoActions
+  let {agregar_producto, eliminar_prod_carrito, traer_carrito} = carritoActions
+
+  // let produsCarrito = []
+  let [produsCarrito, setProdusCarrito] = useState((carrito === undefined && []) || ((carrito !== undefined && carrito.length >0) && [carrito]))
+
+  console.log("produs carrito ->!",produsCarrito);
+  console.log("carrito ->!",carrito);
 
   //Variable que usa el useEffect para el navbar oscuro, traida por JQUERY
   const navbar_oscuro = document.querySelector('.Navbar_total')
 
   useEffect(() => {
     dispatch(traer_productos())
+    dispatch(traer_carrito(usuarioId))
     
     navbar_oscuro?.classList.add('bg-black')
     navbar_oscuro?.classList.remove('ps_absolute')
@@ -96,7 +103,8 @@ export default function Productos() {
     
     try {
         if (logeado){
-          if(enCarrito){
+          await dispatch(traer_carrito(usuarioId))
+          if(produsCarrito.find(ele => ele.nombre === nombre)){
             dispatch(eliminar_prod_carrito(productoId))
             Toastify({
               text: `${nombre} se eliminó del carrito`,
@@ -106,7 +114,10 @@ export default function Productos() {
                   color: "#000"
               },
             }).showToast();
+
+            setProdusCarrito(produsCarrito.filter( ele => ele.nombre !== nombre))
           } else{
+            produsCarrito.push(prod)
             let resp = await dispatch(agregar_producto(data))
             // console.log(resp.payload.response);
             if (resp.payload.response.success){
@@ -148,7 +159,7 @@ export default function Productos() {
     } catch(error){
         console.log(error);
     }
-}
+  }
 
   return (
     <div id='productos-pagina-cont'>
@@ -182,8 +193,8 @@ export default function Productos() {
                   precio={prod?.precio} 
                   tipo={prod?.tipo} 
                   fnAgregar={() => agregarAlCarrito(prod)} 
-                  textoBoton={prod.enCarrito ? 'Quitar' : 'Agregar'}
-                  colorBoton={prod.enCarrito ? 'eliminar-prod3' : 'comprar-prod3'}
+                  textoBoton={produsCarrito.find(ele => ele.nombre === prod.nombre) ? 'Quitar' : 'Agregar'}
+                  colorBoton={produsCarrito.find(ele => ele.nombre === prod.nombre) ? 'eliminar-prod3' : 'comprar-prod3'}
                   
                 />)
               : <div className='notFoundProd'>

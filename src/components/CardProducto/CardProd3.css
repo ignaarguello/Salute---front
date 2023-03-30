@@ -126,6 +126,27 @@
     background-color: #FFF;
 }
 
+.eliminar-prod3{
+    /* border: 2px solid red; */
+    background-color: #e34848ba;
+    color: #000;
+    border-radius: 10% / 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .6rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .4s ease;
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 1.5rem;
+}
+
+.eliminar-prod3:hover{
+    background-color: #e93535;
+}
+
 @media screen and (max-width: 768px){
     .nombre-prod3{
         font-size: 1.4rem;

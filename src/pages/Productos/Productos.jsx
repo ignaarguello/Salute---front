@@ -5,6 +5,11 @@ import { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import productosActions from '../../redux/actions/productosActions'
 import CarritoBoton from '../../components/CarritoBoton/CarritoBoton'
+import { useNavigate } from 'react-router-dom'
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
+import Swal from 'sweetalert2';
+import carritoActions from '../../redux/actions/carritoActions'
 
 export default function Productos() {
 
@@ -15,8 +20,10 @@ export default function Productos() {
 
   const { traer_productos, filtrar_productos } = productosActions
   const { productos, tipo, todosLosTipos, nombre } = useSelector(store => store.productos)
-  // const { usuarioId } = useSelector(store => store.usuarios)
-  // console.log(usuarioId);
+  let { logeado, usuarioId } = useSelector(store => store.usuarios)
+  let { prodAgregado, prodEliminado} = useSelector( store => store.carrito)
+  const navigate = useNavigate()
+  let {agregar_producto, eliminar_prod_carrito} = carritoActions
 
   //Variable que usa el useEffect para el navbar oscuro, traida por JQUERY
   const navbar_oscuro = document.querySelector('.Navbar_total')
@@ -27,7 +34,7 @@ export default function Productos() {
     navbar_oscuro?.classList.add('bg-black')
     navbar_oscuro?.classList.remove('ps_absolute')
     // eslint-disable-next-line
-  }, [])
+  }, [prodAgregado, prodEliminado])
 
 
   useEffect( () => {
@@ -73,6 +80,75 @@ export default function Productos() {
     return auxArray
   }
 
+  const agregarAlCarrito = async (prod) => {
+    let {nombre, precio, tipo, imagen, _id: productoId, enCarrito} = prod
+
+    // console.log(prod);
+
+    const data = {
+        nombre,
+        precio,
+        tipo,
+        imagen,
+        productoId,
+        usuarioId
+    }
+    
+    try {
+        if (logeado){
+          if(enCarrito){
+            dispatch(eliminar_prod_carrito(productoId))
+            Toastify({
+              text: `${nombre} se eliminó del carrito`,
+              duration: 1750,
+              style: {
+                  background: "#e95f47",
+                  color: "#000"
+              },
+            }).showToast();
+          } else{
+            let resp = await dispatch(agregar_producto(data))
+            // console.log(resp.payload.response);
+            if (resp.payload.response.success){
+                Toastify({
+                    text: `${resp.payload.response.data.nombre} se agregó al carrito.`,
+                    duration: 1500,
+                    style: {
+                        background: "#006400",
+                    },
+                }).showToast();
+            } else {
+                Toastify({
+                    text: 'Hubo un error al procesar el producto',
+                    duration: 1500,
+                    style: {
+                        background: "#e95f47",
+                    },
+                }).showToast();
+            }
+          }
+        } else {
+            Swal.fire({
+                title: 'Iniciá sesión!',
+                text: 'Para continuar con tu compra debes tener una cuenta en Salute.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonText: 'Volver',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Iniciar Sesión'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    setTimeout(() => {
+                        navigate('/ingresar')
+                    }, 500)
+                }
+            })
+        }
+    } catch(error){
+        console.log(error);
+    }
+}
 
   return (
     <div id='productos-pagina-cont'>
@@ -98,7 +174,18 @@ export default function Productos() {
         <div id='container-cards__productos'>
           {
             (productos?.length > 0)
-              ? productos?.map((prod) => <CardProd3 key={prod?._id} producto={prod} nombre={prod?.nombre} img={prod?.imagen} precio={prod?.precio} tipo={prod?.tipo} />)
+              ? productos?.map((prod) => <CardProd3 
+                  key={prod?._id} 
+                  producto={prod} 
+                  nombre={prod?.nombre} 
+                  img={prod?.imagen} 
+                  precio={prod?.precio} 
+                  tipo={prod?.tipo} 
+                  fnAgregar={() => agregarAlCarrito(prod)} 
+                  textoBoton={prod.enCarrito ? 'Quitar' : 'Agregar'}
+                  colorBoton={prod.enCarrito ? 'eliminar-prod3' : 'comprar-prod3'}
+                  
+                />)
               : <div className='notFoundProd'>
                   <img id='vasoNotFound' src='https://cdn-icons-png.flaticon.com/512/5386/5386124.png' alt='vaso de vidrio roto'/>
                   <span className='animate__animated animate__fadeInDown animate__slow'>No hay productos que coincidan con esa búsqueda.</span>
@@ -106,7 +193,9 @@ export default function Productos() {
           }
         </div>
       </div>
-      <CarritoBoton />
+      { logeado &&
+        <CarritoBoton />
+      }
     </div>
   )
 }

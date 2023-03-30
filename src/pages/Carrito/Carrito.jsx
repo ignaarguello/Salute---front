@@ -28,7 +28,7 @@ export default function Carrito() {
     }, [prodEliminado, prodAgregado])
 
     // console.log(zonas);
-    console.log(carrito);
+    // console.log(carrito);
 
     const precioSubtotal = carrito && carrito.reduce((total, prod) => {
         return total + prod.precio

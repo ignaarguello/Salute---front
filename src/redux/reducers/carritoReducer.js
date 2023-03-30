@@ -13,7 +13,7 @@ const initialState = {
 const carritoReducer = createReducer(initialState, (builder) => {
     builder
         .addCase(traer_carrito.fulfilled, (state, action) => {
-            console.log(action.payload);
+            // console.log(action.payload);
             return {
                 ...state,
                 carrito: action.payload,

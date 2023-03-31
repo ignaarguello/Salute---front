@@ -15,35 +15,45 @@ export default function Productos() {
 
   let inputRef = useRef()
   let dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  let [checked, setChecked] = useState([])
-
-  const { traer_productos, filtrar_productos } = productosActions
+  // Traemos del store de redux
   const { productos, tipo, todosLosTipos, nombre } = useSelector(store => store.productos)
   let { logeado, usuarioId } = useSelector(store => store.usuarios)
   let { carrito, prodAgregado, prodEliminado} = useSelector( store => store.carrito)
-  const navigate = useNavigate()
+  
+  // Importamos las acciones necesarias
+  const { traer_productos, filtrar_productos } = productosActions
   let {agregar_producto, eliminar_prod_carrito, traer_carrito} = carritoActions
+  
+  // Variable para obtener SOLO los productos que correspondan con el usuario que esté logeado
+  let tieneProductos = carrito ? carrito.filter(el => el.usuarioId === usuarioId) : []
 
-  // let produsCarrito = []
-  let [produsCarrito, setProdusCarrito] = useState((carrito === undefined && []) || ((carrito !== undefined && carrito.length >0) && [carrito]))
-
-  console.log("produs carrito ->!",produsCarrito);
-  console.log("carrito ->!",carrito);
-
+  // Variables de estado
+  let [checked, setChecked] = useState([])
+  let [reload, setReload] = useState(false)
+  let [produsCarrito, setProdusCarrito] = useState(tieneProductos)
+  
   //Variable que usa el useEffect para el navbar oscuro, traida por JQUERY
   const navbar_oscuro = document.querySelector('.Navbar_total')
 
+  // Hook para traer los productos y el carrito del usuario
   useEffect(() => {
     dispatch(traer_productos())
     dispatch(traer_carrito(usuarioId))
-    
+
     navbar_oscuro?.classList.add('bg-black')
     navbar_oscuro?.classList.remove('ps_absolute')
     // eslint-disable-next-line
-  }, [prodAgregado, prodEliminado])
+  }, [prodAgregado, prodEliminado, produsCarrito, reload])
 
+  //Hook para recargar los productos cada vez que se actualiza la pagina
+  useEffect(() => {
+    setReload(!reload)
+    // eslint-disable-next-line
+  }, [])
 
+  //Hook para actualizar productos según la busqueda
   useEffect( () => {
     if(tipo || nombre){
       let data = {
@@ -57,6 +67,7 @@ export default function Productos() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // Funcion para filtrar busqueda de productos
   const filtroTexto = (event) => {
     // console.log(event.target.outerText);
     let checks = funcionCheck(event)
@@ -76,6 +87,7 @@ export default function Productos() {
     dispatch(filtrar_productos({value: texto, tipo: categorias}))
   }
 
+  // Funcion para los checkbox en resoluciones pequeñas
   let funcionCheck = (e) => {
     let auxArray = []
     if(e.target.checked){
@@ -87,10 +99,9 @@ export default function Productos() {
     return auxArray
   }
 
+  // Funcion para agregar al carrito el producto seleccionado
   const agregarAlCarrito = async (prod) => {
-    let {nombre, precio, tipo, imagen, _id: productoId, enCarrito} = prod
-
-    // console.log(prod);
+    let {nombre, precio, tipo, imagen, _id: productoId} = prod
 
     const data = {
         nombre,
@@ -157,7 +168,7 @@ export default function Productos() {
             })
         }
     } catch(error){
-        console.log(error);
+        console.log(error.message);
     }
   }
 
@@ -193,8 +204,8 @@ export default function Productos() {
                   precio={prod?.precio} 
                   tipo={prod?.tipo} 
                   fnAgregar={() => agregarAlCarrito(prod)} 
-                  textoBoton={produsCarrito.find(ele => ele.nombre === prod.nombre) ? 'Quitar' : 'Agregar'}
-                  colorBoton={produsCarrito.find(ele => ele.nombre === prod.nombre) ? 'eliminar-prod3' : 'comprar-prod3'}
+                  textoBoton={produsCarrito?.find(ele => ele.nombre === prod.nombre) ? 'Quitar' : 'Agregar'}
+                  colorBoton={produsCarrito?.find(ele => ele.nombre === prod.nombre) ? 'eliminar-prod3' : 'comprar-prod3'}
                   
                 />)
               : <div className='notFoundProd'>

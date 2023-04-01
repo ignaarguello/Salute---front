@@ -1,7 +1,7 @@
 @media screen and (min-width: 320px) and (max-width: 428px) {
   #container-banner-foto__banner {
     width: 100%;
-    background-image: url(../../../public/images/\ banner1.jpg);
+    background-image: url(../../../public/images/banner1.jpg);
     height: 100vh;
     background-size: cover;
     display: none;
@@ -72,7 +72,7 @@
   #container-banner-foto__banner {
     width: 100%;
     background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
-      url(../../../public/images/\ banner1.jpg);
+      url(../../../public/images/banner1.jpg);
     height: 100vh;
     background-size: cover;
     display: flex;
@@ -139,7 +139,7 @@
 @media screen and (min-width: 1220px) {
   #container-banner-foto__banner {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)),
-      url(../../../public/images/\ banner1.jpg);
+      url(../../../public/images/banner1.jpg);
     padding: 2rem;
     gap: 0.1rem;
   }
@@ -180,7 +180,7 @@
 @media screen and (min-width: 1440px) {
   #container-banner-foto__banner {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)),
-      url(../../../public/images/\ banner1.jpg);
+      url(../../../public/images/banner1.jpg);
     padding: 1.6rem;
     gap: 0.2rem;
   }

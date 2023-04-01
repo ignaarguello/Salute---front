@@ -83,7 +83,7 @@ export default function SignUp() {
       {/* Contenedor 2 */}
       <div className="containers__signUp">
         <h2 id='titulo-registrarse__signUp'>Registrarse</h2>
-        <form id='form__signUp' onSubmit={registrarUsuario}>
+        <form id='form__signUp' onSubmit={registrarUsuario} className='animate__animated animate__fadeIn '>
           <div className='container-input__signUp'>
             <label htmlFor="input-nombre_SU" className='label-signUp'>Nombre:</label>
             <input type="text" className='input__signUp' name='input-nombre_SU' placeholder='Nombre' ref={nombreRef} />

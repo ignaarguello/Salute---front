@@ -72,7 +72,7 @@ export default function SignIn() {
       <div className="containers-generales_signIn"></div>
       <div className="containers-generales_signIn">
         <h2 id='titulo-iniciarSesion__signIn'>Iniciar Sesion</h2>
-        <form id='formulario-singIn' onSubmit={ingreso}>
+        <form id='formulario-singIn' onSubmit={ingreso} className='animate__animated animate__fadeIn '>
           <div className="container-inputs__signIn">
             <label htmlFor="input-email-SI" className='labelForm-SI'>Email:</label>
             <input type="email" name='input-email-SI' id='input-email' className='input-SI' placeholder='Email' required ref={emailRef} />
@@ -83,7 +83,7 @@ export default function SignIn() {
           </div>
           <div id='container-buttonSubmit__signIn'>
             <input type='submit' id='button-submit__signIn' value='Iniciar Sesión' />
-            <Link to='/registrar' id='titulo_noTenesCuenta__signIn'>¿No tenés cuenta? Registrate.</Link>
+            <Link to='/registrar' id='titulo_noTenesCuenta__signIn'>¿No tenés cuenta? - ¡Registrate!</Link>
           </div>
         </form>
       </div>

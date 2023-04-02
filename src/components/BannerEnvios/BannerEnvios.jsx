@@ -1,5 +1,6 @@
 import React from 'react'
 import './BannerEnvios.css'
+import { Link } from 'react-router-dom';
 
 export default function BannerEnvios() {
     return (
@@ -10,7 +11,7 @@ export default function BannerEnvios() {
                 </div>
                 <div className="container2-body__BannerEnvios">
                     <h2 className="titulo-item__BannerEnvios">
-                        Hace tus pedidos de manera rápida y segura. A través de Mercadopago
+                        Realizá tus compras de manera rápida y segura. Abonando a través de Mercadopago o en efectivo.
                     </h2>
                 </div>
             </div>
@@ -30,7 +31,7 @@ export default function BannerEnvios() {
                 </div>
                 <div className="container2-body__BannerEnvios">
                     <h2 className="titulo-item__BannerEnvios">
-                        Nos encontramos en Quilmes. Repartimos por la ciudad y sus alrededores.
+                        Nos encontramos en Quilmes. Repartimos por la ciudad y sus alrededores. +Info en <Link to='zonas-entrega' id='texto-zonasEntregas'>Zonas de entrega</Link>
                     </h2>
                 </div>
             </div>

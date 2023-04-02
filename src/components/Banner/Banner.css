@@ -118,7 +118,6 @@
     background-color: #912e76;
     margin-top: 0.3rem;
     font-weight: 400;
-    margin-left: 4rem;
   }
 
   #container-web-approbed__banner{
@@ -192,12 +191,13 @@
     font-weight: 200;
     letter-spacing: 0.5px;
     margin-top: 18rem;
+    margin-left: .3rem;
   }
 
   .titulo-webOficial__banner-lg {
     color: rgb(141, 137, 137);
-    margin-left: .7rem;
-    font-size: 17px;
+    margin-left: .2rem;
+    font-size: 18px;
   }
 
   #button-catalogo__banner-lg {
@@ -207,7 +207,7 @@
     background-color: #721c5b;
     margin-top: 0.3rem;
     font-weight: 300;
-    margin-left: .3rem;
+    margin-left: .0rem;
     cursor: pointer;
     transition: .5s ease;
   }

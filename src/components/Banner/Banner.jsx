@@ -10,10 +10,10 @@ export default function Banner() {
       <div id='container-banner-foto__banner'>
         <h2 className='titulo__bienvenido__banner-lg animate__animated animate__fadeIn animate__delay-1s'>Bienvenido a Salute Drinks</h2>
         <div id='container-web-approbed__banner'>
-          <h3 className='titulo-webOficial__banner-lg animate__animated animate__fadeIn animate__delay-2s'> Web Oficial </h3>
-          <HiBadgeCheck id='logo-check__banner' className='animate__animated animate__fadeIn animate__delay-2s' />
+          <h3 className='titulo-webOficial__banner-lg animate__animated animate__fadeIn animate__delay-2s'> Tienda Oficial </h3>
+          <HiBadgeCheck id='logo-check__banner' className='animate__animated animate__fadeIn animate__delay-3s' />
         </div>
-        <Link to='/productos' id='button-catalogo__banner-lg' className='animate__animated animate__zoomIn animate__delay-3s'>Catalogo de productos</Link>
+        <Link to='/productos' id='button-catalogo__banner-lg' className='animate__animated animate__zoomIn animate__delay-2s'>Catalogo de productos</Link>
       </div>
       {/* MOBILE ↓  */}
       <div id='container-video-texto__banner'>

@@ -24,7 +24,7 @@ function App() {
   //*Variable de acciones de usuarios y Dispatch
   let dispatch = useDispatch()
   const { ingreso_token } = usuariosActions
-  const { rol, logeado, token } = useSelector(store => store.usuarios)
+  const { rol, logeado } = useSelector(store => store.usuarios)
 
   //? Use Effect para Sign-in con Token
   useEffect(() => {
@@ -33,9 +33,9 @@ function App() {
       dispatch(ingreso_token(token.token.user))
     }
   }, [])
-  
   console.log('propiedad logeado',logeado)
   console.log('propiedad rol',rol)
+  
 
   return (
     <Layout>
@@ -48,11 +48,11 @@ function App() {
         <Route path="/zonas-entrega" element={<ZonasEntrega />}></Route>
         <Route path='/ingresar' element={<SignIn />}></Route>
         <Route path='/registrar' element={<SignUp />}></Route>
-        //? Si el usuario esta logeado y es 'usuario comun'
+        {/* //? Si el usuario esta logeado y es 'usuario comun' */}
         <Route element={<ProteccionRutas isAllowed={logeado === true && rol === "usuario"} reDirect={"/"} />}>
           <Route path='/carrito' element={<Carrito />}></Route>
         </Route>
-        //? Si el usuario esta logeado y es 'usuario comun'
+        {/* //? Si el usuario esta logeado y es 'usuario comun' */}
         <Route element={<ProteccionRutas isAllowed={logeado === true && rol === "admin"} reDirect={"/"} />}>
           <Route path='/admin' element={<Admin />}></Route>
           <Route path='/carrito' element={<Carrito />}></Route>

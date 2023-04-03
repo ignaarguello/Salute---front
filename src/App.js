@@ -55,7 +55,6 @@ function App() {
         {/* //? Si el usuario esta logeado y es 'usuario comun' */}
         <Route element={<ProteccionRutas isAllowed={logeado === true && rol === "admin"} reDirect={"/"} />}>
           <Route path='/admin' element={<Admin />}></Route>
-          <Route path='/carrito' element={<Carrito />}></Route>
         </Route>
       </Routes>
     </Layout>

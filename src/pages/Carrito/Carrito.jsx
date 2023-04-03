@@ -2,7 +2,6 @@ import React, { useEffect, useState }  from 'react'
 import CarritoItem from '../../components/CarritoItem/CarritoItem'
 import './Carrito.css'
 import { useDispatch, useSelector } from 'react-redux'
-// import productosActions from '../../redux/actions/productosActions'
 import zonasActions from '../../redux/actions/zonasActions'
 import carritoActions from '../../redux/actions/carritoActions'
 import Swal from 'sweetalert2'
@@ -12,11 +11,10 @@ export default function Carrito() {
     // let {productos} = useSelector( store => store.productos)
     let {zonas} = useSelector( store => store.zonas)
     let {usuarioId} = useSelector(store => store.usuarios)
-    let {carrito, prodEliminado, prodAgregado,} = useSelector( store => store.carrito)
+    let {carrito, prodEliminado, prodAgregado, prodEditado} = useSelector( store => store.carrito)
     let dispatch = useDispatch()
-    // let {traer_productos} = productosActions
     let {traer_zonas} = zonasActions
-    let {traer_carrito, eliminar_prod_carrito} = carritoActions
+    let {traer_carrito, eliminar_prod_carrito, cambiar_cantidad_carrito} = carritoActions
 
     let [zonaElegida, setZonaElegida] = useState()
 
@@ -25,14 +23,17 @@ export default function Carrito() {
         dispatch(traer_zonas())
         dispatch(traer_carrito(usuarioId))
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [prodEliminado, prodAgregado])
-
-    // console.log(zonas);
-    // console.log(carrito);
+    }, [prodEliminado, prodAgregado, prodEditado])
 
     const precioSubtotal = carrito && carrito.reduce((total, prod) => {
-        return total + prod.precio
+        return total + prod.precio * prod.cantidad
     }, 0)
+
+    const cantidadTotal = carrito && carrito.reduce((total, prod) => {
+        return total + prod.cantidad
+    }, 0)
+
+    // console.log(cantidadTotal);
 
     const precioTotal = precioSubtotal + (zonaElegida ? parseInt(zonaElegida) : 0)
 
@@ -59,8 +60,14 @@ export default function Carrito() {
         })
         
     }
-    // console.log(precioSubtotal);
-    // console.log(zonaElegida);
+
+    const sumarCantidad = (e) => {
+        dispatch(cambiar_cantidad_carrito({productoId: e.productoId, query: 'incrementar', usuarioId: usuarioId}))
+    }
+
+    const restarCantidad = (e) => {
+        dispatch(cambiar_cantidad_carrito({productoId: e.productoId, query: 'decrementar', usuarioId: usuarioId}))
+    }
 
     return (
         <div id='carrito-paginaCont'>
@@ -68,13 +75,23 @@ export default function Carrito() {
                 <h2>Tu carrito de compras</h2>
                 { carrito
                     && (carrito.length > 0)
-                        ? <span>{carrito.length > 1 ? `${carrito.length} artículos` : `${carrito.length} artículo`} en total</span>
+                        ? <span>{carrito.length > 1 ? `${carrito.length} productos` : `${carrito.length} producto`} en total</span>
                         : <span>En la sección productos podrás llenar tu carrito!</span>
                 }
                 <div className='item-carritoCont'>
                 { carrito
                     &&   (carrito.length > 0)
-                        ? carrito.map( prod => <CarritoItem key={prod._id} nombre={prod?.nombre} img={prod?.imagen} tipo={prod?.tipo} precio={prod?.precio} fnBorrar={() => borrarProd(prod)} />)
+                        ? carrito.map( prod => <CarritoItem 
+                            key={prod._id} 
+                            cantidad= {prod?.cantidad}
+                            nombre={prod?.nombre} 
+                            img={prod?.imagen} 
+                            tipo={prod?.tipo} 
+                            precio={prod?.precio} 
+                            fnBorrar={() => borrarProd(prod)}
+                            fnRestar= {() => restarCantidad(prod)}
+                            fnSumar= {() => sumarCantidad(prod)}
+                            />)
                         : <span>No hay productos</span>
                 }
                 </div>
@@ -86,16 +103,16 @@ export default function Carrito() {
                     <h2>Resumen</h2>
                     <div className='total-carritoCont'>
                         <div className='subtotal-carritoCont'>
-                            <span id='cantidad-carrito'>{carrito.length} artículos</span>
-                            <span id='subtotal-carrito'>${precioSubtotal}</span>
+                            <span id='cantidad-carrito'>{cantidadTotal > 1 ? `${cantidadTotal} artículos` : `${cantidadTotal} artículo`}</span>
+                            <span id='subtotal-carrito'>${precioSubtotal.toLocaleString('es-ES')}</span>
                         </div>
                         <select id='select-zona-carrito' onChange={(e) => setZonaElegida(e?.target?.value)}>
                             <option value={0}>Elija la zona de entrega</option>
                             {zonas?.map( zona => <option key={zona._id}  value={zona.precio}>{zona.nombre} - ${zona.precio}</option>)}
                         </select>
-                        <span id='total-carrito'>TOTAL: <strong>${precioTotal}</strong></span>
+                        <span id='total-carrito'>TOTAL: <strong>${precioTotal.toLocaleString('es-ES')}</strong></span>
                     </div>
-                    <div id='boton-pagar'>IR A PAGAR</div>
+                    <div id='boton-pagar'>COMPRAR</div>
                 </div>
             }
         </div>

@@ -1,10 +1,12 @@
 import React from 'react'
+import { useEffect } from 'react'
 import './Inicio.css'
+
+//?Importación de Componentes para 'Home'
 import Banner from '../../components/Banner/Banner'
 import BannerEnvios from '../../components/BannerEnvios/BannerEnvios'
 import CardsHome from '../../components/CardsHome/CardsHome'
 import BackgroundHome from '../../components/BackgroundHome/BackgroundHome'
-import { useEffect } from 'react'
 
 export default function Inicio() {
   //Variable que usa el useEffect para borrar la clase del navbar oscuro, traida por JQUERY

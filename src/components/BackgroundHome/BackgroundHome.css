@@ -71,6 +71,12 @@
 }
 
 @media screen and (min-width: 1220px) {
+  #container-refs__backgroundHome {
+   justify-content: flex-start;
+   flex-direction: column;
+   position: absolute;
+  }
+
   #titulo-estamos__BackgroundHome {
     font-size: 3.5rem;
     font-weight: 300;
@@ -81,10 +87,10 @@
   }
 
   .ref__backgroundHome {
-    color: #b62790;
+    color: #E655D2;
     padding: 11px;
-    width: 2.9rem;
-    height: 2.9rem;
+    width: 3rem;
+    height: 3rem;
     background-color: rgba(8, 8, 8, 0.788);
     border-radius: 30%;
     border: none;

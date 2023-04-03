@@ -2,18 +2,32 @@ import React from 'react'
 import './Banner.css'
 import { Link } from 'react-router-dom';
 import { HiBadgeCheck } from "react-icons/hi";
+import { FiInstagram } from "react-icons/fi";
+import { BsWhatsapp } from "react-icons/bs";
+import { BsYoutube } from "react-icons/bs";
 
 export default function Banner() {
   return (
     /* DESKTOP */
     <div id='container-principal__banner'>
       <div id='container-banner-foto__banner'>
-        <h2 className='titulo__bienvenido__banner-lg animate__animated animate__fadeIn animate__delay-1s'>Bienvenido a Salute Drinks</h2>
-        <div id='container-web-approbed__banner'>
-          <h3 className='titulo-webOficial__banner-lg animate__animated animate__fadeIn animate__delay-2s'> Tienda Oficial </h3>
-          <HiBadgeCheck id='logo-check__banner' className='animate__animated animate__fadeIn animate__delay-3s' />
+        <div id='container-contactos__banner'>
+          <h3 id='titulo-contacto__banner'>Nuestras Redes:</h3>
+          <div id='container-refs__banner'className='animate__animated animate__fadeInRight animate__delay-2s' >
+          <a target='_blank' href="https://google.com"><FiInstagram className='ref__banner' id='ref-banner-1' /></a>
+          <a target='_blank' href="https://google.com"><BsWhatsapp className='ref__banner' id='ref-banner-2' /></a>
+          <a target='_blank' href="https://google.com"><BsYoutube className='ref__banner' id='ref-banner-3' /></a>
+          </div>
         </div>
-        <Link to='/productos' id='button-catalogo__banner-lg' className='animate__animated animate__zoomIn animate__delay-2s'>Catalogo de productos</Link>
+        <div id='container-titulos__banner'>
+          <h2 className='titulo__bienvenido__banner-lg animate__animated animate__fadeIn animate__delay-1s'>Bienvenido a Salute Drinks</h2>
+          <div id='container-web-approbed__banner'>
+            <h3 className='titulo-webOficial__banner-lg animate__animated animate__fadeIn animate__delay-2s'> Tienda Oficial </h3>
+            <HiBadgeCheck id='logo-check__banner' className='animate__animated animate__fadeIn animate__delay-3s' />
+          </div>
+          <Link to='/productos' id='button-catalogo__banner-lg' className='animate__animated animate__zoomIn animate__delay-2s'>Catalogo de productos</Link>
+        </div>
+
       </div>
       {/* MOBILE ↓  */}
       <div id='container-video-texto__banner'>

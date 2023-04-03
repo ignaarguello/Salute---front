@@ -154,8 +154,10 @@ export default function Productos() {
                 title: 'Iniciá sesión!',
                 text: 'Para continuar con tu compra debes tener una cuenta en Salute.',
                 icon: 'warning',
+                background: '#121212',
+                color: '#ddd',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
+                confirmButtonColor: '#008400',
                 cancelButtonText: 'Volver',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Iniciar Sesión'

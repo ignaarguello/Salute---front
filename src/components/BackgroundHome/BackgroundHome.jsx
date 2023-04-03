@@ -11,9 +11,9 @@ export default function BackgroundHome() {
       <h3 id='titulo-fechas__BackgroundHome'>Viernes - Sabados - Feriados</h3>
       <h3 id='titulo-fechas__BackgroundHome'>22:00 - 03:00</h3>
       <div id='container-refs__backgroundHome'>
-        <a target='_blank' href="https://google.com"><FiInstagram className='ref__backgroundHome' /></a>
-        <a target='_blank' href="https://google.com"><BsWhatsapp className='ref__backgroundHome' /></a>
-        <a target='_blank' href="https://google.com"><BsYoutube className='ref__backgroundHome' /></a>
+        <a className='a-ref__backgroundHome' target='_blank' href="https://google.com"><FiInstagram className='ref__backgroundHome' /></a>
+        <a className='a-ref__backgroundHome' target='_blank' href="https://google.com"><BsWhatsapp className='ref__backgroundHome' /></a>
+        <a className='a-ref__backgroundHome' target='_blank' href="https://google.com"><BsYoutube className='ref__backgroundHome' /></a>
       </div>
     </div>
   )

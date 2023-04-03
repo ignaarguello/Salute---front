@@ -49,6 +49,10 @@
     border-radius: 30%;
     border: none;
   }
+
+  .a-ref__backgroundHome{
+    width: 3rem;
+  }
 }
 
 @media screen and (min-width: 768px) {

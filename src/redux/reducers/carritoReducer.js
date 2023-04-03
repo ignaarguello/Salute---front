@@ -1,12 +1,13 @@
 import { createReducer } from "@reduxjs/toolkit";
 import carritoActions from "../actions/carritoActions";
 
-const { traer_carrito, eliminar_prod_carrito, agregar_producto } = carritoActions
+const { traer_carrito, eliminar_prod_carrito, agregar_producto, cambiar_cantidad_carrito } = carritoActions
 
 const initialState = {
     carrito: [],
     prodEliminado: [],
     prodAgregado: [],
+    prodEditado: [],
     mensaje: '',
 }
 
@@ -31,6 +32,13 @@ const carritoReducer = createReducer(initialState, (builder) => {
             return {
                 ...state,
                 prodAgregado: action.payload,
+            }
+        })
+
+        .addCase(cambiar_cantidad_carrito.fulfilled, (state, action) => {
+            return{
+                ...state,
+                prodEditado: action.payload,
             }
         })
 })

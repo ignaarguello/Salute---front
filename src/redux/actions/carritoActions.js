@@ -38,11 +38,28 @@ const agregar_producto = createAsyncThunk('agregar_producto', async(data) => {
     }
 })
 
+const cambiar_cantidad_carrito = createAsyncThunk('cambiar_cantidad_carrito', async({query, productoId, usuarioId}) => {
+    try{
+        const res = await axios.put(`${BASE_URL}/carrito/${productoId}?query=${query}&usuarioId=${usuarioId}`)
+        console.log(res);
+        return {
+            response: res.data,
+            success: true
+        }
+    } catch(error){
+        console.log(error)
+        return{
+            success: false,
+            response: error.message
+        }
+    }
+})
 
 const carritoActions = {
     traer_carrito,
     eliminar_prod_carrito,
     agregar_producto,
+    cambiar_cantidad_carrito,
 }
 
 export default carritoActions

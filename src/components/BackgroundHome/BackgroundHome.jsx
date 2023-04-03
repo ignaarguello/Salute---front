@@ -9,6 +9,7 @@ export default function BackgroundHome() {
     <div id='container-general__BackgroundHome'>
       <h3 id='titulo-estamos__BackgroundHome'>#ESTAMOS</h3>
       <h3 id='titulo-fechas__BackgroundHome'>Viernes - Sabados - Feriados</h3>
+      <h3 id='titulo-fechas__BackgroundHome'>22:00 - 03:00</h3>
       <div id='container-refs__backgroundHome'>
         <a target='_blank' href="https://google.com"><FiInstagram className='ref__backgroundHome' /></a>
         <a target='_blank' href="https://google.com"><BsWhatsapp className='ref__backgroundHome' /></a>

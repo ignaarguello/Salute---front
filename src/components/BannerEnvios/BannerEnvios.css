@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
 @media screen and (min-width: 320px) {
   #container-general__BannerEnvios {
     /* border: 2px solid seagreen; */
@@ -37,8 +39,12 @@
   }
 
   .titulo-item__BannerEnvios {
-    font-size: 12px;
-    text-align: center;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  #texto-zonasEntregas{
+    text-decoration: none;
   }
 }
 
@@ -66,6 +72,7 @@
   #container-general__BannerEnvios {
     /* border: 2px solid seagreen; */
     flex-direction: row;
+    margin: 3rem 0;
   }
 
   .container-item__BannerEnvios {
@@ -75,16 +82,43 @@
 
   .container1-body__BannerEnvios {
     /* border: 2px solid springgreen; */
-    width: 23%;
+    width: 20%;
+  }
+
+  .image__bannerEnvios {
+    /* border: 2px solid violet; */
+    padding: .5rem;
   }
 
   .container2-body__BannerEnvios {
-    /* border: 2px solid darkred; */
-    width: 70%;
-    padding: 15px;
+    width: 65%;
+    padding: 5px;
   }
 
   .titulo-item__BannerEnvios {
     font-size: 15px;
+    line-height: 1.3rem;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .container1-body__BannerEnvios {
+    /* border: 2px solid springgreen; */
+    width: 18%;
+  }
+
+  .image__bannerEnvios {
+    /* border: 2px solid violet; */
+    padding: .6rem;
+  }
+
+  .container2-body__BannerEnvios {
+    width: 65%;
+    padding: 5px;
+  }
+
+  .titulo-item__BannerEnvios {
+    font-size: 16px;
+    line-height: 1.3rem;
   }
 }

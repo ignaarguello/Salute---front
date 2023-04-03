@@ -49,7 +49,7 @@ function App() {
         <Route path='/ingresar' element={<SignIn />}></Route>
         <Route path='/registrar' element={<SignUp />}></Route>
         {/* //? Si el usuario esta logeado y es 'usuario comun' */}
-        <Route element={<ProteccionRutas isAllowed={logeado === true && rol === "usuario"} reDirect={"/"} />}>
+        <Route element={<ProteccionRutas isAllowed={logeado === true && (rol === "usuario" || rol === "admin")} reDirect={"/"} />}>
           <Route path='/carrito' element={<Carrito />}></Route>
         </Route>
         {/* //? Si el usuario esta logeado y es 'usuario comun' */}

@@ -101,10 +101,23 @@
 #boton-pagar{
     color: #ddd;
     background-color: var(--rosa-oscuro);
+    font-size: 1.2rem;
+    font-weight: bold;
     padding: 10px;
     width: 100%;
     text-align: center;
     margin-top: 1rem;
+    cursor: pointer;
+    transition: .4s ease-in-out;
+    letter-spacing: 2px;
+}
+
+#boton-pagar:hover{
+    background-color: var(--rosa-primario);
+    border-radius: 20px;
+    transition: .4s ease-in-out;
+    color: #000;
+    letter-spacing: 4px;
 }
 
 /* 

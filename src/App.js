@@ -34,8 +34,8 @@ function App() {
     }
   }, [])
   
-  console.log('propiedad logeado',logeado)
-  console.log('propiedad rol',rol)
+  // console.log('propiedad logeado',logeado)
+  // console.log('propiedad rol',rol)
 
   return (
     <Layout>
@@ -48,14 +48,13 @@ function App() {
         <Route path="/zonas-entrega" element={<ZonasEntrega />}></Route>
         <Route path='/ingresar' element={<SignIn />}></Route>
         <Route path='/registrar' element={<SignUp />}></Route>
-        //? Si el usuario esta logeado y es 'usuario comun'
-        <Route element={<ProteccionRutas isAllowed={logeado === true && rol === "usuario"} reDirect={"/"} />}>
+        {/* //? Si el usuario esta logeado y es 'usuario comun' */}
+        <Route element={<ProteccionRutas isAllowed={logeado === true && (rol === "usuario" || rol === "admin")} reDirect={"/"} />}>
           <Route path='/carrito' element={<Carrito />}></Route>
         </Route>
-        //? Si el usuario esta logeado y es 'usuario comun'
+        {/* //? Si el usuario esta logeado y es 'usuario comun' */}
         <Route element={<ProteccionRutas isAllowed={logeado === true && rol === "admin"} reDirect={"/"} />}>
           <Route path='/admin' element={<Admin />}></Route>
-          <Route path='/carrito' element={<Carrito />}></Route>
         </Route>
       </Routes>
     </Layout>

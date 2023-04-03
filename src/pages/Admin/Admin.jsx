@@ -47,7 +47,7 @@ export default function Admin() {
 
         try{
             const urlFoto = await uploadImagenes(fotoProd)
-            console.log(urlFoto);
+            // console.log(urlFoto);
             if (nuevoTipoRef?.current?.value === 'Tipo de bebida' && nuevoTipoCreadoRef?.current.value === ""){
                 Swal.fire({
                     position: 'center',

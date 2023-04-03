@@ -33,15 +33,9 @@ function App() {
       dispatch(ingreso_token(token.token.user))
     }
   }, [])
-<<<<<<< HEAD
-  
-  // console.log('propiedad logeado',logeado)
-  // console.log('propiedad rol',rol)
-=======
   console.log('propiedad logeado',logeado)
   console.log('propiedad rol',rol)
   
->>>>>>> 82776f5427bbce9c068fe31b044f3de35e435d8f
 
   return (
     <Layout>
@@ -55,11 +49,7 @@ function App() {
         <Route path='/ingresar' element={<SignIn />}></Route>
         <Route path='/registrar' element={<SignUp />}></Route>
         {/* //? Si el usuario esta logeado y es 'usuario comun' */}
-<<<<<<< HEAD
-        <Route element={<ProteccionRutas isAllowed={logeado === true && (rol === "usuario" || rol === "admin")} reDirect={"/"} />}>
-=======
         <Route element={<ProteccionRutas isAllowed={logeado === true && rol === "usuario"} reDirect={"/"} />}>
->>>>>>> 82776f5427bbce9c068fe31b044f3de35e435d8f
           <Route path='/carrito' element={<Carrito />}></Route>
         </Route>
         {/* //? Si el usuario esta logeado y es 'usuario comun' */}

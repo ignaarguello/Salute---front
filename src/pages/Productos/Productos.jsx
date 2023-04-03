@@ -27,8 +27,8 @@ export default function Productos() {
   let {agregar_producto, eliminar_prod_carrito, traer_carrito} = carritoActions
   
   // Variable para obtener SOLO los productos que correspondan con el usuario que esté logeado
-  let tieneProductos = carrito ? carrito.filter(el => el.usuarioId === usuarioId) : []
-
+  let tieneProductos = carrito ? carrito?.filter(el => el.usuarioId === usuarioId) : []
+  // console.log(tieneProductos);
   // Variables de estado
   let [checked, setChecked] = useState([])
   let [reload, setReload] = useState(false)
@@ -204,7 +204,7 @@ export default function Productos() {
                   precio={prod?.precio} 
                   tipo={prod?.tipo} 
                   fnAgregar={() => agregarAlCarrito(prod)} 
-                  textoBoton={produsCarrito?.find(ele => ele.nombre === prod.nombre) ? 'Quitar' : 'Agregar'}
+                  textoBoton={produsCarrito?.find(ele => ele.nombre === prod.nombre) ? 'En carrito' : 'Agregar'}
                   colorBoton={produsCarrito?.find(ele => ele.nombre === prod.nombre) ? 'eliminar-prod3' : 'comprar-prod3'}
                   
                 />)

@@ -72,6 +72,7 @@
   #container-general__BannerEnvios {
     /* border: 2px solid seagreen; */
     flex-direction: row;
+    margin: 3rem 0;
   }
 
   .container-item__BannerEnvios {
@@ -96,6 +97,28 @@
 
   .titulo-item__BannerEnvios {
     font-size: 15px;
+    line-height: 1.3rem;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .container1-body__BannerEnvios {
+    /* border: 2px solid springgreen; */
+    width: 18%;
+  }
+
+  .image__bannerEnvios {
+    /* border: 2px solid violet; */
+    padding: .6rem;
+  }
+
+  .container2-body__BannerEnvios {
+    width: 65%;
+    padding: 5px;
+  }
+
+  .titulo-item__BannerEnvios {
+    font-size: 16px;
     line-height: 1.3rem;
   }
 }

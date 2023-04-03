@@ -17,7 +17,7 @@
 
   #titulo-estamos__BackgroundHome {
     color: white;
-    margin-right: 2rem;
+    margin-right: 1rem;
     font-size: 4rem;
     font-weight: 200;
     text-align: center;
@@ -25,7 +25,7 @@
 
   #titulo-fechas__BackgroundHome {
     color: white;
-    margin-right: 2rem;
+    margin-right: 1rem;
     font-size: 1.3rem;
     font-weight: 100;
     text-align: center;
@@ -40,7 +40,7 @@
   }
 
   .ref__backgroundHome {
-    color: #cc3aa5;
+    color: #a02780;
     border: 1.5px solid gray;
     padding: 10px;
     width: 3rem;
@@ -87,7 +87,7 @@
   }
 
   .ref__backgroundHome {
-    color: #E655D2;
+    color: #b62790;
     padding: 11px;
     width: 3rem;
     height: 3rem;

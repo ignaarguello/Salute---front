@@ -128,3 +128,10 @@
     background-color: rgba(0, 0, 0, 0.055);
   }
 }
+
+@media screen and (min-width: 1920px) {
+  .card-producto__CardsHome {
+    /* border: 2px solid red; */
+    height: 40rem;
+  }
+}

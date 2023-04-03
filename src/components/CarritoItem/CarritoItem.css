@@ -15,7 +15,7 @@
 .info-itemCarrito{
     display: flex;
     flex-direction: column;
-    width: 73%;
+    width: 65%;
     padding: 0 20px;
     gap: 5px;
 }
@@ -37,13 +37,58 @@
     font-weight: 400;
 }
 
+.btn-itemCarrito{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
 .borrar-itemCarrito{
-    width: 7%;
+    width: 50%;
     height: max-content;
     color: white;
     cursor: pointer;
 }
 
+.borrar-itemCarrito:hover{
+    color: red
+}
+
+.btn2-itemCarrito{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+#cantidad-itemCarrito{
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.restar-itemCarrito, .sumar-itemCarrito{
+    color: #fff;
+    width: 25%;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.restar-itemCarrito:hover{
+    color: red;
+    background-color: #252525;
+    border-radius: 50%;
+}
+
+.sumar-itemCarrito:hover{
+    color: rgb(151, 252, 0);
+    background-color: #252525;
+    border-radius: 50%;
+}
 /* 
 * -----------------
 * MEDIA QUERIES
@@ -59,6 +104,14 @@
     }
     .foto-itemCarrito{
         height: 80px;
+    }
+    .btn-itemCarrito{
+        width: 20%;
+    }
+    .restar-itemCarrito, .sumar-itemCarrito{
+        width: 100%;
+        height: fit-content;
+        cursor: pointer;
     }
 }
 
@@ -79,4 +132,31 @@
     .borrar-itemCarrito{
         width: 10%;
     }
+
+    .btn-itemCarrito{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .borrar-itemCarrito{
+        width: 90%;
+    }
+    
+    .btn2-itemCarrito{
+        flex-direction: column-reverse;
+        gap: 5px;
+    }
+    
+    #cantidad-itemCarrito{
+        font-size: 1rem;
+    }
+    
+    .restar-itemCarrito, .sumar-itemCarrito{
+        width: 50%;
+        height: fit-content;
+        cursor: pointer;
+    }
+    
 }

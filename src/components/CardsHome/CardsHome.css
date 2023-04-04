@@ -97,6 +97,7 @@
     width: 23%;
     height: 32rem;
     cursor: pointer;
+    margin: 2rem 0;
   }
 
   .titulo-card__CardsHome {
@@ -112,7 +113,7 @@
   #container-principal__CardsHome {
     /*     border: 2px solid slateblue; */
     justify-content: space-evenly;
-    padding-bottom: 10rem;
+    padding-bottom: 5rem;
   }
 
   .card-producto__CardsHome {

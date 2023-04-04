@@ -33,8 +33,7 @@ function App() {
       dispatch(ingreso_token(token.token.user))
     }
   }, [])
-  console.log('propiedad logeado',logeado)
-  console.log('propiedad rol',rol)
+  
   
 
   return (

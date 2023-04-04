@@ -111,13 +111,14 @@
 
   .titulo-webOficial__banner-lg {
     color: rgb(172, 165, 165);
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 400;
+    margin-bottom: 1rem ;
   }
 
   #button-catalogo__banner-lg {
     width: 40%;
-    font-size: 22px;
+    font-size: 20px;
     text-align: center;
     text-decoration: none;
     padding: 10px;
@@ -125,7 +126,7 @@
     color: white;
     background-color: #912e76;
     margin-top: 0.3rem;
-    font-weight: 400;
+    font-weight: 300;
   }
 
   #container-web-approbed__banner {
@@ -138,7 +139,7 @@
     color: cyan;
     width: 1.8rem;
     height: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 1rem;
     margin-left: 5px;
   }
 }
@@ -150,6 +151,7 @@
     /* border: 2px solid green; */
     display: flex;
     flex-direction: row-reverse;
+    /* background-position: 0px -50px; */
   }
 
   #container-contactos__banner {
@@ -228,7 +230,7 @@
     font-size: 35px;
     font-weight: 200;
     letter-spacing: 0.5px;
-    margin-top: 25rem;
+    margin-top: 24.5rem;
     margin-left: 1rem;
   }
 
@@ -236,6 +238,7 @@
     color: rgb(129, 125, 125);
     margin-left: 1rem;
     font-size: 21px;
+    margin-top: .5rem;
   }
 
   #button-catalogo__banner-lg {

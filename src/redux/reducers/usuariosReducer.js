@@ -11,7 +11,8 @@ const initialState = {
     rol: '',
     logeado: false,
     token: '',
-    usuarioId: ''
+    usuarioId: '',
+    email: ''
 }
 
 const usuarios_reducer = createReducer(initialState, (builder) => {
@@ -64,6 +65,7 @@ const usuarios_reducer = createReducer(initialState, (builder) => {
                     logeado: true,
                     token: token,
                     usuarioId: user.id,
+                    email: user.email,
                 }
                 return newState
             } else {

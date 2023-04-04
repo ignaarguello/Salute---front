@@ -5,12 +5,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import zonasActions from '../../redux/actions/zonasActions'
 import carritoActions from '../../redux/actions/carritoActions'
 import Swal from 'sweetalert2'
+import axios from 'axios'
+import { BASE_URL } from '../../Api/Api'
+// import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
+// initMercadoPago('ACCESS_TOKEN');
 
 export default function Carrito() {
 
     // let {productos} = useSelector( store => store.productos)
     let {zonas} = useSelector( store => store.zonas)
-    let {usuarioId} = useSelector(store => store.usuarios)
+    let {usuarioId, nombre, apellido, email} = useSelector(store => store.usuarios)
     let {carrito, prodEliminado, prodAgregado, prodEditado} = useSelector( store => store.carrito)
     let dispatch = useDispatch()
     let {traer_zonas} = zonasActions
@@ -69,6 +73,33 @@ export default function Carrito() {
         dispatch(cambiar_cantidad_carrito({productoId: e.productoId, query: 'decrementar', usuarioId: usuarioId}))
     }
 
+    const finalizarCompra = async() => {
+        let tituloCompra = carrito?.map(e => e.nombre).join(', ')
+        console.log(carrito)
+
+        // console.log(zonaElegida);
+
+        let data = {
+            titulo: tituloCompra,
+            precio: precioTotal,
+            cantidad: cantidadTotal,
+            imagen: carrito?.[0].imagen,
+        /*  nombreComprador: nombre,
+            apellidoComprador: apellido,
+            emailComprador: 'test_user_1005535830@testuser.com', */
+        }
+        try{
+            let res = await axios.post(`${BASE_URL}/payment`, data)
+            if(res){
+                window.location.replace(res.data.init_point)
+            }
+            console.log(res);
+
+        } catch(error){
+            console.log(error);
+        }
+    }
+
     return (
         <div id='carrito-paginaCont'>
             <div className='primerCont-carrito'>
@@ -112,7 +143,9 @@ export default function Carrito() {
                         </select>
                         <span id='total-carrito'>TOTAL: <strong>${precioTotal.toLocaleString('es-ES')}</strong></span>
                     </div>
-                    <div id='boton-pagar'>COMPRAR</div>
+                    <div id='boton-pagar' onClick={finalizarCompra}>COMPRAR</div>
+                    {/* <div id="wallet_container"></div> */}
+                    {/* <Wallet initialization={{ preferenceId: 'wallet_container' }} /> */}
                 </div>
             }
         </div>

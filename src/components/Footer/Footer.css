@@ -295,8 +295,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(8, 8, 8, 0.705);
+    background-color: rgba(22, 22, 22, 0.705);
     margin: 1rem 0;
+    height: 2.9rem;
+    width: 2.9rem;
   }
   
   #container-refs__footer {
@@ -306,7 +308,7 @@
 
   /* ! Container 3 */
   #container-iframe__footer {
-    height: 7rem;
+    height: 9rem;
     width: 90%;
   }
 

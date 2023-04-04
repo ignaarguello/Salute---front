@@ -107,29 +107,209 @@
     height: 100%;
   }
 
-  #container-desarrolladores__footer{
-      /* border: 2px solid red; */
-      display: flex;
-      padding: 1rem 0;
-      background-color: rgba(10, 10, 10, 0.699);
+  #container-desarrolladores__footer {
+    /* border: 2px solid red; */
+    display: flex;
+    padding: 1rem 0;
+    background-color: rgba(5, 5, 5, 0.897);
   }
 
-  .div-desarrollador{
-      /* border: 2px solid green; */
-      width: 50%;
-      display: flex;
-      flex-direction: row-reverse;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: .5rem;
+  .div-desarrollador {
+    /* border: 2px solid green; */
+    width: 50%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0.5rem;
   }
 
-  .titulo-desarrollador__footer{
-      font-size: 15px;
-      font-weight: 200;
-      margin-top: 1px;
-      text-decoration: none;
-      color: white;
+  .titulo-desarrollador__footer {
+    font-size: 15px;
+    font-weight: 200;
+    margin-top: 1px;
+    text-decoration: none;
+    color: white;
+  }
+
+  .logo-gh__footer {
+    color: white;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #container-refs__footer {
+    /* border: 2px solid blueviolet; */
+    width: 80%;
+  }
+
+  .link-ref__footer {
+    font-size: 20px;
+  }
+
+  .link-refSocial__footer {
+    /* border: 2px solid red; */
+    color: #8f6932;
+  }
+
+  #texto-sobreNosotros__footer {
+    font-size: 19px;
+    font-weight: 200;
+    line-height: 70px;
+    padding: 3rem;
+    margin: 0 2rem;
+    letter-spacing: 1.5px;
+  }
+
+  #titulo-sobreNosotros__footer {
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  #container-iframe__footer {
+    height: 25rem;
+  }
+
+  .titulo-quilmes__footer {
+    font-size: 22px;
+    font-weight: 200;
+    letter-spacing: 1.5px;
+  }
+
+  .titulo-desarrollador__footer {
+    font-size: 19px;
+  }
+
+  .logo-gh__footer {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  #container-general__footer {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .containers-footer {
+    padding: 0.5rem;
+  }
+
+  .containers-footer:nth-child(1) {
+    /* border: 2px solid green; */
+    width: 25%;
+  }
+
+  .containers-footer:nth-child(2) {
+    /* border: 2px solid blue; */
+    width: 45%;
+    justify-content: center;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    height: 30%;
+  }
+
+  .containers-footer:nth-child(3) {
+    /* border: 2px solid orangered; */
+    width: 25%;
+  }
+
+  /* Textos en resolucion desktop */
+
+  /* ! Container 1 */
+  #logo-salute__footer {
+    /*  border: 2px solid red; */
+    width: 22%;
+    margin: 0rem 0;
+  }
+
+  #titulo-links__footer {
+    font-size: 17px;
+    font-weight: 200;
+    text-align: center;
+    margin: 0.3rem 0;
+  }
+
+  #lista-contenedorLinks__footer {
+    /* border: 1px solid blueviolet; */
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .link-ref__footer {
+    font-size: 13px;
+    text-align: right;
+    width: 100%;
+  }
+
+  /* ! Container 2 */
+  #titulo-sobreNosotros__footer {
+    font-size: 28px;
+    font-weight: 300;
+    margin: 0.5rem 0;
+    align-self: flex-start;
+    margin-left: 0.8rem;
+    color: rgb(148, 53, 123);
+  }
+
+  #texto-sobreNosotros__footer {
+    font-size: 13px;
+    font-weight: 100;
+    line-height: 22px;
+    padding: 0.3rem;
+    margin: 0 2rem;
+    width: 90%;
+    margin-left: 4.5rem;
+    /* border: 2px solid blue; */
+    text-align: left;
+    letter-spacing: 1px;
+  }
+
+  .link-refSocial__footer {
+    width: 1.4rem;
+    height: 1.4rem;
+    color: rgb(148, 53, 123);
+    cursor: pointer;
+  }
+
+  .container-ref-respaldo__footer {
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(8, 8, 8, 0.705);
+    margin: 1rem 0;
+  }
+  
+  #container-refs__footer {
+    /* border: 2px solid blueviolet; */
+    background: none;
+  }
+
+  /* ! Container 3 */
+  #container-iframe__footer {
+    height: 9rem;
+    width: 100%;
+  }
+
+  .titulo-quilmes__footer {
+    font-size: 14px;
+    font-weight: 100;
+    letter-spacing: 1.5px;
+  }
+
+  #iframe__footer {
+    border-radius: 20px;
+  }
+
+  /* ! Container Desarrolladores */
+  .titulo-desarrollador__footer {
+    font-size: 16px;
   }
 }

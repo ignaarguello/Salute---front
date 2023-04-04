@@ -113,7 +113,7 @@
   #container-principal__CardsHome {
     /*     border: 2px solid slateblue; */
     justify-content: space-evenly;
-    padding-bottom: 9rem;
+    padding-bottom: 5rem;
   }
 
   .card-producto__CardsHome {

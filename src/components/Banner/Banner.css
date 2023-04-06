@@ -238,7 +238,7 @@
     color: rgb(129, 125, 125);
     margin-left: 1rem;
     font-size: 21px;
-    margin-top: .5rem;
+    margin-top: .3rem;
   }
 
   #button-catalogo__banner-lg {
@@ -254,7 +254,7 @@
   #logo-check__banner {
     color: cyan;
     height: 100%;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     margin-left: 5px;
   }
 }

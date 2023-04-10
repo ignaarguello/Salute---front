@@ -20,8 +20,9 @@
     height: 75vh;
     scroll-snap-type: x mandatory;
     overflow-x: auto;
-    gap: .3rem;
+    gap: 1.5rem;
     padding: 0.7rem;
+    margin-left: 2rem;
   }
 
   /* ? Contenedor de cada card */
@@ -34,7 +35,6 @@
     justify-content: center;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 3rem;
     transition: .5s ease-out;
   }
 

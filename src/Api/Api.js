@@ -1,4 +1,5 @@
 //?Producción
+
 export const BASE_URL = 'https://salute-back.up.railway.app';
 
 //?Desarrollo

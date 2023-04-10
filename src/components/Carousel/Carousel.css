@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:wght@800&display=swap");
+
+@media screen and (min-width: 320px) {
+  #container-general__carousel {
+    /* border: 2px solid red; */
+    margin: 2rem 0;
+  }
+
+  #tituloProductos__carousel{
+    color: #b1258b;
+    margin-left: 1rem;
+    font-size: 25px;
+    font-weight: 400;
+  }
+
+  /* ? Contenedor donde aplicamos el flex del carousel */
+  #container-cards__carousel {
+    /* border: 2px solid violet; */
+    display: flex;
+    height: 75vh;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    gap: .3rem;
+    padding: 0.7rem;
+  }
+
+  /* ? Contenedor de cada card */
+  .card_carousel {
+    /* border: 3px solid greenyellow; */
+    width: 85%;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 3rem;
+    transition: .5s ease-out;
+  }
+
+  .container-image-card__carousel {
+    /* border: 2px solid blue; */
+    min-height: 10vh;
+    width: 100%;
+    height: 80%;
+  }
+
+  .imagen-card__carousel {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  #container-body-card__carousel {
+    /* border: 2px solid rebeccapurple; */
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 13px;
+  }
+
+  .item-card__carousel:nth-child(1) {
+    font-size: 19px;
+    font-weight: 300;
+    
+  }
+
+  .item-card__carousel:nth-child(2) {
+    font-size: 16px;
+    color: gray;
+    font-weight: 400;
+  }
+
+  
+  #contenedor-boton-compra__carousel{
+      /* border: 2px solid green; */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
+    
+    .item-card__carousel-separado {
+      font-size: 16px;
+      font-weight: 700;
+      color: #b1258b;
+      /* border: 2px solid blue; */
+      margin-top: 5px;
+    }
+
+  #button-agregar__carousel{
+      /* border: 2px solid red; */
+      height: 100%;
+      width: 11%;
+  }
+}

@@ -6,23 +6,25 @@
     margin: 2rem 0;
   }
 
-  #tituloProductos__carousel{
+  #tituloProductos__carousel {
     color: #b1258b;
-    margin-left: 1rem;
-    font-size: 25px;
-    font-weight: 400;
+    margin-left: 0.7rem;
+    font-size: 32px;
+    font-weight: 300;
   }
 
   /* ? Contenedor donde aplicamos el flex del carousel */
   #container-cards__carousel {
     /* border: 2px solid violet; */
     display: flex;
-    height: 75vh;
+    height: 78vh;
     scroll-snap-type: x mandatory;
+    overflow-y: hidden;
     overflow-x: auto;
     gap: 1.5rem;
     padding: 0.7rem;
     margin-left: 2rem;
+    margin-top: 1rem;
   }
 
   /* ? Contenedor de cada card */
@@ -35,7 +37,7 @@
     justify-content: center;
     flex-direction: column;
     justify-content: space-between;
-    transition: .5s ease-out;
+    transition: 0.5s ease-out;
   }
 
   .container-image-card__carousel {
@@ -60,37 +62,52 @@
   }
 
   .item-card__carousel:nth-child(1) {
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 300;
-    
   }
 
   .item-card__carousel:nth-child(2) {
-    font-size: 16px;
+    font-size: 18px;
     color: gray;
     font-weight: 400;
   }
 
-  
-  #contenedor-boton-compra__carousel{
-      /* border: 2px solid green; */
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 100%;
-    }
-    
-    .item-card__carousel-separado {
-      font-size: 16px;
-      font-weight: 700;
-      color: #b1258b;
-      /* border: 2px solid blue; */
-      margin-top: 5px;
-    }
+  #contenedor-boton-compra__carousel {
+    /* border: 2px solid green; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
 
-  #button-agregar__carousel{
-      /* border: 2px solid red; */
-      height: 100%;
-      width: 11%;
+  .item-card__carousel-separado {
+    font-size: 17px;
+    font-weight: 700;
+    color: #b1258b;
+    /* border: 2px solid blue; */
+    margin-top: 5px;
+  }
+
+  #button-agregar__carousel {
+    /* border: 2px solid red; */
+    height: 100%;
+    width: 12%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #tituloProductos__carousel {
+    margin-left: 1rem;
+    font-size: 2.3rem;
+  }
+
+  #container-cards__carousel {
+    /* border: 2px solid violet; */
+    height: 70vh;
+  }
+
+  .card_carousel {
+    /* border: 3px solid greenyellow; */
+    width: 45%;
   }
 }

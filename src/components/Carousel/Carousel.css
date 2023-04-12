@@ -17,7 +17,7 @@
   #container-cards__carousel {
     /* border: 2px solid violet; */
     display: flex;
-    height: 78vh;
+    min-height: 78vh;
     scroll-snap-type: x mandatory;
     overflow-y: hidden;
     overflow-x: auto;
@@ -92,22 +92,97 @@
     /* border: 2px solid red; */
     height: 100%;
     width: 12%;
+    cursor: pointer;
   }
 }
 
 @media screen and (min-width: 768px) {
   #tituloProductos__carousel {
     margin-left: 1rem;
-    font-size: 2.3rem;
+    font-size: 2.2rem;
+    margin-top: 2.5rem;
   }
 
   #container-cards__carousel {
     /* border: 2px solid violet; */
     height: 70vh;
+    margin-top: 1.5rem;
   }
 
   .card_carousel {
     /* border: 3px solid greenyellow; */
     width: 45%;
+  }
+
+  .item-card__carousel:nth-child(1) {
+    font-size: 22px;
+    font-weight: 400;
+  }
+
+  .item-card__carousel:nth-child(2) {
+    font-size: 20px;
+    color: gray;
+    font-weight: 500;
+  }
+
+  .item-card__carousel-separado {
+    font-size: 19px;
+    font-weight: 700;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  #tituloProductos__carousel {
+    margin-left: 1.5rem;
+    font-size: 2.1rem;
+  }
+
+  .card_carousel {
+    /* border: 3px solid greenyellow; */
+    width: 25%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  #container-general__carousel {
+    /* border: 2px solid red; */
+    height: 74vh;
+  }
+
+  #tituloProductos__carousel {
+    margin-left: 1.5rem;
+    font-size: 2.1rem;
+    margin-top: 1.5rem;
+  }
+
+  .card_carousel {
+    /* border: 3px solid greenyellow; */
+    width: 21%;
+    height: 66vh;
+  }
+
+  #container-cards__carousel {
+    margin-top: 1rem;
+  }
+
+  .container-image-card__carousel {
+    height: 75%;
+  }
+
+  #container-body-card__carousel {
+    height: 25%;
+  }
+
+  .item-card__carousel:nth-child(1) {
+    font-size: 17px;
+  }
+
+  .item-card__carousel:nth-child(2) {
+    font-size: 15px;
+    margin-top: 4px;
+  }
+
+  .item-card__carousel-separado {
+    font-size: 17px;
   }
 }

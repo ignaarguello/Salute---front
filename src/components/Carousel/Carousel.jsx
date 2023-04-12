@@ -17,7 +17,7 @@ export default function Carousel() {
     //? Selectores de redux:
     const { productos } = useSelector(store => store.productos)
 
-    //! Use Effect que trar los pruductos de la Base de datos
+    //! Use Effect que trae los pruductos de la Base de datos
     useEffect(() => {
         dispatch(traer_productos())
     }, [])
@@ -25,7 +25,7 @@ export default function Carousel() {
 
     return (
         <div id='container-general__carousel'>
-            <h2 id='tituloProductos__carousel'>+Productos</h2>
+            <h2 id='tituloProductos__carousel'>+ Mas Productos</h2>
             <div id='container-cards__carousel'>
                 {productos.map(producto =>
                     <div className='card_carousel' key={producto._id}>

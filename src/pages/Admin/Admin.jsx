@@ -277,7 +277,6 @@ export default function Admin() {
                         <label htmlFor='admFotoProd'>
                             <input type='text' placeholder={'Imagen'} required ref={fotoEditRef} name={'editFoto'} id='admFotoProd' onBlur={(e) => editarProducto(e, prod)} defaultValue={prod.imagen} />
                         </label>
-                        <div id='btn-editar__admin' onClick={() => editarProducto(prod._id, prod)}>Editar Producto</div>
                         <img className='borrarProdAdm' onClick={() => eliminarProducto(prod._id)} src='https://cdn-icons-png.flaticon.com/512/1828/1828843.png' alt='eliminar' />
                     </div>
                 ))}

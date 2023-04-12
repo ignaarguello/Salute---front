@@ -146,23 +146,23 @@
 @media screen and (min-width: 1440px) {
   #container-general__carousel {
     /* border: 2px solid red; */
-    height: 74vh;
+    height: 76vh;
   }
 
   #tituloProductos__carousel {
-    margin-left: 1.5rem;
-    font-size: 2.1rem;
-    margin-top: 1.5rem;
+    margin-left: 3rem;
+    font-size: 2rem;
+    margin-top: 3rem;
   }
 
   .card_carousel {
     /* border: 3px solid greenyellow; */
     width: 21%;
-    height: 66vh;
+    height: 70vh;
   }
 
   #container-cards__carousel {
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
 
   .container-image-card__carousel {
@@ -179,10 +179,63 @@
 
   .item-card__carousel:nth-child(2) {
     font-size: 15px;
-    margin-top: 4px;
+    margin-top: 5px;
   }
 
   .item-card__carousel-separado {
     font-size: 17px;
   }
 }
+
+@media screen and (min-width: 1920px) {
+  #container-general__carousel {
+    /* border: 2px solid red; */
+    height: 70vh;
+  }
+
+  #tituloProductos__carousel {
+    margin-left: 1.5rem;
+    font-size: 2.8rem;
+    margin-top: 3rem;
+  }
+
+  .card_carousel {
+    /* border: 3px solid greenyellow; */
+    width: 28%;
+    height: 63vh;
+  }
+
+  #container-cards__carousel {
+    margin-top: 2rem;
+    gap: 2rem;
+  }
+
+  .container-image-card__carousel {
+    height: 80%;
+  }
+
+  #container-body-card__carousel {
+    /* border: 2px solid red; */
+    height: 20%;
+  }
+
+  .item-card__carousel:nth-child(1) {
+    font-size: 26px;
+    margin-top: 7px;
+    font-weight: 500;
+  }
+
+  .item-card__carousel:nth-child(2) {
+    font-size: 23px;
+    margin-top: 10px;
+  }
+
+  .item-card__carousel-separado {
+    font-size: 26px;
+  }
+
+  #button-agregar__carousel {
+    width: 10%;
+  }
+}
+

@@ -1,245 +1,247 @@
-#admin-pagina-cont{
-    background-image: url('../../../public/images/fondo3.jpg');
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    background-color: #000000b9;
-    background-blend-mode: multiply;
-    width: 100%;
-    min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px;
-    gap: 1rem;
+#admin-pagina-cont {
+  background-image: url("../../../public/images/fondo3.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: #000000b9;
+  background-blend-mode: multiply;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  gap: 1rem;
 }
 
 /* --- CREADOR DE NUEVO PRODUCTO --- */
 
-.btnNuevoProd{
-    background-color: rgba(194, 73, 162, 0.39);
-    padding: 10px 45px;
-    border-radius: 35px;
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: .3s ease-in;
+.btnNuevoProd {
+  background-color: rgba(194, 73, 162, 0.39);
+  padding: 10px 45px;
+  border-radius: 35px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease-in;
 }
 
-.btnNuevoProd:hover{
-    box-shadow: 0 4px 4px 0 rgba(220, 218, 220, 0.883), 0 6px 20px 0 rgba(255, 255, 255, 0.326);
-    transition: .3s ease-out;
+.btnNuevoProd:hover {
+  box-shadow: 0 4px 4px 0 rgba(220, 218, 220, 0.883),
+    0 6px 20px 0 rgba(255, 255, 255, 0.326);
+  transition: 0.3s ease-out;
 }
 
-.modalCerrado{
-    display: none;
+.modalCerrado {
+  display: none;
 }
 
-.modalAbierto{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+.modalAbierto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
-.admProdNuevo{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    align-items: flex-start;
-    width: 400px;
+.admProdNuevo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 400px;
 }
 
-.inputSumbit>input{
-    min-width: 200px;
-    background-color: #d7d7d7;
-    border: 0;
-    padding: 5px 0;
-    transition: .2s ease-in-out;
+.inputSumbit > input {
+  min-width: 200px;
+  background-color: #d7d7d7;
+  border: 0;
+  padding: 5px 0;
+  transition: 0.2s ease-in-out;
 }
 
-.inputSumbit>input:hover{
-    background-color: #fff;
-    border-radius: 15px;
-    transition: .2s ease-in-out;
+.inputSumbit > input:hover {
+  background-color: #fff;
+  border-radius: 15px;
+  transition: 0.2s ease-in-out;
 }
-
 
 /* --- TIPOS DE INPUTS EN FORMA MODAL NUEVO PRODUCTO --- */
 
-#label-tipos{
-    display: flex;
-    gap: 10px;
-    align-items: center;
+#label-tipos {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-.btnTipoProd{
-    background-color: #d7d7d7;
-    padding: 4px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100px;
-    font-size: 13px;
-    transition: .1s ease-in-out;
+.btnTipoProd {
+  background-color: #d7d7d7;
+  padding: 4px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px;
+  font-size: 13px;
+  transition: 0.1s ease-in-out;
 }
 
-.btnTipoProd:hover{
-    filter: invert(1);
-    transition: .1s ease-in-out;
+.btnTipoProd:hover {
+  filter: invert(1);
+  transition: 0.1s ease-in-out;
 }
 
-.tipoCerrado{
-    display: none;
+.tipoCerrado {
+  display: none;
 }
 
-.tipoAbierto{
-    display: flex;
+.tipoAbierto {
+  display: flex;
 }
 
-.tipoNuevoCerrado{
-    display: none;
+.tipoNuevoCerrado {
+  display: none;
 }
 
-.tipoNuevoAbierto{
-    display: flex;
+.tipoNuevoAbierto {
+  display: flex;
 }
 
 /*  --- (cierre tipos de inputs en forma modal de NUEVO PRODUCTO) --- */
 
 /* --- INPUTS NUEVO PRODUCTO --- */
-#admNombreProdNuevo{
-    width: 400px;
-    height: 30px;
+#admNombreProdNuevo {
+  width: 400px;
+  height: 30px;
 }
 
-#admTipoProdNuevo{
-    width: 290px;
-    height: 30px;
+#admTipoProdNuevo {
+  width: 290px;
+  height: 30px;
 }
 
-#admPrecioProdNuevo{
-    width: 400px;
-    height: 30px;
+#admPrecioProdNuevo {
+  width: 400px;
+  height: 30px;
 }
 
-#admFotoProdNuevo{
-    width: 400px;
-    height: 30px;
+#admFotoProdNuevo {
+  width: 400px;
+  height: 30px;
 }
 
-.label-fotoProd{
-    color: #fff;
-    font-size: 15px;
+.label-fotoProd {
+  color: #fff;
+  font-size: 15px;
 }
 /*  ---- (cierre inputs nuevo producto) ---- */
 /* ---- (cierre CREADOR NUEVO PRODUCTO) ---- */
 
-
 /* --- EDITAR PRODUCTO --- */
 
-.textoAdmin{
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
+.textoAdmin {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
 }
 
-.textoAdmin h1{
-    font-size: 2rem;
-    text-align: center;
+.textoAdmin h1 {
+  font-size: 2rem;
+  text-align: center;
 }
 
-.textoAdmin>p {
-    font-size: 1.5rem;
+.textoAdmin > p {
+  font-size: 1.5rem;
 }
 
-.comoFuncionaAdmin{
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.comoFuncionaAdmin {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.comoFuncionaAdmin p{
-    margin: 0;
-    font-size: .8rem;
+.comoFuncionaAdmin p {
+  margin: 0;
+  font-size: 0.8rem;
 }
 
-.adminProd-cont{
-    background-color: #ffffffbd;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 3rem;
-    gap: 2rem;
+.adminProd-cont {
+  background-color: #3a3a3ad0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  gap: 2rem;
+  margin: 1rem 0;
 }
 
-.adminProd-cont span{
-    font-weight: bold;
-    font-size: 1.3rem;
+.adminProd-cont span {
+  font-size: 1.3rem;
 }
 
-.admProd{
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
+.admProd {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
-.admProd label{
-    display: flex;
-    flex-direction: column;
+.admProd label {
+  display: flex;
+  flex-direction: column;
 }
 
-.fotoProdAdm{
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
+.fotoProdAdm {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
 }
 
-#admNombreProd{
-    width: 250px;
-    height: 30px;
+#admNombreProd {
+  width: 250px;
+  height: 30px;
 }
 
-#admTipoProd{
-    width: 120px;
-    height: 30px;
+#admTipoProd {
+  width: 120px;
+  height: 30px;
 }
 
-#admPrecioProd{
-    width: 80px;
-    height: 30px;
+#admPrecioProd {
+  width: 80px;
+  height: 30px;
 }
 
-#admFotoProd{
-    width: 300px;
-    height: 30px;
+#admFotoProd {
+  width: 300px;
+  height: 30px;
 }
 
-#admNombreProd:focus, #admTipoProd:focus, #admPrecioProd:focus, #admFotoProd:focus{
-    background-color: #adfcab;
+#admNombreProd:focus,
+#admTipoProd:focus,
+#admPrecioProd:focus,
+#admFotoProd:focus {
+  background-color: #adfcab;
 }
 
-.borrarProdAdm{
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
+.borrarProdAdm {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 /* --- ZONAS DE ENTREGAS */
 
-#admPrecioZona:focus, #admNombreZona:focus{
-    background-color: #adfcab;
+#admPrecioZona:focus,
+#admNombreZona:focus {
+  background-color: #adfcab;
 }
-
 
 /* 
 *-------------
@@ -247,106 +249,218 @@
 *-------------
 */
 
-@media screen and (max-width: 1350px){
-    .textoAdmin{
-        width: 90%;
-    }
+@media screen and (max-width: 1350px) {
+  .textoAdmin {
+    width: 90%;
+  }
 }
 
-@media screen and (max-width: 1050px){
-    #admin-pagina-cont{
-        padding: 50px 10px;
-    }
+@media screen and (max-width: 1050px) {
+  #admin-pagina-cont {
+    padding: 50px 10px;
+  }
 
-    .adminProd-cont{
-        width: 60%;
-        padding: 1rem;
-        gap: .6rem;
-    }
+  .adminProd-cont {
+    width: 60%;
+    padding: 1rem;
+    gap: 0.6rem;
+  }
 
-    .admProd{
-        width: 100%;
-        flex-direction: column;
-        gap: .6rem;
-        border-bottom: 2px solid #ddd;
-        padding: 15px 0;
-    }
+  .admProd {
+    width: 100%;
+    flex-direction: column;
+    gap: 0.6rem;
+    border-bottom: 2px solid #ddd;
+    padding: 15px 0;
+  }
 
-    .fotoProdAdm{
-        width: 70px;
-        height: 70px;
-    }
+  .fotoProdAdm {
+    width: 70px;
+    height: 70px;
+  }
 
-    #admNombreProd, #admTipoProd, #admPrecioProd, #admFotoProd{
-        width: 350px;
-    }
+  #admNombreProd,
+  #admTipoProd,
+  #admPrecioProd,
+  #admFotoProd {
+    width: 350px;
+  }
 }
 
-@media screen and (max-width: 770px){
-    #admin-pagina-cont{
-        padding: 150px 10px 50px 10px;
-    }
+@media screen and (max-width: 770px) {
+  #admin-pagina-cont {
+    padding: 150px 10px 50px 10px;
+  }
 }
 
-@media screen and (max-width: 680px){
-    #admin-pagina-cont{
-        padding: 100px 10px 50px 10px;
-    }
+@media screen and (max-width: 680px) {
+  #admin-pagina-cont {
+    padding: 100px 10px 50px 10px;
+  }
 
-    .adminProd-cont{
-        width: 90%;
-        padding: 1rem;
-        gap: .6rem;
-    }
+  .adminProd-cont {
+    width: 90%;
+    padding: 1rem;
+    gap: 0.6rem;
+  }
 
-    #admNombreProd, #admTipoProd, #admPrecioProd, #admFotoProd{
-        width: 220px;
-    }
+  #admNombreProd,
+  #admTipoProd,
+  #admPrecioProd,
+  #admFotoProd {
+    width: 220px;
+  }
 
-    .label-fotoProd{
-        display: flex;
-        flex-direction: column;
-    }
+  .label-fotoProd {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .comoFuncionaAdmin{
-        width: 100%;
-    }
-    .textoAdmin h1{
-        font-size: 1.3rem;
-    }
-    
-    .textoAdmin>p {
-        font-size: .7rem;
-    }
+  .comoFuncionaAdmin {
+    width: 100%;
+  }
+  .textoAdmin h1 {
+    font-size: 1.3rem;
+  }
 
-    .admProdNuevo{
-        align-items: center;
-        width: 100%;
-    }
+  .textoAdmin > p {
+    font-size: 0.7rem;
+  }
 
-    .btnTipoProd{
-        width: 50px;
-        font-size: 10px;
-    }
+  .admProdNuevo {
+    align-items: center;
+    width: 100%;
+  }
 
-    #admNombreProdNuevo, #admPrecioProdNuevo, #admFotoProdNuevo{
-        width: 220px;
-    }
+  .btnTipoProd {
+    width: 50px;
+    font-size: 10px;
+  }
 
-    #admTipoProdNuevo{
-        width: 160px;
-    }
+  #admNombreProdNuevo,
+  #admPrecioProdNuevo,
+  #admFotoProdNuevo {
+    width: 220px;
+  }
+
+  #admTipoProdNuevo {
+    width: 160px;
+  }
 }
 
-@media screen and (min-width:320px) {
-    #btn-editar__admin{
-        background-color: rgba(171, 20, 177, 0.712);
-        padding: 8px;
-        border-radius: 30px;
-        color: white;
-        width: 50%;
-        font-weight: 400;
-        font-size: 15px;
-        text-align: center;
-    }
+@media screen and (min-width: 320px) {
+  #btn-editar__admin {
+    background-color: rgba(171, 20, 177, 0.712);
+    padding: 8px;
+    border-radius: 30px;
+    color: white;
+    width: 50%;
+    font-weight: 400;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  #titulo-admin {
+    font-size: 1.6rem;
+  }
+
+  #texto-comoFunciona__admin {
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  .comoFuncionaAdmin p {
+    font-size: 14px;
+  }
+
+  #admNombreProdNuevo,
+  #admPrecioProdNuevo {
+    padding: 8px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.753);
+    color: white;
+  }
+
+  #admNombreProdNuevo::placeholder {
+    color: white;
+    font-size: 14.5px;
+  }
+
+  #admPrecioProdNuevo::placeholder {
+    color: white;
+    font-size: 14.5px;
+  }
+
+  .btnTipoProd {
+    /* border: 2px solid red; */
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.753);
+    color: white;
+  }
+
+  .label-fotoProd {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  #admFotoProdNuevo {
+    margin: 10px 0px;
+    width: 80%;
+    align-self: center;
+  }
+
+  .inputSumbit {
+    background-color: rgba(194, 73, 162, 0.39);
+    padding: 10px;
+    border-radius: 35px;
+    color: white;
+    width: 100%;
+  }
+
+  #admNombreProd,
+  #admTipoProd,
+  #admPrecioProd,
+  #admFotoProd {
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.753);
+    color: white;
+  }
+
+  .titulo-zona__admin {
+    color: white;
+    font-weight: 200;
+  }
+
+  .label-zonas__admin {
+    color: white;
+    text-align: center;
+    gap: 5px;
+  }
+
+  #admNombreZona,
+  #admPrecioZona,
+  #admNuevaZonaNombre,
+  #admNuevaZonaPrecio {
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.753);
+    color: white;
+  }
+
+  .borrarProdAdm-zonas{
+      width: 20px;
+      margin-top: 1.8rem;
+  }
+  
+  #input-submit-zonas__admin{
+    background-color: rgba(194, 73, 162, 0.39);
+    padding: 5px;
+    border-radius: 35px;
+    color: white;
+    width: 50%;
+    margin-top: 1.5rem;
+  }
 }

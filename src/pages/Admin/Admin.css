@@ -337,3 +337,16 @@
         width: 160px;
     }
 }
+
+@media screen and (min-width:320px) {
+    #btn-editar__admin{
+        background-color: rgba(171, 20, 177, 0.712);
+        padding: 8px;
+        border-radius: 30px;
+        color: white;
+        width: 50%;
+        font-weight: 400;
+        font-size: 15px;
+        text-align: center;
+    }
+}

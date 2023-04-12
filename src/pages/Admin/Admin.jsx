@@ -45,10 +45,10 @@ export default function Admin() {
     const nuevoProductos = async (e) => {
         e.preventDefault()
 
-        try{
+        try {
             const urlFoto = await uploadImagenes(fotoProd)
             // console.log(urlFoto);
-            if (nuevoTipoRef?.current?.value === 'Tipo de bebida' && nuevoTipoCreadoRef?.current.value === ""){
+            if (nuevoTipoRef?.current?.value === 'Tipo de bebida' && nuevoTipoCreadoRef?.current.value === "") {
                 Swal.fire({
                     position: 'center',
                     icon: 'error',
@@ -63,7 +63,7 @@ export default function Admin() {
                     precio: nuevoPrecioRef?.current?.value,
                     imagen: urlFoto,
                 }
-        
+
                 e.target.reset()
                 dispatch(crear_producto(data))
                 Swal.fire({
@@ -74,7 +74,7 @@ export default function Admin() {
                     timer: 750
                 })
             }
-        } catch(error){
+        } catch (error) {
             console.log(error.message);
         }
     }
@@ -83,21 +83,21 @@ export default function Admin() {
         e.preventDefault()
 
         try {
-                const data = {
-                    nombre: nuevaZonaNombreRef?.current?.value,
-                    precio: nuevaZonaPrecioRef?.current?.value,
-                }
-        
-                e.target.reset()
-                dispatch(crear_zona(data))
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Zona creada',
-                    showConfirmButton: false,
-                    timer: 750
-                })
-        } catch(error){
+            const data = {
+                nombre: nuevaZonaNombreRef?.current?.value,
+                precio: nuevaZonaPrecioRef?.current?.value,
+            }
+
+            e.target.reset()
+            dispatch(crear_zona(data))
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Zona creada',
+                showConfirmButton: false,
+                timer: 750
+            })
+        } catch (error) {
             console.log(error.message);
         }
     }
@@ -107,10 +107,10 @@ export default function Admin() {
     }
     // FUNCION para abrir el input de cambiar entre "nueva categoria" y "elegir categoria"
     const abrirTipo = () => {
-        if(tipoBebida === 'tipoCerrado'){
+        if (tipoBebida === 'tipoCerrado') {
             setTipoBebida('tipoAbierto')
             setTipoNuevoBebida('tipoNuevoCerrado')
-        } else if (tipoNuevoBebida === 'tipoNuevoCerrado'){
+        } else if (tipoNuevoBebida === 'tipoNuevoCerrado') {
             setTipoNuevoBebida('tipoNuevoAbierto')
             setTipoBebida('tipoCerrado')
         }
@@ -170,13 +170,13 @@ export default function Admin() {
         let precioEdit = producto.precio
         let fotoEdit = producto.imagen
 
-        if(input.target.name === 'editNombre'){
+        if (input.target.nombre === 'editNombre') {
             nombreEdit = input.target.value
-        } else if(input.target.name === 'editTipo'){
+        } else if (input.target.tipo === 'editTipo') {
             tipoEdit = input.target.value
-        } else if(input.target.name === 'editPrecio'){
+        } else if (input.target.precio === 'editPrecio') {
             precioEdit = input.target.value
-        } else if(input.target.name === 'editFoto'){
+        } else if (input.target.imagen === 'editFoto') {
             fotoEdit = input.target.value
         }
         nombreEdit === "" && (nombreEdit = producto.nombre);
@@ -191,16 +191,16 @@ export default function Admin() {
             imagen: fotoEdit,
         }
         //console.log("OBJETO QUE SE DESPACHA -->",objeto);
-        dispatch(editar_producto({id: producto._id, data: objeto}))
+        dispatch(editar_producto({ id: producto._id, data: objeto }))
     }
     // FUNCION para editar zonas de entrega
     const editarZona = (input, zona) => {
         let nombreEdit = zona.nombre
         let precioEdit = zona.precio
 
-        if(input.target.name === 'editZonaNombre'){
+        if (input.target.name === 'editZonaNombre') {
             nombreEdit = input.target.value
-        } else if(input.target.name === 'editZonaPrecio'){
+        } else if (input.target.name === 'editZonaPrecio') {
             precioEdit = input.target.value
         }
         nombreEdit === "" && (nombreEdit = zona.nombre);
@@ -210,97 +210,98 @@ export default function Admin() {
             precio: precioEdit,
         }
         //console.log("OBJETO QUE SE DESPACHA -->",objeto);
-        dispatch(editar_zona({id: zona._id, data: objeto}))
+        dispatch(editar_zona({ id: zona._id, data: objeto }))
     }
 
     return (
-            <div id='admin-pagina-cont'>
-                <div className='btnNuevoProd' onClick={abrirModal}>{estadoModal === 'modalCerrado' ? '+ AGREGAR PRODUCTO' : 'CERRAR VENTANA'}</div>
-                <form onSubmit={nuevoProductos} className={`${estadoModal}`}>
-                    <div className='admProdNuevo'>
-                        <label htmlFor='admNombreProdNuevo'>
-                            <input type='text' placeholder={'Nombre'} required name={'nuevoNombre'} id='admNombreProdNuevo' ref={nuevoNombreRef} />
-                        </label>
-                        <label htmlFor='admTipoProdNuevo' id='label-tipos'>
-                            <div className='btnTipoProd' onClick={abrirTipo}>{tipoBebida === 'tipoAbierto' ? 'Crear categoría' : 'Elegir categoría'}</div>
-                            <input className={`${tipoNuevoBebida}`} id='admTipoProdNuevo' type='text' placeholder='Nuevo tipo de bebida' ref={nuevoTipoCreadoRef} />
-                            <select name='nuevoTipo' id='admTipoProdNuevo' className={`${tipoBebida}`} defaultValue='none' ref={nuevoTipoRef}>
-                                <option defaultValue='none' >Tipo de bebida</option>
-                                {(todosLosTipos?.map(p => <option key={p}  value={p}>{p}</option>))}
-                            </select>
-                        </label>
-                        <label htmlFor='admPrecioProdNuevo'>
-                            <input type='number' placeholder={'Precio'} required name={'nuevoPrecio'} id='admPrecioProdNuevo' ref={nuevoPrecioRef} />
-                        </label>
-                        <label htmlFor='admFotoProdNuevo' className='label-fotoProd'>Imagen:
-                            <input type='file' aria-label='Imagen' required name={'nuevoFoto'} id='admFotoProdNuevo' ref={nuevoFotoRef} onChange={ e => setFotoProd(e?.target?.files?.[0])} />
-                        </label>
-                    </div>
-                    <div className='inputSumbit'>
-                        <input type='submit' value='Crear nuevo producto' />
-                    </div>
-                </form>
-
-                <div className='textoAdmin'>
-                    <h1>EDITAR PRODUCTOS</h1>
-                    <p>¿Cómo funciona el editor de productos?</p>
-                    <div className='comoFuncionaAdmin'>
-                        <p>- Todos los campos son editables, al modificar cualquier dato se actualiza automáticamente el producto, sin necesidad de hacer click en ningún botón extra.</p>
-                        <p>- El botón rojo del final de cada campo elimina el producto seleccionado.</p>
-                        <p>- Los datos de cada producto NO pueden quedar en blanco, ya que afectaría directamente a la página principal y, asimismo, a la experiencia de los clientes.</p>
-                    </div>
+        <div id='admin-pagina-cont'>
+            <div className='btnNuevoProd' onClick={abrirModal}>{estadoModal === 'modalCerrado' ? '+ AGREGAR PRODUCTO' : 'CERRAR VENTANA'}</div>
+            <form onSubmit={nuevoProductos} className={`${estadoModal}`}>
+                <div className='admProdNuevo'>
+                    <label htmlFor='admNombreProdNuevo'>
+                        <input type='text' placeholder={'Nombre'} required name={'nuevoNombre'} id='admNombreProdNuevo' ref={nuevoNombreRef} />
+                    </label>
+                    <label htmlFor='admTipoProdNuevo' id='label-tipos'>
+                        <div className='btnTipoProd' onClick={abrirTipo}>{tipoBebida === 'tipoAbierto' ? 'Crear categoría' : 'Elegir categoría'}</div>
+                        <input className={`${tipoNuevoBebida}`} id='admTipoProdNuevo' type='text' placeholder='Nuevo tipo de bebida' ref={nuevoTipoCreadoRef} />
+                        <select name='nuevoTipo' id='admTipoProdNuevo' className={`${tipoBebida}`} defaultValue='none' ref={nuevoTipoRef}>
+                            <option defaultValue='none' >Tipo de bebida</option>
+                            {(todosLosTipos?.map(p => <option key={p} value={p}>{p}</option>))}
+                        </select>
+                    </label>
+                    <label htmlFor='admPrecioProdNuevo'>
+                        <input type='number' placeholder={'Precio'} required name={'nuevoPrecio'} id='admPrecioProdNuevo' ref={nuevoPrecioRef} />
+                    </label>
+                    <label htmlFor='admFotoProdNuevo' className='label-fotoProd'>Imagen:
+                        <input type='file' aria-label='Imagen' required name={'nuevoFoto'} id='admFotoProdNuevo' ref={nuevoFotoRef} onChange={e => setFotoProd(e?.target?.files?.[0])} />
+                    </label>
                 </div>
-                <form className='adminProd-cont'>
-                    {productos?.map((prod) => (
-                        <div key={prod._id} className='admProd' id={prod._id}>
-                            <img className='fotoProdAdm' src={prod.imagen} alt={prod.nombre} />
-                            <label htmlFor='admNombreProd'>
-                                <input type='text' placeholder={'Nombre'} required name={'editNombre'} ref={nombreEditRef}  id='admNombreProd' onBlur={(e) => editarProducto(e, prod)} defaultValue={prod.nombre} />
-                            </label>
-                            <label htmlFor='admTipoProd'>
-                                <select name='editTipo' id='admTipoProd' required defaultValue={prod.tipo} onBlur={(e) => editarProducto(e, prod)} ref={tipoEditRef}>
-                                    <option value={prod.tipo} defaultValue={prod.tipo} required>{prod.tipo}</option>
-                                    {(todosLosTipos?.filter(e => e !== prod.tipo).map(p => <option key={p} value={p} required >{p}</option>))}
-                                </select>
-                                {/* <input type='text' placeholder={'Tipo de bebida'} name={'nuevoTipo'} onChange={(e) => inputCambio(e)} id='admTipoProd' defaultValue={prod.tipo} /> */}
-                            </label>
-                            <label htmlFor='admPrecioProd'>
-                                <input type='number' placeholder={'Precio'} required ref={precioEditRef} name={'editPrecio'}  id='admPrecioProd' onBlur={(e) => editarProducto(e, prod)} defaultValue={prod.precio} />
-                            </label>
-                            <label htmlFor='admFotoProd'>
-                                <input type='text' placeholder={'Imagen'} required ref={fotoEditRef} name={'editFoto'}  id='admFotoProd' onBlur={(e) => editarProducto(e, prod)} defaultValue={prod.imagen} />
-                            </label>
-                            <img className='borrarProdAdm' onClick={() => eliminarProducto(prod._id)} src='https://cdn-icons-png.flaticon.com/512/1828/1828843.png' alt='eliminar' />
-                        </div>
-                    ))}
-                </form>
-                <form className='adminProd-cont'>
-                    <span>EDITAR ZONAS DE ENTREGA</span>
-                    {zonas?.map( zona => (
-                        <div key={zona._id} className='admProd' id={zona._id} >
-                            <label htmlFor='admNombreZona'> Nombre:
-                                <input type='text' placeholder='Nombre de zona' name='editZonaNombre' onBlur={(e) => editarZona(e, zona)} id='admNombreZona' required defaultValue={zona.nombre} />
-                            </label>
-                            <label htmlFor='admPrecioZona'> Precio:
-                                <input type='number' placeholder='Precio' name='editZonaPrecio' onBlur={(e) => editarZona(e, zona)} id='admPrecioZona' required defaultValue={zona.precio} />
-                            </label>
-                            <img className='borrarProdAdm' onClick={() => eliminarZona(zona._id)} src='https://cdn-icons-png.flaticon.com/512/1828/1828843.png' alt='eliminar' />
-                        </div>
-                    ))
-                    }
-                </form>
-                <div className='adminProd-cont'>
-                    <span>CREAR NUEVA ZONA</span>
-                    <form onSubmit={nuevasZonas} className='admProd'>
-                        <label htmlFor='admNuevaZonaNombre'> Nombre:
-                            <input type='text' placeholder='Nombre de nueva zona' name='nuevaZonaNombre' ref={nuevaZonaNombreRef} id='admNuevaZonaNombre' required/>
-                        </label>
-                        <label htmlFor='admNuevaZonaPrecio'> Precio:
-                            <input type='number' placeholder='Precio de nueva zona' name='nuevaZonaPrecio' ref={nuevaZonaPrecioRef} id='admNuevaZonaPrecio' required/>
-                        </label>
-                        <input type='submit' value='Crear' />
-                    </form>
+                <div className='inputSumbit'>
+                    <input type='submit' value='Crear nuevo producto' />
+                </div>
+            </form>
+
+            <div className='textoAdmin'>
+                <h1>EDITAR PRODUCTOS</h1>
+                <p>¿Cómo funciona el editor de productos?</p>
+                <div className='comoFuncionaAdmin'>
+                    <p>- Todos los campos son editables, al modificar cualquier dato se actualiza automáticamente el producto, sin necesidad de hacer click en ningún botón extra.</p>
+                    <p>- El botón rojo del final de cada campo elimina el producto seleccionado.</p>
+                    <p>- Los datos de cada producto NO pueden quedar en blanco, ya que afectaría directamente a la página principal y, asimismo, a la experiencia de los clientes.</p>
                 </div>
             </div>
+            <form className='adminProd-cont'>
+                {productos?.map((prod) => (
+                    <div key={prod._id} className='admProd' id={prod._id}>
+                        <img className='fotoProdAdm' src={prod.imagen} alt={prod.nombre} />
+                        <label htmlFor='admNombreProd'>
+                            <input type='text' placeholder={'Nombre'} required name={'editNombre'} ref={nombreEditRef} id='admNombreProd' onBlur={(e) => editarProducto(e, prod)} defaultValue={prod.nombre} />
+                        </label>
+                        <label htmlFor='admTipoProd'>
+                            <select name='editTipo' id='admTipoProd' required defaultValue={prod.tipo} onBlur={(e) => editarProducto(e, prod)} ref={tipoEditRef}>
+                                <option value={prod.tipo} defaultValue={prod.tipo} required>{prod.tipo}</option>
+                                {(todosLosTipos?.filter(e => e !== prod.tipo).map(p => <option key={p} value={p} required >{p}</option>))}
+                            </select>
+                            {/* <input type='text' placeholder={'Tipo de bebida'} name={'nuevoTipo'} onChange={(e) => inputCambio(e)} id='admTipoProd' defaultValue={prod.tipo} /> */}
+                        </label>
+                        <label htmlFor='admPrecioProd'>
+                            <input type='number' placeholder={'Precio'} required ref={precioEditRef} name={'editPrecio'} id='admPrecioProd' onBlur={(e) => editarProducto(e, prod)} defaultValue={prod.precio} />
+                        </label>
+                        <label htmlFor='admFotoProd'>
+                            <input type='text' placeholder={'Imagen'} required ref={fotoEditRef} name={'editFoto'} id='admFotoProd' onBlur={(e) => editarProducto(e, prod)} defaultValue={prod.imagen} />
+                        </label>
+                        <div id='btn-editar__admin' onClick={() => editarProducto(prod._id, prod)}>Editar Producto</div>
+                        <img className='borrarProdAdm' onClick={() => eliminarProducto(prod._id)} src='https://cdn-icons-png.flaticon.com/512/1828/1828843.png' alt='eliminar' />
+                    </div>
+                ))}
+            </form>
+            <form className='adminProd-cont'>
+                <span>EDITAR ZONAS DE ENTREGA</span>
+                {zonas?.map(zona => (
+                    <div key={zona._id} className='admProd' id={zona._id} >
+                        <label htmlFor='admNombreZona'> Nombre:
+                            <input type='text' placeholder='Nombre de zona' name='editZonaNombre' onBlur={(e) => editarZona(e, zona)} id='admNombreZona' required defaultValue={zona.nombre} />
+                        </label>
+                        <label htmlFor='admPrecioZona'> Precio:
+                            <input type='number' placeholder='Precio' name='editZonaPrecio' onBlur={(e) => editarZona(e, zona)} id='admPrecioZona' required defaultValue={zona.precio} />
+                        </label>
+                        <img className='borrarProdAdm' onClick={() => eliminarZona(zona._id)} src='https://cdn-icons-png.flaticon.com/512/1828/1828843.png' alt='eliminar' />
+                    </div>
+                ))
+                }
+            </form>
+            <div className='adminProd-cont'>
+                <span>CREAR NUEVA ZONA</span>
+                <form onSubmit={nuevasZonas} className='admProd'>
+                    <label htmlFor='admNuevaZonaNombre'> Nombre:
+                        <input type='text' placeholder='Nombre de nueva zona' name='nuevaZonaNombre' ref={nuevaZonaNombreRef} id='admNuevaZonaNombre' required />
+                    </label>
+                    <label htmlFor='admNuevaZonaPrecio'> Precio:
+                        <input type='number' placeholder='Precio de nueva zona' name='nuevaZonaPrecio' ref={nuevaZonaPrecioRef} id='admNuevaZonaPrecio' required />
+                    </label>
+                    <input type='submit' value='Crear' />
+                </form>
+            </div>
+        </div>
     )
 }

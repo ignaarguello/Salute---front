@@ -7,8 +7,8 @@ import carritoActions from '../../redux/actions/carritoActions'
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import { BASE_URL } from '../../Api/Api'
-// import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
-// initMercadoPago('ACCESS_TOKEN');
+/* import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
+initMercadoPago('ACCESS_TOKEN'); */
 
 export default function Carrito() {
 
@@ -75,7 +75,7 @@ export default function Carrito() {
 
     const finalizarCompra = async() => {
         let tituloCompra = carrito?.map(e => e.nombre).join(', ')
-        console.log(carrito)
+        // console.log(carrito)
 
         // console.log(zonaElegida);
 
@@ -84,21 +84,33 @@ export default function Carrito() {
             precio: precioTotal,
             cantidad: cantidadTotal,
             imagen: carrito?.[0].imagen,
-        /*  nombreComprador: nombre,
+            nombreComprador: nombre,
             apellidoComprador: apellido,
-            emailComprador: 'test_user_1005535830@testuser.com', */
+            emailComprador: email,    
         }
         try{
             let res = await axios.post(`${BASE_URL}/payment`, data)
+            console.log(res);
             if(res){
                 window.location.replace(res.data.init_point)
             }
-            console.log(res);
+            
 
         } catch(error){
             console.log(error);
         }
     }
+
+    /* const customization = {
+        texts: {
+            action: 'buy',
+            valueProp: 'security_details',
+        },
+        visual: {
+            buttonBackground: 'black',
+            borderRadius: '6px',
+        },
+    } */
 
     return (
         <div id='carrito-paginaCont'>

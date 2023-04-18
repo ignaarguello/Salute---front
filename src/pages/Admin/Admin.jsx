@@ -169,34 +169,41 @@ export default function Admin() {
         })
     }
     // FUNCION para editar productos
-    const editarProducto = (input, producto) => {
+    const editarProducto = async (input, producto) => {
         let nombreEdit = producto.nombre
         let tipoEdit = producto.tipo
         let precioEdit = producto.precio
         let fotoEdit = producto.imagen
 
-        if (input.target.name === 'editNombre') {
-            nombreEdit = input.target.value
-        } else if (input.target.name === 'editTipo') {
-            tipoEdit = input.target.value
-        } else if (input.target.name === 'editPrecio') {
-            precioEdit = input.target.value
-        } else if (input.target.name === 'editFoto') {
-            fotoEdit = input.target.value
-        }
-        nombreEdit === "" && (nombreEdit = producto.nombre);
-        tipoEdit === "" && (tipoEdit = producto.tipo);
-        precioEdit === "" && (precioEdit = producto.precio);
-        fotoEdit === "" && (fotoEdit = producto.fotoEdit);
+        console.log(input);
+        try{
 
-        let objeto = {
+            if (input.target.name === 'editNombre') {
+                nombreEdit = input.target.value
+            } else if (input.target.name === 'editTipo') {
+                tipoEdit = input.target.value
+            } else if (input.target.name === 'editPrecio') {
+                precioEdit = input.target.value
+            } else if (input.target.name === 'editFoto') {
+                fotoEdit = input.target.files[0]
+                fotoEdit = await uploadImagenes(fotoEdit)
+            }
+            nombreEdit === "" && (nombreEdit = producto.nombre);
+            tipoEdit === "" && (tipoEdit = producto.tipo);
+            precioEdit === "" && (precioEdit = producto.precio);
+            fotoEdit === "" && (fotoEdit = producto.fotoEdit);
+            
+            let objeto = {
             nombre: nombreEdit,
             tipo: tipoEdit,
             precio: precioEdit,
             imagen: fotoEdit,
+            }
+            //console.log("OBJETO QUE SE DESPACHA -->",objeto);
+            dispatch(editar_producto({ id: producto._id, data: objeto }))
+        } catch(error){
+            console.log(error);
         }
-        //console.log("OBJETO QUE SE DESPACHA -->",objeto);
-        dispatch(editar_producto({ id: producto._id, data: objeto }))
     }
     // FUNCION para editar zonas de entrega
     const editarZona = (input, zona) => {
@@ -275,7 +282,8 @@ export default function Admin() {
                             <input type='number' placeholder={'Precio'} required ref={precioEditRef} name={'editPrecio'} id='admPrecioProd' onBlur={(e) => editarProducto(e, prod)} defaultValue={prod.precio} />
                         </label>
                         <label htmlFor='admFotoProd'>
-                            <input type='text' placeholder={'Imagen'} required ref={fotoEditRef} name={'editFoto'} id='admFotoProd' onBlur={(e) => editarProducto(e, prod)} defaultValue={prod.imagen} />
+                            {/* <input type='text' placeholder={'Imagen'} required  name={'editFoto'} id='admFotoProd' onBlur={(e) => editarProducto(e, prod)} defaultValue={prod.imagen} /> */}
+                            <input type='file' name={'editFoto'} required id='admFotoProd' ref={fotoEditRef} onChange={e => editarProducto(e, prod)}/>
                         </label>
                         <img className='borrarProdAdm' onClick={() => eliminarProducto(prod._id)} src='https://cdn-icons-png.flaticon.com/512/1828/1828843.png' alt='eliminar' />
                     </div>

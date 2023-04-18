@@ -18,25 +18,25 @@
   }
 
   .card-producto__CardsHome:nth-child(1) {
-    background-image: url(../../../public/images/smirnoff.png);
+    background-image: url(../../../public/images/tanqueray.png);
     background-size: cover;
     text-decoration: none;
   }
 
   .card-producto__CardsHome:nth-child(2) {
-    background-image: url(../../../public/images/patagonia.png);
+    background-image: url(../../../public/images/andes.webp);
     background-size: cover;
     text-decoration: none;
   }
 
   .card-producto__CardsHome:nth-child(3) {
-    background-image: url(../../../public/images/chandon.png);
+    background-image: url(../../../public/images/campari.webp);
     background-size: cover;
     text-decoration: none;
   }
 
   .card-producto__CardsHome:nth-child(4) {
-    background-image: url(../../../public/images/tanqueray.png);
+    background-image: url(../../../public/images/chandon.png);
     background-size: cover;
     text-decoration: none;
   }

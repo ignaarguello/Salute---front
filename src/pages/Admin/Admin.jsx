@@ -175,13 +175,13 @@ export default function Admin() {
         let precioEdit = producto.precio
         let fotoEdit = producto.imagen
 
-        if (input.target.nombre === 'editNombre') {
+        if (input.target.name === 'editNombre') {
             nombreEdit = input.target.value
-        } else if (input.target.tipo === 'editTipo') {
+        } else if (input.target.name === 'editTipo') {
             tipoEdit = input.target.value
-        } else if (input.target.precio === 'editPrecio') {
+        } else if (input.target.name === 'editPrecio') {
             precioEdit = input.target.value
-        } else if (input.target.imagen === 'editFoto') {
+        } else if (input.target.name === 'editFoto') {
             fotoEdit = input.target.value
         }
         nombreEdit === "" && (nombreEdit = producto.nombre);

@@ -18,11 +18,11 @@ export default function Footer() {
           <img id='logo-salute__footer' src="../images/logo-salute.png" alt="" />
           <h2 id='titulo-links__footer'>Quick Links</h2>
           <div id='lista-contenedorLinks__footer'>
-            <Link to='/' className="link-ref__footer">1. Inicio</Link>
-            <Link to='/productos' className="link-ref__footer">2. Catalogo</Link>
-            <Link to='/ingresar' className="link-ref__footer">3. Iniciar Sesión</Link>
-            <Link to='/zonas-entrega' className="link-ref__footer">4. Zonas de Entrega</Link>
-            <Link to='/salute-tv' className="link-ref__footer">5. Salute TV</Link>
+            <Link to='/' className="link-ref__footer">Inicio</Link>
+            <Link to='/productos' className="link-ref__footer">Catalogo</Link>
+            <Link to='/ingresar' className="link-ref__footer">Iniciar Sesión</Link>
+            <Link to='/zonas-entrega' className="link-ref__footer">Zonas de Entrega</Link>
+            <Link to='/salute-tv' className="link-ref__footer">Salute TV</Link>
           </div>
         </div>
         <div className="containers-footer" id='container-B__footer'>

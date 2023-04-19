@@ -120,6 +120,12 @@
     letter-spacing: 4px;
 }
 
+.inputCarrito::-webkit-outer-spin-button,
+.inputCarrito::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 /* 
 * ---------------------
 * MEDIA QUERIES

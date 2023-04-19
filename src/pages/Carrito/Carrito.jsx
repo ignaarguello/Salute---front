@@ -101,17 +101,6 @@ export default function Carrito() {
         }
     }
 
-    /* const customization = {
-        texts: {
-            action: 'buy',
-            valueProp: 'security_details',
-        },
-        visual: {
-            buttonBackground: 'black',
-            borderRadius: '6px',
-        },
-    } */
-
     return (
         <div id='carrito-paginaCont'>
             <div className='primerCont-carrito'>
@@ -149,7 +138,7 @@ export default function Carrito() {
                             <span id='cantidad-carrito'>{cantidadTotal > 1 ? `${cantidadTotal} artículos` : `${cantidadTotal} artículo`}</span>
                             <span id='subtotal-carrito'>${precioSubtotal.toLocaleString('es-ES')}</span>
                         </div>
-                        <select id='select-zona-carrito' onChange={(e) => setZonaElegida(e?.target?.value)}>
+                        <select id='select-zona-carrito' required onChange={(e) => setZonaElegida(e?.target?.value)}>
                             <option value={0}>Elija la zona de entrega</option>
                             {zonas?.map( zona => <option key={zona._id}  value={zona.precio}>{zona.nombre} - ${zona.precio}</option>)}
                         </select>
@@ -158,6 +147,23 @@ export default function Carrito() {
                     <div id='boton-pagar' onClick={finalizarCompra}>COMPRAR</div>
                     {/* <div id="wallet_container"></div> */}
                     {/* <Wallet initialization={{ preferenceId: 'wallet_container' }} /> */}
+                    <div>
+                        <label>Dirección de entrega
+                            <input type='text' className='inputCarrito' required />
+                        </label>
+                        <label> Altura
+                            <input type='number' className='inputCarrito' required />
+                        </label>
+                        <label>N° de contacto
+                            <input type='number' className='inputCarrito' required />
+                        </label>
+                        <label>N° de DNI (sin puntos ni guiones)
+                            <input type='number' className='inputCarrito' required/>
+                        </label>
+                        <label>Código Postal
+                            <input type='number' className='inputCarrito' required/>
+                        </label>
+                    </div>
                 </div>
             }
         </div>

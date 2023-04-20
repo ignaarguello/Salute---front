@@ -1,4 +1,4 @@
-import React, { useEffect, useState }  from 'react'
+import React, { useEffect, useRef, useState }  from 'react'
 import CarritoItem from '../../components/CarritoItem/CarritoItem'
 import './Carrito.css'
 import { useDispatch, useSelector } from 'react-redux'
@@ -7,12 +7,9 @@ import carritoActions from '../../redux/actions/carritoActions'
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import { BASE_URL } from '../../Api/Api'
-/* import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
-initMercadoPago('ACCESS_TOKEN'); */
 
 export default function Carrito() {
 
-    // let {productos} = useSelector( store => store.productos)
     let {zonas} = useSelector( store => store.zonas)
     let {usuarioId, nombre, apellido, email} = useSelector(store => store.usuarios)
     let {carrito, prodEliminado, prodAgregado, prodEditado} = useSelector( store => store.carrito)
@@ -21,6 +18,14 @@ export default function Carrito() {
     let {traer_carrito, eliminar_prod_carrito, cambiar_cantidad_carrito} = carritoActions
 
     let [zonaElegida, setZonaElegida] = useState()
+    let [mostrarMapa, setMostrarMapa] = useState('mapa-cerrado')
+
+    let zonaComprador = useRef()
+    let direccionComprador = useRef()
+    let alturaComprador = useRef()
+    let postalComprador = useRef()
+    let celularComprador = useRef()
+    let dniComprador = useRef()
 
     useEffect( () => {
         // dispatch(traer_productos())
@@ -36,8 +41,6 @@ export default function Carrito() {
     const cantidadTotal = carrito && carrito.reduce((total, prod) => {
         return total + prod.cantidad
     }, 0)
-
-    // console.log(cantidadTotal);
 
     const precioTotal = precioSubtotal + (zonaElegida ? parseInt(zonaElegida) : 0)
 
@@ -75,9 +78,6 @@ export default function Carrito() {
 
     const finalizarCompra = async() => {
         let tituloCompra = carrito?.map(e => e.nombre).join(', ')
-        // console.log(carrito)
-
-        // console.log(zonaElegida);
 
         let data = {
             titulo: tituloCompra,
@@ -86,18 +86,42 @@ export default function Carrito() {
             imagen: carrito?.[0].imagen,
             nombreComprador: nombre,
             apellidoComprador: apellido,
-            emailComprador: email,    
+            emailComprador: email,
+            direccionComprador: direccionComprador?.current?.value,
+            alturaComprador: alturaComprador?.current?.value,
+            postalComprador: postalComprador?.current?.value,
+            celularComprador: celularComprador?.current?.value,
+            dniComprador: dniComprador?.current?.value,
         }
-        try{
-            let res = await axios.post(`${BASE_URL}/payment`, data)
-            console.log(res);
-            if(res){
-                window.location.replace(res.data.init_point)
-            }
-            
 
-        } catch(error){
-            console.log(error);
+        if(data.direccionComprador.length === 0 || data.alturaComprador.length === 0 || data.postalComprador.length === 0 || data.celularComprador.length === 0 || data.dniComprador.length === 0){
+            Swal.fire({
+                position: 'centre',
+                icon: 'error',
+                title: 'Los campos de entrega deben completarse',
+                showConfirmButton: false,
+                timer: 1800
+            })
+        } else if(zonaComprador.current.value === 'none'){
+            Swal.fire({
+                position: 'centre',
+                icon: 'error',
+                title: 'Seleccione una zona',
+                showConfirmButton: false,
+                timer: 1800
+            })
+        } else{
+            try{
+                let res = await axios.post(`${BASE_URL}/payment`, data)
+                console.log(res);
+                if(res){
+                    window.location.replace(res.data.init_point)
+                }
+                
+    
+            } catch(error){
+                console.log(error);
+            }
         }
     }
 
@@ -138,34 +162,43 @@ export default function Carrito() {
                             <span id='cantidad-carrito'>{cantidadTotal > 1 ? `${cantidadTotal} artículos` : `${cantidadTotal} artículo`}</span>
                             <span id='subtotal-carrito'>${precioSubtotal.toLocaleString('es-ES')}</span>
                         </div>
-                        <select id='select-zona-carrito' required onChange={(e) => setZonaElegida(e?.target?.value)}>
-                            <option value={0}>Elija la zona de entrega</option>
+                        <select id='select-zona-carrito' required onChange={(e) => setZonaElegida(e?.target?.value)} ref={zonaComprador}>
+                            <option value='none'>Elija la zona de entrega</option>
                             {zonas?.map( zona => <option key={zona._id}  value={zona.precio}>{zona.nombre} - ${zona.precio}</option>)}
                         </select>
+                        <span className='boton-mapa-carrito' onClick={() => setMostrarMapa('mapa-abierto')}>VER MAPA DE ZONAS</span>
                         <span id='total-carrito'>TOTAL: <strong>${precioTotal.toLocaleString('es-ES')}</strong></span>
                     </div>
-                    <div id='boton-pagar' onClick={finalizarCompra}>COMPRAR</div>
                     {/* <div id="wallet_container"></div> */}
                     {/* <Wallet initialization={{ preferenceId: 'wallet_container' }} /> */}
-                    <div>
+                    <div className='datos-comprador-cont'>
+                        <span>Datos de entrega</span>
                         <label>Dirección de entrega
-                            <input type='text' className='inputCarrito' required />
+                            <input type='text' className='inputCarrito' ref={direccionComprador} required />
                         </label>
                         <label> Altura
-                            <input type='number' className='inputCarrito' required />
-                        </label>
-                        <label>N° de contacto
-                            <input type='number' className='inputCarrito' required />
-                        </label>
-                        <label>N° de DNI (sin puntos ni guiones)
-                            <input type='number' className='inputCarrito' required/>
+                            <input type='number' className='inputCarrito' ref={alturaComprador} required />
                         </label>
                         <label>Código Postal
-                            <input type='number' className='inputCarrito' required/>
+                            <input type='number' className='inputCarrito' ref={postalComprador} required/>
+                        </label>
+                        <label>Celular
+                            <div id='label-celular'>
+                                <span>11</span>
+                                <input type='number' className='inputCarrito' ref={celularComprador} required />
+                            </div>
+                        </label>
+                        <label>DNI (sin puntos ni guiones)
+                            <input type='number' className='inputCarrito' ref={dniComprador} required/>
                         </label>
                     </div>
+                    <div id='boton-pagar' onClick={finalizarCompra}>COMPRAR</div>
                 </div>
             }
+            <div className={mostrarMapa}>
+                <span onClick={() => setMostrarMapa('mapa-cerrado')}>x</span>
+                <iframe className='mapa-carrito' src="https://www.google.com/maps/d/u/0/embed?mid=16cnMi0dh5EM0cmAK8CzGNTNkltTiWVo&ehbc=2E312F" title='Mapa de entregas' />
+            </div>
         </div>
     )
 }

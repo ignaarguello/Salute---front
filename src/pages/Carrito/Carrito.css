@@ -67,6 +67,7 @@
     flex-direction: column;
     width: 100%;
     gap: 1rem;
+    padding-bottom: 5px;
 }
 
 .subtotal-carritoCont{
@@ -124,6 +125,94 @@
 .inputCarrito::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+.datos-comprador-cont{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    border-top: 1px solid #ddd;
+}
+
+.datos-comprador-cont>span{
+    color: #ddd;
+    font-size: 1.5rem;
+    font-weight: 200;
+    text-align: center;
+}
+
+.datos-comprador-cont label{
+    display: flex;
+    flex-direction: column;
+    color: #ddd;
+}
+
+.datos-comprador-cont label input{
+    background-color: #000;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+#label-celular{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    width: 100%;
+}
+
+#label-celular span{
+    background-color: #ddd;
+    color: #000;
+    font-size: 1.2rem;
+    padding: 2px 4px;
+    line-height: 1.5rem;
+    border-radius: 2px;
+}
+
+#label-celular input{
+    width: 100%;
+}
+
+.boton-mapa-carrito{
+    background-color: #c249a2;
+    color: #ddd;
+    text-align: center;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.mapa-abierto{
+    position: absolute;
+    background-color: #0b0b0b;
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 30%;
+    height: 50%;
+}
+
+.mapa-abierto span{
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+    cursor: pointer;
+    color: #ddd;
+}
+
+.mapa-abierto span:hover{
+    color: rgba(255, 0, 0, 0.369);
+}
+
+.mapa-cerrado{
+    display: none;
+}
+
+.mapa-carrito{
+    width: 100%;
+    height: 100%;
 }
 
 /* 

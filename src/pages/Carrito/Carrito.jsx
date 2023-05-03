@@ -14,8 +14,8 @@ export default function Carrito() {
     let {usuarioId, nombre, apellido, email} = useSelector(store => store.usuarios)
     let {carrito, prodEliminado, prodAgregado, prodEditado} = useSelector( store => store.carrito)
     let dispatch = useDispatch()
-    let {traer_zonas} = zonasActions
-    let {traer_carrito, eliminar_prod_carrito, cambiar_cantidad_carrito} = carritoActions
+    let { traer_zonas } = zonasActions
+    let { traer_carrito, eliminar_prod_carrito, cambiar_cantidad_carrito } = carritoActions
 
     let [zonaElegida, setZonaElegida] = useState()
     let [mostrarMapa, setMostrarMapa] = useState('mapa-cerrado')
@@ -27,7 +27,7 @@ export default function Carrito() {
     let celularComprador = useRef()
     let dniComprador = useRef()
 
-    useEffect( () => {
+    useEffect(() => {
         // dispatch(traer_productos())
         dispatch(traer_zonas())
         dispatch(traer_carrito(usuarioId))
@@ -65,22 +65,21 @@ export default function Carrito() {
                 })
             }
         })
-        
+
     }
 
     const sumarCantidad = (e) => {
-        dispatch(cambiar_cantidad_carrito({productoId: e.productoId, query: 'incrementar', usuarioId: usuarioId}))
+        dispatch(cambiar_cantidad_carrito({ productoId: e.productoId, query: 'incrementar', usuarioId: usuarioId }))
     }
 
     const restarCantidad = (e) => {
-        dispatch(cambiar_cantidad_carrito({productoId: e.productoId, query: 'decrementar', usuarioId: usuarioId}))
+        dispatch(cambiar_cantidad_carrito({ productoId: e.productoId, query: 'decrementar', usuarioId: usuarioId }))
     }
 
     const finalizarCompra = async() => {
         let tituloCompra = carrito?.map(e => e.nombre).join(', ')
 
         let data = {
-            titulo: tituloCompra,
             precio: precioTotal,
             cantidad: cantidadTotal,
             imagen: carrito?.[0].imagen,
@@ -92,6 +91,7 @@ export default function Carrito() {
             postalComprador: postalComprador?.current?.value,
             celularComprador: celularComprador?.current?.value,
             dniComprador: dniComprador?.current?.value,
+            usuarioId,
         }
 
         if(data.direccionComprador.length === 0 || data.alturaComprador.length === 0 || data.postalComprador.length === 0 || data.celularComprador.length === 0 || data.dniComprador.length === 0){
@@ -129,32 +129,32 @@ export default function Carrito() {
         <div id='carrito-paginaCont'>
             <div className='primerCont-carrito'>
                 <h2>Tu carrito de compras</h2>
-                { carrito
+                {carrito
                     && (carrito.length > 0)
-                        ? <span>{carrito.length > 1 ? `${carrito.length} productos` : `${carrito.length} producto`} en total</span>
-                        : <span>En la sección productos podrás llenar tu carrito!</span>
+                    ? <span>{carrito.length > 1 ? `${carrito.length} productos` : `${carrito.length} producto`} en total</span>
+                    : <span>En la sección productos podrás llenar tu carrito!</span>
                 }
                 <div className='item-carritoCont'>
-                { carrito
-                    &&   (carrito.length > 0)
-                        ? carrito.map( prod => <CarritoItem 
-                            key={prod._id} 
-                            cantidad= {prod?.cantidad}
-                            nombre={prod?.nombre} 
-                            img={prod?.imagen} 
-                            tipo={prod?.tipo} 
-                            precio={prod?.precio} 
+                    {carrito
+                        && (carrito.length > 0)
+                        ? carrito.map(prod => <CarritoItem
+                            key={prod._id}
+                            cantidad={prod?.cantidad}
+                            nombre={prod?.nombre}
+                            img={prod?.imagen}
+                            tipo={prod?.tipo}
+                            precio={prod?.precio}
                             fnBorrar={() => borrarProd(prod)}
-                            fnRestar= {() => restarCantidad(prod)}
-                            fnSumar= {() => sumarCantidad(prod)}
-                            />)
+                            fnRestar={() => restarCantidad(prod)}
+                            fnSumar={() => sumarCantidad(prod)}
+                        />)
                         : <span>No hay productos</span>
-                }
+                    }
                 </div>
             </div>
-            { carrito
-                &&  (carrito.length > 0)
-                && 
+            {carrito
+                && (carrito.length > 0)
+                &&
                 <div className='segundoCont-carrito'>
                     <h2>Resumen</h2>
                     <div className='total-carritoCont'>

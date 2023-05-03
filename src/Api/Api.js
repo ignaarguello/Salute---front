@@ -1,7 +1,7 @@
 //?Producción
-export const BASE_URL = 'https://salute-back.up.railway.app';
+/* export const BASE_URL = 'https://salute-back.up.railway.app'; */
 
 //?Desarrollo
-/* export const BASE_URL = 'http://localhost:8080'; */
+export const BASE_URL = 'http://localhost:8080';
 
 

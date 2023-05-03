@@ -1,4 +1,4 @@
-import React, { useEffect, useState }  from 'react'
+import React, { useEffect, useState } from 'react'
 import CarritoItem from '../../components/CarritoItem/CarritoItem'
 import './Carrito.css'
 import { useDispatch, useSelector } from 'react-redux'
@@ -7,22 +7,20 @@ import carritoActions from '../../redux/actions/carritoActions'
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import { BASE_URL } from '../../Api/Api'
-/* import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
-initMercadoPago('ACCESS_TOKEN'); */
 
 export default function Carrito() {
 
     // let {productos} = useSelector( store => store.productos)
-    let {zonas} = useSelector( store => store.zonas)
-    let {usuarioId, nombre, apellido, email} = useSelector(store => store.usuarios)
-    let {carrito, prodEliminado, prodAgregado, prodEditado} = useSelector( store => store.carrito)
+    let { zonas } = useSelector(store => store.zonas)
+    let { usuarioId } = useSelector(store => store.usuarios)
+    let { carrito, prodEliminado, prodAgregado, prodEditado } = useSelector(store => store.carrito)
     let dispatch = useDispatch()
-    let {traer_zonas} = zonasActions
-    let {traer_carrito, eliminar_prod_carrito, cambiar_cantidad_carrito} = carritoActions
+    let { traer_zonas } = zonasActions
+    let { traer_carrito, eliminar_prod_carrito, cambiar_cantidad_carrito } = carritoActions
 
     let [zonaElegida, setZonaElegida] = useState()
 
-    useEffect( () => {
+    useEffect(() => {
         // dispatch(traer_productos())
         dispatch(traer_zonas())
         dispatch(traer_carrito(usuarioId))
@@ -62,86 +60,64 @@ export default function Carrito() {
                 })
             }
         })
-        
+
     }
 
     const sumarCantidad = (e) => {
-        dispatch(cambiar_cantidad_carrito({productoId: e.productoId, query: 'incrementar', usuarioId: usuarioId}))
+        dispatch(cambiar_cantidad_carrito({ productoId: e.productoId, query: 'incrementar', usuarioId: usuarioId }))
     }
 
     const restarCantidad = (e) => {
-        dispatch(cambiar_cantidad_carrito({productoId: e.productoId, query: 'decrementar', usuarioId: usuarioId}))
+        dispatch(cambiar_cantidad_carrito({ productoId: e.productoId, query: 'decrementar', usuarioId: usuarioId }))
     }
 
-    const finalizarCompra = async() => {
-        let tituloCompra = carrito?.map(e => e.nombre).join(', ')
-        // console.log(carrito)
-
-        // console.log(zonaElegida);
-
+    const finalizarCompra = async () => {
         let data = {
-            titulo: tituloCompra,
             precio: precioTotal,
-            cantidad: cantidadTotal,
-            imagen: carrito?.[0].imagen,
-            nombreComprador: nombre,
-            apellidoComprador: apellido,
-            emailComprador: email,    
+            usuarioId
         }
-        try{
+        try {
             let res = await axios.post(`${BASE_URL}/payment`, data)
             console.log(res);
-            if(res){
-                window.location.replace(res.data.init_point)
+            if (res) {
+                window.location.replace(res.data.response.body.init_point)
             }
-            
 
-        } catch(error){
+        } catch (error) {
             console.log(error);
         }
     }
-
-    /* const customization = {
-        texts: {
-            action: 'buy',
-            valueProp: 'security_details',
-        },
-        visual: {
-            buttonBackground: 'black',
-            borderRadius: '6px',
-        },
-    } */
 
     return (
         <div id='carrito-paginaCont'>
             <div className='primerCont-carrito'>
                 <h2>Tu carrito de compras</h2>
-                { carrito
+                {carrito
                     && (carrito.length > 0)
-                        ? <span>{carrito.length > 1 ? `${carrito.length} productos` : `${carrito.length} producto`} en total</span>
-                        : <span>En la sección productos podrás llenar tu carrito!</span>
+                    ? <span>{carrito.length > 1 ? `${carrito.length} productos` : `${carrito.length} producto`} en total</span>
+                    : <span>En la sección productos podrás llenar tu carrito!</span>
                 }
                 <div className='item-carritoCont'>
-                { carrito
-                    &&   (carrito.length > 0)
-                        ? carrito.map( prod => <CarritoItem 
-                            key={prod._id} 
-                            cantidad= {prod?.cantidad}
-                            nombre={prod?.nombre} 
-                            img={prod?.imagen} 
-                            tipo={prod?.tipo} 
-                            precio={prod?.precio} 
+                    {carrito
+                        && (carrito.length > 0)
+                        ? carrito.map(prod => <CarritoItem
+                            key={prod._id}
+                            cantidad={prod?.cantidad}
+                            nombre={prod?.nombre}
+                            img={prod?.imagen}
+                            tipo={prod?.tipo}
+                            precio={prod?.precio}
                             fnBorrar={() => borrarProd(prod)}
-                            fnRestar= {() => restarCantidad(prod)}
-                            fnSumar= {() => sumarCantidad(prod)}
-                            />)
+                            fnRestar={() => restarCantidad(prod)}
+                            fnSumar={() => sumarCantidad(prod)}
+                        />)
                         : <span>No hay productos</span>
-                }
+                    }
                 </div>
             </div>
-            { carrito
-                &&  (carrito.length > 0)
-                && 
+            {carrito
+                && (carrito.length > 0)
+                &&
                 <div className='segundoCont-carrito'>
                     <h2>Resumen</h2>
                     <div className='total-carritoCont'>
@@ -151,13 +127,11 @@ export default function Carrito() {
                         </div>
                         <select id='select-zona-carrito' onChange={(e) => setZonaElegida(e?.target?.value)}>
                             <option value={0}>Elija la zona de entrega</option>
-                            {zonas?.map( zona => <option key={zona._id}  value={zona.precio}>{zona.nombre} - ${zona.precio}</option>)}
+                            {zonas?.map(zona => <option key={zona._id} value={zona.precio}>{zona.nombre} - ${zona.precio}</option>)}
                         </select>
                         <span id='total-carrito'>TOTAL: <strong>${precioTotal.toLocaleString('es-ES')}</strong></span>
                     </div>
                     <div id='boton-pagar' onClick={finalizarCompra}>COMPRAR</div>
-                    {/* <div id="wallet_container"></div> */}
-                    {/* <Wallet initialization={{ preferenceId: 'wallet_container' }} /> */}
                 </div>
             }
         </div>

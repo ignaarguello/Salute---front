@@ -4,6 +4,7 @@ import {FaMapMarkerAlt} from 'react-icons/fa'
 import {TbTruckDelivery} from 'react-icons/tb'
 import zonasActions from '../../redux/actions/zonasActions'
 import { useDispatch, useSelector } from 'react-redux'
+import { navbar_black } from '../../Functions/NavbarResponsive'
 
 export default function ZonasEntrega() {
 
@@ -15,6 +16,7 @@ export default function ZonasEntrega() {
   useEffect( () => {
     dispatch(traer_zonas())
     // eslint-disable-next-line
+    navbar_black()
   }, [])
 
   return (

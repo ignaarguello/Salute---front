@@ -8,9 +8,15 @@ import usuariosActions from '../../redux/actions/usuariosActions'
 import { uploadImagenes } from '../../firebase/config_firebase'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
+import { navbar_black } from '../../Functions/NavbarResponsive'
+import { useEffect } from 'react';
 
 
 export default function SignUp() {
+
+  useEffect(() =>{
+    navbar_black()
+  },[])
 
   //Variable de estado para setear los archivos
   const [file, setFile] = useState(null)

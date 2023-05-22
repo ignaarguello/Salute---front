@@ -37,7 +37,7 @@ function CollapsibleExample() {
   }
 
   return (
-    <Navbar id='Navbar_navbar' className='Navbar_total' collapseOnSelect expand="lg" bg="grey" variant="grey">
+    <Navbar id='Navbar_navbar' className='Navbar_total' collapseOnSelect expand="lg">
       <Container id='container-general_navbar'>
         <Link id='Brand_navbar' href="#home" to='/'><img id='logo-salute__navbar' src='./images/logo-salute.png' /></Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

@@ -77,7 +77,7 @@
     align-items: center !important;
     width: 100% !important;
     margin: 1rem 0 !important;
-    background-color: black !important;
+    background-color: green !important;
     z-index: 2 !important;
   }
 
@@ -118,6 +118,16 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
+
+  .ps_absolute{
+    position: absolute;
+  }
+  
+  .bg-black{
+    min-height: 1vh !important;
+    position: relative;
+  }
+  
 }
 
 @media screen and (min-width: 768px) {
@@ -314,3 +324,5 @@
     color: #c249a2 !important;
   }
 }
+
+

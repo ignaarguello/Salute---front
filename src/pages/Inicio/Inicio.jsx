@@ -18,7 +18,6 @@ export default function Inicio() {
     navbar_oscuro?.classList.remove('bg-black')
   }, [])
 
-
   return (
     <>
       <Banner />

@@ -7,16 +7,14 @@ import { Link } from 'react-router-dom';
 import usuariosActions from '../../redux/actions/usuariosActions'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
+import { navbar_black } from '../../Functions/NavbarResponsive'
 
 export default function SignIn() {
-  //Variable que usa el useEffect para el navbar oscuro, traida por JQUERY
-  const navbar_oscuro = document.querySelector('.Navbar_total')
-
   //Variables de redux de usuarios
   const { ingreso_usuario } = usuariosActions
 
   useEffect(() => {
-    navbar_oscuro?.classList.add('bg-black')
+    navbar_black()
   }, [])
 
   /* Varibles del useRef */

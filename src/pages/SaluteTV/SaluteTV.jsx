@@ -1,8 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './SaluteTV.css'
+import { useEffect } from 'react'
+import { navbar_black } from '../../Functions/NavbarResponsive'
 
 export default function SaluteTV() {
+
+  useEffect(() => {
+      navbar_black()
+  }, [])
+
   return (
     <div id='salutetv-pagina-cont'>
       <div className='bienvenida-salutetv'>

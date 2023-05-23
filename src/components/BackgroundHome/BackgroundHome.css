@@ -3,22 +3,18 @@
     /* border: 2px solid slateblue; */
     width: 100%;
     height: 70vh;
-    background-image: url(../../../public/images/fondo3.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    background-blend-mode: multiply;
-    background-color: rgba(0, 0, 0, 0.678);
     margin-top: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background: rgba(0, 0, 0, 0.974);
   }
 
   #titulo-estamos__BackgroundHome {
-    color: white;
+    color: #7a255c;
     margin-right: 1rem;
-    font-size: 4rem;
+    font-size: 4.1rem;
     font-weight: 200;
     text-align: center;
   }
@@ -29,6 +25,7 @@
     font-size: 1.3rem;
     font-weight: 100;
     text-align: center;
+    margin-top: 1rem;
   }
 
   #container-refs__backgroundHome {
@@ -50,7 +47,7 @@
     border: none;
   }
 
-  .a-ref__backgroundHome{
+  .a-ref__backgroundHome {
     width: 3rem;
   }
 }
@@ -75,15 +72,24 @@
 }
 
 @media screen and (min-width: 1220px) {
+  #container-general__BackgroundHome {
+    background-image: url(../../../public/images/fondo3.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.678);
+  }
+
   #container-refs__backgroundHome {
-   justify-content: flex-start;
-   flex-direction: column;
-   position: absolute;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: absolute;
   }
 
   #titulo-estamos__BackgroundHome {
     font-size: 3.5rem;
     font-weight: 300;
+    color: white;
   }
 
   #titulo-fechas__BackgroundHome {
@@ -98,7 +104,7 @@
     background-color: rgba(8, 8, 8, 0.788);
     border-radius: 30%;
     border: none;
-    transition: .3s ease-out;
+    transition: 0.3s ease-out;
   }
 
   .ref__backgroundHome:hover {

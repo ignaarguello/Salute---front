@@ -36,16 +36,20 @@ function CollapsibleExample() {
     })
   }
 
+  function scrollToTop() {
+    window.scrollTo(0, 0);
+  }
+
   return (
     <Navbar id='Navbar_navbar' className='Navbar_total' collapseOnSelect expand="lg">
       <Container id='container-general_navbar'>
-        <Link id='Brand_navbar' href="#home" to='/'><img id='logo-salute__navbar' src='./images/logo-salute.png' /></Link>
+        <Link onClick={() => scrollToTop()}  id='Brand_navbar' href="#home" to='/'><img id='logo-salute__navbar' src='./images/logo-salute.png' /></Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" id='items-nav__navbar'>
             <div id='container-linksPrincipales__navbar'>
-              <Link className='item-link__navbar' to='/' >Inicio</Link>
-              <Link className='item-link__navbar' to='/productos'  >Productos</Link>
+              <Link onClick={() => scrollToTop()} className='item-link__navbar' to='/' >Inicio</Link>
+              <Link onClick={() => scrollToTop()}  className='item-link__navbar' to='/productos'  >Productos</Link>
               <NavDropdown className='item-link__navbar' title="Acerca de nosotros" id="collasible-nav-dropdown">
                 <div id='subContainer-dropdown__navbar'>
                   <Link className='item-link__navbar item-dropdown__navbar' to='/salute-tv' >

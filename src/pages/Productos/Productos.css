@@ -15,7 +15,9 @@
   flex-wrap: nowrap;
 }
 
-
+.bg-black{
+  background-color: black !important;
+}
 
 /* ------------ INPUT SEARCH BAR -------- */
 

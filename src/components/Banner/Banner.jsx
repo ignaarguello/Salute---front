@@ -35,8 +35,11 @@ export default function Banner() {
           <source id='video__banner' src="./images/videoFinal.mp4" type="video/mp4" />
         </video>
         <div id='container-textos__banner'>
-          <h2 className='titulo__bienvenido__banner'>Bienvenido a Salute Drinks</h2>
-          <h3 className='titulo-webOficial__banner'> Web Oficial </h3>
+          <h2 className='titulo__bienvenido__banner animate__animated animate__fadeIn animate__delay-1s'>Bienvenido a Salute Drinks</h2>
+          <div id='container-web-approbed__banner_sm'>
+            <h3 className='titulo-webOficial__banner_sm animate__animated animate__zoomIn animate__delay-1s'> Tienda Oficial </h3>
+            <HiBadgeCheck id='logo-check__banner_sm' className='animate__animated animate__fadeIn animate__delay-2s' />
+          </div>
           <Link to='/productos' id='button-catalogo__banner'>Catalogo de productos</Link>
         </div>
       </div>

@@ -42,17 +42,13 @@
   .titulo__bienvenido__banner {
     z-index: 0;
     color: white;
-    font-size: 19px;
+    font-size: 21px;
     font-weight: 300;
     letter-spacing: 0.5px;
     margin-top: 6rem;
+    margin-left: 5px;
   }
 
-  .titulo-webOficial__banner {
-    color: white;
-    font-size: 16px;
-    font-weight: 300;
-  }
 
   #button-catalogo__banner {
     width: 70%;
@@ -63,8 +59,29 @@
     border-radius: 30px;
     color: white;
     background-color: #912e76;
-    margin-top: 0.3rem;
+    margin-top: 0.5rem;
     font-weight: 400;
+  }
+
+  #container-web-approbed__banner_sm {
+    /* border: 2px solid red; */
+    display: flex;
+    gap: 0.1rem;
+    align-items: center;
+  }
+
+  #logo-check__banner_sm {
+    color: cyan;
+    width: 1.5rem;
+    height: 100%;
+  }
+
+  .titulo-webOficial__banner_sm {
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-left: 6px;
   }
 }
 
@@ -96,6 +113,7 @@
 
   .titulo__bienvenido__banner,
   .titulo-webOficial__banner,
+  #container-web-approbed__banner_sm,
   #button-catalogo__banner {
     display: none;
   }
@@ -113,7 +131,7 @@
     color: rgb(172, 165, 165);
     font-size: 22px;
     font-weight: 400;
-    margin-bottom: 1rem ;
+    margin-bottom: 1rem;
   }
 
   #button-catalogo__banner-lg {
@@ -238,7 +256,7 @@
     color: rgb(129, 125, 125);
     margin-left: 1rem;
     font-size: 21px;
-    margin-top: .3rem;
+    margin-top: 0.3rem;
   }
 
   #button-catalogo__banner-lg {

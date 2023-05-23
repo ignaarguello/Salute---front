@@ -67,6 +67,7 @@ export default function Productos() {
 
   // Funcion para filtrar busqueda de productos
   const filtroTexto = (event) => {
+      window.scrollTo(0, 0);
     // console.log(event.target.outerText);
     let checks = funcionCheck(event)
     let urlChecks = checks.map((check) => `${check}`).join('&tipo=')
@@ -177,7 +178,7 @@ export default function Productos() {
       <div className='categoriaMenu'>
         <span>Categorías principales</span>
         <div id='separadorMenu'></div>
-        <ul>
+        <ul id='lista-items'>
           <li onClick={filtroTexto} >Todos los productos</li>
           {todosLosTipos?.map(tipo =>
             <li onClick={filtroTexto} key={tipo}>{tipo}</li>

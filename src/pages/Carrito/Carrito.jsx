@@ -115,7 +115,7 @@ export default function Carrito() {
                 let res = await axios.post(`${BASE_URL}/payment`, data)
                 console.log(res);
                 if(res){
-                    window.location.replace(res.data.response.body.init_point)
+                    window.location.replace(res.data.response.init_point)
                 }
                 
     

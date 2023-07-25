@@ -9,6 +9,7 @@ import CardsHome from '../../components/CardsHome/CardsHome'
 import BackgroundHome from '../../components/BackgroundHome/BackgroundHome'
 import Carousel from '../../components/Carousel/Carousel'
 
+
 export default function Inicio() {
   //Variable que usa el useEffect para borrar la clase del navbar oscuro, traida por JQUERY
   const navbar_oscuro = document.querySelector('.Navbar_total')

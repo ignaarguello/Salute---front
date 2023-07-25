@@ -7,6 +7,7 @@ import { BsWhatsapp } from "react-icons/bs";
 import { BsYoutube } from "react-icons/bs";
 
 export default function Banner() {
+  
   return (
     /* DESKTOP */
     <div id='container-principal__banner'>

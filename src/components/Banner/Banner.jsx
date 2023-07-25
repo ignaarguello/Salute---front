@@ -6,17 +6,19 @@ import { FiInstagram } from "react-icons/fi";
 import { BsWhatsapp } from "react-icons/bs";
 import { BsYoutube } from "react-icons/bs";
 
+
 export default function Banner() {
+
   return (
     /* DESKTOP */
     <div id='container-principal__banner'>
       <div id='container-banner-foto__banner'>
         <div id='container-contactos__banner'>
           <h3 id='titulo-contacto__banner'>Nuestras Redes:</h3>
-          <div id='container-refs__banner'className='animate__animated animate__fadeInRight animate__delay-2s' >
-          <a target='_blank' href="https://google.com"><FiInstagram className='ref__banner' id='ref-banner-1' /></a>
-          <a target='_blank' href="https://google.com"><BsWhatsapp className='ref__banner' id='ref-banner-2' /></a>
-          <a target='_blank' href="https://google.com"><BsYoutube className='ref__banner' id='ref-banner-3' /></a>
+          <div id='container-refs__banner' className='animate__animated animate__fadeInRight animate__delay-2s' >
+            <a target='_blank' href="https://www.instagram.com/salute_drinkss2/" rel='noreferrer'><FiInstagram className='ref__banner' id='ref-banner-1' /></a>
+            <a target='_blank' href="https://api.whatsapp.com/send?phone=1128682405" rel='noreferrer'><BsWhatsapp className='ref__banner' id='ref-banner-2' /></a>
+            <a target='_blank' href="https://www.instagram.com/salute_drinkss2/" rel='noreferrer'><BsYoutube className='ref__banner' id='ref-banner-3' /></a>
           </div>
         </div>
         <div id='container-titulos__banner'>

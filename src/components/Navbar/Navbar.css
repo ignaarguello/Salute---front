@@ -17,14 +17,14 @@
     width: 100%;
     z-index: 1;
     min-height: 10vh;
-    position: absolute;
+    position: sticky;
   }
 
-  .Navbar_total{
-    background-color: transparent!important;
+  .Navbar_total {
+    background-color: transparent !important;
   }
 
-  .navbar-toggler-icon{
+  .navbar-toggler-icon {
     color: red !important;
   }
 
@@ -52,17 +52,17 @@
     color: white;
   }
 
-  .admin__navbar{
+  .admin__navbar {
     display: flex;
     align-items: center;
     gap: 5px;
   }
 
-  #tuerca-admin{
-    transition: all .3s ease-in-out;
+  #tuerca-admin {
+    transition: all 0.3s ease-in-out;
   }
 
-  .admin__navbar:hover #tuerca-admin{
+  .admin__navbar:hover #tuerca-admin {
     transform: rotate(0.7turn);
   }
 
@@ -119,22 +119,22 @@
     margin-bottom: 1rem;
   }
 
-  .ps_absolute{
-    position: absolute;
+  .ps_absolute {
+    position: absolute !important;
   }
-  
-  .bg-black{
+
+  .bg-black {
     min-height: 1vh !important;
     position: relative;
   }
-  
 }
 
 @media screen and (min-width: 768px) {
   #Navbar_navbar {
     height: 13vh;
     background-color: black !important;
-    position: fixed;
+    position: sticky;
+    top: 0;
   }
 
   #logo-salute__navbar {
@@ -317,12 +317,10 @@
   .item-link__navbar {
     font-size: 15.5px !important;
     font-weight: 300 !important;
-    transition: .2s ease-out;
+    transition: 0.2s ease-out;
   }
 
   .item-link__navbar:hover {
     color: #c249a2 !important;
   }
 }
-
-

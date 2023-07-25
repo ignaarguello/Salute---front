@@ -18,6 +18,9 @@ import SignUp from './pages/SignUp/SignUp';
 import Carrito from './pages/Carrito/Carrito';
 import ProteccionRutas from './components/ProteccionRutas/ProteccionRutas'
 
+//Rutas de los 'Payments' de Mercadopago
+import PaymentSuccess from './pages/StatusPayment/PaymentSuccess/PaymentSuccess';
+
 
 
 function App() {
@@ -32,29 +35,45 @@ function App() {
     if (token) {
       dispatch(ingreso_token(token.token.user))
     }
+
   }, [])
-  
-  
+  console.log(logeado, rol)
 
   return (
     <Layout>
       <Routes>
-        <Route path="/*" element={<Inicio />}></Route>
-        <Route path="/" element={<Inicio />}></Route>
-        <Route path="/productos" element={<Produtos />}></Route>
-        <Route path="/nosotros" element={<AcercaDe />}></Route>
-        <Route path="/salute-tv" element={<SaluteTV />}></Route>
-        <Route path="/zonas-entrega" element={<ZonasEntrega />}></Route>
-        <Route path='/ingresar' element={<SignIn />}></Route>
-        <Route path='/registrar' element={<SignUp />}></Route>
-        {/* //? Si el usuario esta logeado y es 'usuario comun' */}
-        <Route element={<ProteccionRutas isAllowed={logeado === true && (rol === "usuario" || rol === "admin")} reDirect={"/"} />}>
-          <Route path='/carrito' element={<Carrito />}></Route>
-        </Route>
-        {/* //? Si el usuario esta logeado y es 'usuario comun' */}
-        <Route element={<ProteccionRutas isAllowed={logeado === true && rol === "admin"} reDirect={"/"} />}>
-          <Route path='/admin' element={<Admin />}></Route>
-        </Route>
+        {/* Rutas públicas */}
+        <Route path="" element={<Inicio />} />
+        <Route path="/productos" element={<Produtos />} />
+        <Route path="/nosotros" element={<AcercaDe />} />
+        <Route path="/salute-tv" element={<SaluteTV />} />
+        <Route path="/zonas-entrega" element={<ZonasEntrega />} />
+        <Route path='/ingresar' element={<SignIn />} />
+        <Route path='/registrar' element={<SignUp />} />
+        <Route path='/payment-success' element={<PaymentSuccess />} />
+
+        {/* Si el usuario está logeado y es 'usuario común' */}
+        <Route
+          path='/carrito'
+          element={
+            <ProteccionRutas
+              isAllowed={!!logeado && (rol === "usuario" || rol === "admin")}
+              reDirect={'/'}
+            >
+              <Carrito />
+            </ProteccionRutas>
+          }
+        />
+
+        {/* Si el usuario está logeado y es 'usuario admin' */}
+        <Route
+          path='/admin'
+          element={
+            <ProteccionRutas isAllowed={!!logeado && rol === "admin"} reDirect={'/'}>
+              <Admin />
+            </ProteccionRutas>
+          }
+        />
       </Routes>
     </Layout>
 

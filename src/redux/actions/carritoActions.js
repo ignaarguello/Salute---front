@@ -2,53 +2,53 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL } from "../../Api/Api";
 
-const traer_carrito = createAsyncThunk('traer_carrito', async(id) => {
-    try{
+const traer_carrito = createAsyncThunk('traer_carrito', async (id) => {
+    try {
         const res = await axios.get(`${BASE_URL}/carrito?usuarioId=${id}`)
         // console.log("traer carrito",res);
         return res.data.data
-    } catch(error){
+    } catch (error) {
         console.log(error.message);
     }
 })
 
-const eliminar_prod_carrito = createAsyncThunk('eliminar_prod_carrito', async(id) => {
-    try{
+const eliminar_prod_carrito = createAsyncThunk('eliminar_prod_carrito', async (id) => {
+    try {
         const res = await axios.delete(`${BASE_URL}/carrito/${id}`)
         return res
-    } catch(error){
+    } catch (error) {
         console.log(error.message);
     }
 })
 
-const agregar_producto = createAsyncThunk('agregar_producto', async(data) => {
-    try{
+const agregar_producto = createAsyncThunk('agregar_producto', async (data) => {
+    try {
         const res = await axios.post(`${BASE_URL}/carrito`, data)
         // console.log(res);
         return {
             response: res.data,
             success: true
         }
-    } catch(error){
+    } catch (error) {
         console.log(error)
-        return{
+        return {
             success: false,
             response: error.message
         }
     }
 })
 
-const cambiar_cantidad_carrito = createAsyncThunk('cambiar_cantidad_carrito', async({query, productoId, usuarioId}) => {
-    try{
+const cambiar_cantidad_carrito = createAsyncThunk('cambiar_cantidad_carrito', async ({ query, productoId, usuarioId }) => {
+    try {
         const res = await axios.put(`${BASE_URL}/carrito/${productoId}?query=${query}&usuarioId=${usuarioId}`)
         console.log(res);
         return {
             response: res.data,
             success: true
         }
-    } catch(error){
+    } catch (error) {
         console.log(error)
-        return{
+        return {
             success: false,
             response: error.message
         }

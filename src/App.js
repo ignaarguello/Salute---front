@@ -51,29 +51,14 @@ function App() {
         <Route path='/ingresar' element={<SignIn />} />
         <Route path='/registrar' element={<SignUp />} />
         <Route path='/payment-success' element={<PaymentSuccess />} />
-
         {/* Si el usuario está logeado y es 'usuario común' */}
-        <Route
-          path='/carrito'
-          element={
-            <ProteccionRutas
-              isAllowed={!!logeado && (rol === "usuario" || rol === "admin")}
-              reDirect={'/'}
-            >
-              <Carrito />
-            </ProteccionRutas>
-          }
-        />
-
+        <Route element={<ProteccionRutas isAllowed={!!logeado && (rol === "usuario" || rol === "admin")} reDirect={'/'} />}>
+          <Route path='/carrito' element={<Carrito />} />
+        </Route>
         {/* Si el usuario está logeado y es 'usuario admin' */}
-        <Route
-          path='/admin'
-          element={
-            <ProteccionRutas isAllowed={!!logeado && rol === "admin"} reDirect={'/'}>
-              <Admin />
-            </ProteccionRutas>
-          }
-        />
+        <Route element={<ProteccionRutas isAllowed={!!logeado && rol === "admin"} reDirect={'/'} />}>
+          <Route path='/admin' element={<Admin />} />
+        </Route>
       </Routes>
     </Layout>
 

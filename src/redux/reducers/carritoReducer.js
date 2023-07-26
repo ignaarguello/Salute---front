@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import carritoActions from "../actions/carritoActions";
 
-const { traer_carrito, eliminar_prod_carrito, agregar_producto, cambiar_cantidad_carrito } = carritoActions
+const { traer_carrito, eliminar_prod_carrito, agregar_producto, cambiar_cantidad_carrito, delete_orders_user } = carritoActions
 
 const initialState = {
     carrito: [],

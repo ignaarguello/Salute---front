@@ -8,14 +8,12 @@ import BannerEnvios from '../../components/BannerEnvios/BannerEnvios'
 import CardsHome from '../../components/CardsHome/CardsHome'
 import BackgroundHome from '../../components/BackgroundHome/BackgroundHome'
 import Carousel from '../../components/Carousel/Carousel'
+import { navbar_transparent } from '../../Functions/NavbarResponsive'
 
 export default function Inicio() {
-  //Variable que usa el useEffect para borrar la clase del navbar oscuro, traida por JQUERY
-  const navbar_oscuro = document.querySelector('.Navbar_total')
 
   useEffect(() => {
-    navbar_oscuro?.classList.add('ps_absolute')
-    navbar_oscuro?.classList.remove('bg-black')
+    navbar_transparent()
   }, [])
 
   return (

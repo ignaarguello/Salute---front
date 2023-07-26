@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState }  from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import CarritoItem from '../../components/CarritoItem/CarritoItem'
 import './Carrito.css'
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,9 +10,9 @@ import { BASE_URL } from '../../Api/Api'
 
 export default function Carrito() {
 
-    let {zonas} = useSelector( store => store.zonas)
-    let {usuarioId, nombre, apellido, email} = useSelector(store => store.usuarios)
-    let {carrito, prodEliminado, prodAgregado, prodEditado} = useSelector( store => store.carrito)
+    let { zonas } = useSelector(store => store.zonas)
+    let { usuarioId, nombre, apellido, email } = useSelector(store => store.usuarios)
+    let { carrito, prodEliminado, prodAgregado, prodEditado } = useSelector(store => store.carrito)
     let dispatch = useDispatch()
     let { traer_zonas } = zonasActions
     let { traer_carrito, eliminar_prod_carrito, cambiar_cantidad_carrito } = carritoActions
@@ -76,7 +76,7 @@ export default function Carrito() {
         dispatch(cambiar_cantidad_carrito({ productoId: e.productoId, query: 'decrementar', usuarioId: usuarioId }))
     }
 
-    const finalizarCompra = async() => {
+    const finalizarCompra = async () => {
         let tituloCompra = carrito?.map(e => e.nombre).join(', ')
 
         let data = {
@@ -94,7 +94,7 @@ export default function Carrito() {
             usuarioId,
         }
 
-        if(data.direccionComprador.length === 0 || data.alturaComprador.length === 0 || data.postalComprador.length === 0 || data.celularComprador.length === 0 || data.dniComprador.length === 0){
+        if (data.direccionComprador.length === 0 || data.alturaComprador.length === 0 || data.postalComprador.length === 0 || data.celularComprador.length === 0 || data.dniComprador.length === 0) {
             Swal.fire({
                 position: 'centre',
                 icon: 'error',
@@ -102,7 +102,7 @@ export default function Carrito() {
                 showConfirmButton: false,
                 timer: 1800
             })
-        } else if(zonaComprador.current.value === 'none'){
+        } else if (zonaComprador.current.value === 'none') {
             Swal.fire({
                 position: 'centre',
                 icon: 'error',
@@ -110,16 +110,14 @@ export default function Carrito() {
                 showConfirmButton: false,
                 timer: 1800
             })
-        } else{
-            try{
+        } else {
+            try {
                 let res = await axios.post(`${BASE_URL}/payment`, data)
                 console.log(res);
-                if(res){
-                    window.location.replace(res.data.response.init_point)
+                if (res) {
+                    window.location.replace(res.data.response.body.init_point)
                 }
-                
-    
-            } catch(error){
+            } catch (error) {
                 console.log(error);
             }
         }
@@ -164,7 +162,7 @@ export default function Carrito() {
                         </div>
                         <select id='select-zona-carrito' required onChange={(e) => setZonaElegida(e?.target?.value)} ref={zonaComprador}>
                             <option value='none'>Elija la zona de entrega</option>
-                            {zonas?.map( zona => <option key={zona._id}  value={zona.precio}>{zona.nombre} - ${zona.precio}</option>)}
+                            {zonas?.map(zona => <option key={zona._id} value={zona.precio}>{zona.nombre} - ${zona.precio}</option>)}
                         </select>
                         <span className='boton-mapa-carrito' onClick={() => setMostrarMapa('mapa-abierto')}>VER MAPA DE ZONAS</span>
                         <span id='total-carrito'>TOTAL: <strong>${precioTotal.toLocaleString('es-ES')}</strong></span>
@@ -180,7 +178,7 @@ export default function Carrito() {
                             <input type='number' className='inputCarrito' ref={alturaComprador} required />
                         </label>
                         <label>Código Postal
-                            <input type='number' className='inputCarrito' ref={postalComprador} required/>
+                            <input type='number' className='inputCarrito' ref={postalComprador} required />
                         </label>
                         <label>Celular
                             <div id='label-celular'>
@@ -189,7 +187,7 @@ export default function Carrito() {
                             </div>
                         </label>
                         <label>DNI (sin puntos ni guiones)
-                            <input type='number' className='inputCarrito' ref={dniComprador} required/>
+                            <input type='number' className='inputCarrito' ref={dniComprador} required />
                         </label>
                     </div>
                     <div id='boton-pagar' onClick={finalizarCompra}>COMPRAR</div>

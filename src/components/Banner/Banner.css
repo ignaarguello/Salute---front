@@ -54,7 +54,7 @@
     font-size: 16px;
     text-align: center;
     text-decoration: none;
-    padding: 10px;
+    padding: 12px;
     border-radius: 30px;
     color: white;
     background-color: #912e76;
@@ -85,7 +85,7 @@
 }
 
 /*! Media Query para ocultar contenido en Mobile */
-@media screen and (min-width: 320px) and (max-width: 1220px) {
+@media screen and (min-width: 320px) and (max-width: 1280px) {
   #container-contactos__banner {
     display: none;
   }
@@ -161,7 +161,7 @@
   }
 }
 
-@media screen and (min-width: 1220px) {
+@media screen and (min-width: 1280px) {
   #container-banner-foto__banner {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)),
       url(../../../public/images/banner1.jpg);
@@ -178,6 +178,7 @@
     flex-direction: column;
     align-items: end;
     padding-right: 3rem;
+    margin-top: 4.5rem;
   }
 
   #titulo-contacto__banner {

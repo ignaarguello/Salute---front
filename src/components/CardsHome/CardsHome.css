@@ -108,6 +108,11 @@
   .card-producto__CardsHome:nth-child(1) {
     background-position: 55%;
   }
+
+  .card-producto__CardsHome:hover {
+    background-color: rgba(0, 0, 0, 0.055);
+    transform: scale(.9);
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -124,10 +129,6 @@
     background-blend-mode: multiply;
     background-color: rgba(0, 0, 0, 0.462);
     transition: .3s ease-out;
-  }
-
-  .card-producto__CardsHome:hover {
-    background-color: rgba(0, 0, 0, 0.055);
   }
 }
 

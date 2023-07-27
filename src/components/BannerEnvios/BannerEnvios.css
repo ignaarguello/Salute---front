@@ -39,8 +39,9 @@
   }
 
   .titulo-item__BannerEnvios {
-    font-size: 14px;
-    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
   }
 
   #texto-zonasEntregas{

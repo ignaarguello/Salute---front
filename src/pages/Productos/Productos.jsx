@@ -4,7 +4,6 @@ import './Productos.css'
 import { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import productosActions from '../../redux/actions/productosActions'
-import CarritoBoton from '../../components/CarritoBoton/CarritoBoton'
 import { useNavigate } from 'react-router-dom'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
@@ -216,9 +215,6 @@ export default function Productos() {
           }
         </div>
       </div>
-      {logeado &&
-        <CarritoBoton />
-      }
     </div>
   )
 }

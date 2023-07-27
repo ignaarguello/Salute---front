@@ -32,41 +32,27 @@ export default function Footer() {
             Poniendolé amor y buena onda en cada entrega, para que los disfrutes, de la mejor manera.
           </p>
           <div id="container-refs__footer">
-            <div className="container-ref-respaldo__footer">
+            <Link to='https://www.instagram.com/salute_drinkss2/' className="container-ref-respaldo__footer">
               <FiInstagram className='link-refSocial__footer' />
-            </div>
-            <div className="container-ref-respaldo__footer">
+            </Link>
+            <Link to='https://www.instagram.com/salute_drinkss2/' className="container-ref-respaldo__footer">
               <BsYoutube className='link-refSocial__footer' />
-            </div>
-            <div className="container-ref-respaldo__footer">
+            </Link>
+            <Link to='https://api.whatsapp.com/send?phone=1128682405' className="container-ref-respaldo__footer">
               <BsWhatsapp className='link-refSocial__footer' />
-            </div>
+            </Link>
           </div>
         </div>
         <div className="containers-footer" id='container-C__footer'>
+          <div className="container-titulos-cont2__footer">
+            <MdAddLocationAlt className='icono-container2__footer' />
+            <h3 className='titulo-quilmes__footer'>Quilmes, Buenos Aires.</h3>
+          </div>
           <div id="container-iframe__footer">
             <iframe id='iframe__footer' src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=Marmol%20y%20mitre+(Salute%20Drinks)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
           </div>
-          <div className="container-titulos-cont2__footer">
-            <MdMarkEmailRead className='icono-container2__footer'/>
-            <h3 className='titulo-quilmes__footer'>Salutedrinks@gmail.com</h3>
-          </div>
-          <div className="container-titulos-cont2__footer">
-            <MdAddLocationAlt className='icono-container2__footer'/>
-            <h3 className='titulo-quilmes__footer'>Quilmes, Buenos Aires.</h3>
-          </div>
         </div>
       </footer>
-      <div id='container-desarrolladores__footer'>
-        <div className="div-desarrollador">
-          <Link to='https://github.com/ignaarguello' target={'_blank'} className='titulo-desarrollador__footer'>Argüello Ignacio</Link>
-          <BsGithub className='logo-gh__footer' />
-        </div>
-        <div className="div-desarrollador">
-          <Link to='https://github.com/FabrizioCatanzaro' target={'_blank'} className='titulo-desarrollador__footer'>Fabrizio Catanzaro</Link>
-          <BsGithub className='logo-gh__footer' />
-        </div>
-      </div>
     </div>
   )
 }

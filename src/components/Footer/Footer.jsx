@@ -32,13 +32,13 @@ export default function Footer() {
             Poniendolé amor y buena onda en cada entrega, para que los disfrutes, de la mejor manera.
           </p>
           <div id="container-refs__footer">
-            <Link to='https://www.instagram.com/salute_drinkss2/' className="container-ref-respaldo__footer">
+            <Link to='https://www.instagram.com/salute_drinkss2/' target='_blank' rel='noreferrer' className="container-ref-respaldo__footer">
               <FiInstagram className='link-refSocial__footer' />
             </Link>
-            <Link to='https://www.instagram.com/salute_drinkss2/' className="container-ref-respaldo__footer">
+            <Link to='https://www.instagram.com/salute_drinkss2/' target='_blank' rel='noreferrer' className="container-ref-respaldo__footer">
               <BsYoutube className='link-refSocial__footer' />
             </Link>
-            <Link to='https://api.whatsapp.com/send?phone=1128682405' className="container-ref-respaldo__footer">
+            <Link to='https://api.whatsapp.com/send?phone=1128682405' target='_blank' rel='noreferrer' className="container-ref-respaldo__footer">
               <BsWhatsapp className='link-refSocial__footer' />
             </Link>
           </div>

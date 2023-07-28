@@ -54,3 +54,7 @@ body::-webkit-scrollbar-thumb {
     transform: rotate(360deg);
   }
 }
+
+html{
+  overflow-x: hidden;
+}

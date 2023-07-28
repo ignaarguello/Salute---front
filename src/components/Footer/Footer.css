@@ -217,7 +217,7 @@
   }
 
   .containers-footer:nth-child(1) {
-    /* border: 2px solid green; */
+   /*  border: 2px solid green; */
     width: 25%;
   }
 
@@ -231,8 +231,9 @@
   }
 
   .containers-footer:nth-child(3) {
-    /* border: 2px solid orangered; */
+   /*  border: 2px solid orangered; */
     width: 25%;
+    flex-direction: column-reverse;
   }
 
   /* Textos en resolucion desktop */
@@ -248,7 +249,7 @@
     font-size: 17px;
     font-weight: 200;
     text-align: center;
-    margin: 0.3rem 0;
+    margin: 0.5rem 0;
   }
 
   #lista-contenedorLinks__footer {
@@ -268,14 +269,12 @@
     font-size: 28px;
     font-weight: 400;
     margin: 0.5rem 0;
-    align-self: flex-start;
-    margin-left: 0.4rem;
     color: rgb(148, 53, 123);
   }
 
   #texto-sobreNosotros__footer {
     font-size: 13.5px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 24px;
     padding: 0.3rem;
     margin: 0 2rem;
@@ -284,6 +283,7 @@
     /* border: 2px solid blue; */
     text-align: left;
     letter-spacing: 1px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 
   .link-refSocial__footer {

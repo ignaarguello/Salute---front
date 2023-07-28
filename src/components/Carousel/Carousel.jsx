@@ -25,7 +25,7 @@ export default function Carousel() {
 
     return (
         <div id='container-general__carousel'>
-            <h2 id='tituloProductos__carousel'>+ Mas Productos</h2>
+            <h2 id='tituloProductos__carousel'>+ Más Productos</h2>
             <div id='container-cards__carousel'>
                 {productos.map(producto =>
                     <div className='card_carousel' key={producto._id}>

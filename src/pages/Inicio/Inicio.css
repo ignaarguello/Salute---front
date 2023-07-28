@@ -40,13 +40,7 @@
         text-align: left;
         color: #790d5c;
         font-family: 'Manrope', sans-serif;
-        transition: .3s ease-out;
         display:inline;
-    }
-
-    #titulo-destacados__home:hover{
-        text-shadow: .5px 0px #961172;
-        cursor: pointer;
     }
 }
 

@@ -6,12 +6,12 @@ import { v4 } from 'uuid'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBNzLXGKYiIaphgly0KudYelON_2t_56ZI",
-  authDomain: "storage-salute-1.firebaseapp.com",
-  projectId: "storage-salute-1",
-  storageBucket: "storage-salute-1.appspot.com",
-  messagingSenderId: "940195794306",
-  appId: "1:940195794306:web:beb2bdc1938870f1e6539b"
+  apiKey: "AIzaSyCZnA-ZVVXX8385EpUF_23St5Yavkzn_G0",
+  authDomain: "salute-production-bc1f0.firebaseapp.com",
+  projectId: "salute-production-bc1f0",
+  storageBucket: "salute-production-bc1f0.appspot.com",
+  messagingSenderId: "322922396622",
+  appId: "1:322922396622:web:3e7b2d8cf4eec65de6899f"
 };
 
 // Initialize Firebase
